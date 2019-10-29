@@ -1,1 +1,3 @@
 cmsearch all_dISFVG.DB.cm all_dISFVG_3UTR.20190905.fancy.fa > all_dISFVG.DB__all_dISFVG_3UTR.20190905.fancy.cmout
+
+./DrawTreeAnnotated.py -t dISFV.PUBLISHEDONLY.newick --bed ITNupdated.bed --genomes Flavivirus_ALL_20190905.full.gb.genomes.tab  --color --showall
