@@ -12,44 +12,29 @@ Query:       all_dISFVG.DB  [CLEN=70]
 Hit scores:
  rank     E-value  score  bias  sequence           start    end   mdl trunc   gc  description
  ----   --------- ------ -----  ----------------- ------ ------   --- ----- ----  -----------
-  (1) !   3.4e-16   72.6   0.0  BJLV_zmqL31          282    348 +  cm    no 0.55  -
-  (2) !   6.6e-16   71.4   0.0  DONV_JQ086551.1      141    215 +  cm    no 0.56  JQ086551.1 Donggang virus isolate DG0909, complete genome.
-  (3) !   6.6e-16   71.4   0.0  DONV_NC_016997.1     141    215 +  cm    no 0.56  NC_016997.1 Donggang virus, complete genome.
-  (4) !   8.4e-16   71.0   0.0  MMV_MF139576.1       171    245 +  cm    no 0.56  MF139576.1 Marisma mosquito virus strain HU4528/07, complete
-  (5) !   2.7e-15   68.8   0.0  BJV_zmqM40           262    328 +  cm    no 0.57  -
-  (6) !   4.7e-15   67.9   0.0  CHAOV_JQ308185.1     131    200 +  cm    no 0.64  JQ308185.1 Chaoyang virus isolate HLD115, complete genome.
-  (7) !   4.7e-15   67.9   0.0  CHAOV_NC_017086.1    131    200 +  cm    no 0.64  NC_017086.1 Chaoyang virus, complete genome.
-  (8) !   7.2e-15   67.1   0.0  NHUV_NC_024017.1     250    317 +  cm    no 0.49  NC_024017.1 Nhumirim virus strain BrMS-MQ10, complete genome
-  (9) !     2e-14   65.3   0.0  pamp613_PA-MP613     214    283 +  cm    no 0.50  -
- (10) !   3.7e-14   64.1   0.0  LAMV_FJ606789.2      131    200 +  cm    no 0.60  FJ606789.2 Lammi virus polyprotein gene, complete cds.
- (11) !   6.4e-14   63.1   0.0  NANV_MF139575.1      200    266 +  cm    no 0.52  MF139575.1 Nanay virus strain PRD316/PER/09, complete genome
- (12) !   6.4e-14   63.1   0.0  NANV_NC_040610.1     200    266 +  cm    no 0.52  NC_040610.1 Nanay virus strain PRD316/PER/09, complete genom
- (13) !   2.3e-11   52.5   0.0  BJV_KC496020.1       262    325 +  cm    3' 0.53  KC496020.1 Barkedji virus isolate 363/11 polyprotein gene, p
- (14) !   2.3e-11   52.5   0.0  BJV_EU078325.1       262    325 +  cm    3' 0.53  EU078325.1 Barkedji virus isolate ArD86177 polyprotein gene,
- (15) !   6.7e-09   42.3   0.0  BJV_MG214905.1       282    335 +  cm    3' 0.52  MG214905.1 Barkedji virus strain SQU29/Oman/2016, complete g
- (16) !   6.7e-09   42.3   0.0  BJV_MG214906.1       282    335 +  cm    3' 0.52  MG214906.1 Barkedji virus strain SQU38/Oman/2016, complete g
- (17) !   1.4e-07   36.8   0.0  NOUV_NC_033715.1     289    347 +  cm    3' 0.53  NC_033715.1 Nounane virus polyprotein mRNA, complete cds.
- (18) !   1.4e-07   36.8   0.0  NOUV_FJ711167.1      288    346 +  cm    3' 0.53  FJ711167.1 Nounane virus isolate B31 polyprotein mRNA, compl
- (19) !   1.4e-07   36.8   0.0  NOUV_EU159426.2      289    347 +  cm    3' 0.53  EU159426.2 Nounane virus polyprotein mRNA, complete cds.
+  (1) !   5.2e-16   71.4   0.0  DONV_JQ086551.1      141    215 +  cm    no 0.56  JQ086551.1 Donggang virus isolate DG0909, complete genome.
+  (2) !   5.2e-16   71.4   0.0  DONV_NC_016997.1     141    215 +  cm    no 0.56  NC_016997.1 Donggang virus, complete genome.
+  (3) !   6.6e-16   71.0   0.0  MMV_MF139576.1       171    245 +  cm    no 0.56  MF139576.1 Marisma mosquito virus strain HU4528/07, complete
+  (4) !   3.7e-15   67.9   0.0  CHAOV_JQ308185.1     131    200 +  cm    no 0.64  JQ308185.1 Chaoyang virus isolate HLD115, complete genome.
+  (5) !   3.7e-15   67.9   0.0  CHAOV_NC_017086.1    131    200 +  cm    no 0.64  NC_017086.1 Chaoyang virus, complete genome.
+  (6) !   5.7e-15   67.1   0.0  NHUV_NC_024017.1     250    317 +  cm    no 0.49  NC_024017.1 Nhumirim virus strain BrMS-MQ10, complete genome
+  (7) !   2.9e-14   64.1   0.0  LAMV_FJ606789.2      131    200 +  cm    no 0.60  FJ606789.2 Lammi virus polyprotein gene, complete cds.
+  (8) !   5.1e-14   63.1   0.0  NANV_MF139575.1      200    266 +  cm    no 0.52  MF139575.1 Nanay virus strain PRD316/PER/09, complete genome
+  (9) !   5.1e-14   63.1   0.0  NANV_NC_040610.1     200    266 +  cm    no 0.52  NC_040610.1 Nanay virus strain PRD316/PER/09, complete genom
+ (10) !   1.8e-11   52.5   0.0  BJV_KC496020.1       262    325 +  cm    3' 0.53  KC496020.1 Barkedji virus isolate 363/11 polyprotein gene, p
+ (11) !   1.8e-11   52.5   0.0  BJV_EU078325.1       262    325 +  cm    3' 0.53  EU078325.1 Barkedji virus isolate ArD86177 polyprotein gene,
+ (12) !   5.3e-09   42.3   0.0  BJV_MG214905.1       282    335 +  cm    3' 0.52  MG214905.1 Barkedji virus strain SQU29/Oman/2016, complete g
+ (13) !   5.3e-09   42.3   0.0  BJV_MG214906.1       282    335 +  cm    3' 0.52  MG214906.1 Barkedji virus strain SQU38/Oman/2016, complete g
+ (14) !   1.1e-07   36.8   0.0  NOUV_NC_033715.1     289    347 +  cm    3' 0.53  NC_033715.1 Nounane virus polyprotein mRNA, complete cds.
+ (15) !   1.1e-07   36.8   0.0  NOUV_FJ711167.1      288    346 +  cm    3' 0.53  FJ711167.1 Nounane virus isolate B31 polyprotein mRNA, compl
+ (16) !   1.1e-07   36.8   0.0  NOUV_EU159426.2      289    347 +  cm    3' 0.53  EU159426.2 Nounane virus polyprotein mRNA, complete cds.
 
 
 Hit alignments:
->> BJLV_zmqL31  
- rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
- ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
-  (1) !   3.4e-16   72.6   0.0  cm        1       70 []         282         348 + .. 0.99    no 0.55
-
-                                  v                   v                                     NC
-                    (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>))))) CS
-  all_dISFVG.DB   1 GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCCCcCC 70 
-                    GG:GGCC:CA :C  C::C:UAAGCUGUA:G::G   G:A UG:GGACUAG+GGUUAGAGGAGACCCC:CC
-    BJLV_zmqL31 282 GGAGGCCUCA-CC-GCAUCUUAAGCUGUAAGAUGA--GGAuUGGGGACUAGUGGUUAGAGGAGACCCCUCC 348
-                    **********.**.*********************..**9******************************* PP
-
 >> DONV_JQ086551.1  JQ086551.1 Donggang virus isolate DG0909, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
-  (2) !   6.6e-16   71.4   0.0  cm        1       70 []         141         215 + .. 1.00    no 0.56
+  (1) !   5.2e-16   71.4   0.0  cm        1       70 []         141         215 + .. 1.00    no 0.56
 
                                             v      v                                              NC
                       (((((<<<<<-<<<.<<<<<<<<._____>>>>>>>>-..>>>-.>>>>>,,,,,,<<<<______>>>>))))) CS
@@ -61,7 +46,7 @@ Hit alignments:
 >> DONV_NC_016997.1  NC_016997.1 Donggang virus, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
-  (3) !   6.6e-16   71.4   0.0  cm        1       70 []         141         215 + .. 1.00    no 0.56
+  (2) !   5.2e-16   71.4   0.0  cm        1       70 []         141         215 + .. 1.00    no 0.56
 
                                              v      v                                              NC
                        (((((<<<<<-<<<.<<<<<<<<._____>>>>>>>>-..>>>-.>>>>>,,,,,,<<<<______>>>>))))) CS
@@ -73,7 +58,7 @@ Hit alignments:
 >> MMV_MF139576.1  MF139576.1 Marisma mosquito virus strain HU4528/07, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
-  (4) !   8.4e-16   71.0   0.0  cm        1       70 []         171         245 + .. 0.99    no 0.56
+  (3) !   6.6e-16   71.0   0.0  cm        1       70 []         171         245 + .. 0.99    no 0.56
 
                                   v                          v                                   NC
                      (((((<<<<<-<<<.<<<<<<<<._____>>>>>>>>-..>>>-.>>>>>,,,,,,<<<<______>>>>))))) CS
@@ -82,22 +67,10 @@ Hit alignments:
   MMV_MF139576.1 171 GGGGGCCAGAUGGAcUGCUUCUUcAACCUAGGAAGCAAacACCAcUCUGGACUAUCGGUUAGAGGAAACCCCCCC 245
                      ****************************************9********************************** PP
 
->> BJV_zmqM40  
- rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
- ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
-  (5) !   2.7e-15   68.8   0.0  cm        1       70 []         262         328 + .. 0.99    no 0.57
-
-                             v                               v                              NC
-                    (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>))))) CS
-  all_dISFVG.DB   1 GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCCCcCC 70 
-                    GG:GGCC:C  :  :C:C::UAAGCUGUA::G:G:   :A  G:GGACUAG+GGUUAGAGGAGACCCC:CC
-     BJV_zmqM40 262 GGAGGCCUCA-CG-CCACUUUAAGCUGUAAGGUGG--UGAuAGGGGACUAGUGGUUAGAGGAGACCCCUCC 328
-                    **********.99.*********************..9999****************************** PP
-
 >> CHAOV_JQ308185.1  JQ308185.1 Chaoyang virus isolate HLD115, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
-  (6) !   4.7e-15   67.9   0.0  cm        1       70 []         131         200 + .. 0.99    no 0.64
+  (4) !   3.7e-15   67.9   0.0  cm        1       70 []         131         200 + .. 0.99    no 0.64
 
                                     vv                   v   v                                  NC
                        (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>-..>>>->>>>>,,,,,,<<<<______>>>>))))) CS
@@ -109,7 +82,7 @@ Hit alignments:
 >> CHAOV_NC_017086.1  NC_017086.1 Chaoyang virus, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
-  (7) !   4.7e-15   67.9   0.0  cm        1       70 []         131         200 + .. 0.99    no 0.64
+  (5) !   3.7e-15   67.9   0.0  cm        1       70 []         131         200 + .. 0.99    no 0.64
 
                                      vv                   v   v                                  NC
                         (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>-..>>>->>>>>,,,,,,<<<<______>>>>))))) CS
@@ -121,7 +94,7 @@ Hit alignments:
 >> NHUV_NC_024017.1  NC_024017.1 Nhumirim virus strain BrMS-MQ10, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
-  (8) !   7.2e-15   67.1   0.0  cm        1       70 []         250         317 + .. 0.99    no 0.49
+  (6) !   5.7e-15   67.1   0.0  cm        1       70 []         250         317 + .. 0.99    no 0.49
 
                                            v       v                                          NC
                        (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>))))) CS
@@ -130,22 +103,10 @@ Hit alignments:
   NHUV_NC_024017.1 250 AGUGGCUAGCGAAAUUGG-UGAAGCUAUAA-CCAACUUUGGCUGGACUAGUGGUUAGAGGAGACCCCACU 317
                        ******************.***********.*************************************** PP
 
->> pamp613_PA-MP613  
- rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
- ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
-  (9) !     2e-14   65.3   0.0  cm        1       70 []         214         283 + .. 0.98    no 0.50
-
-                                  vvv    v            v     vvv                                NC
-                       (((((<<<<<-<<<<<<<<<<<._____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>))))) CS
-     all_dISFVG.DB   1 GGgGGCCacaugcgucccccua.AgCuguagggggaccgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC 70 
-                       G:GGGCCA::    UC:C :UA A C+GUA:+G:GA+   A::UGGACUAGCGGUUAGAGGAGACCCCC:C
-  pamp613_PA-MP613 214 GAGGGCCAAUGGAAUCUC-AUAuACCCGUAUUGAGAUAGAAGUUGGACUAGCGGUUAGAGGAGACCCCCUC 283
-                       ******************.9999*************99********************************* PP
-
 >> LAMV_FJ606789.2  FJ606789.2 Lammi virus polyprotein gene, complete cds.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (10) !   3.7e-14   64.1   0.0  cm        1       70 []         131         200 + .. 0.98    no 0.60
+  (7) !   2.9e-14   64.1   0.0  cm        1       70 []         131         200 + .. 0.98    no 0.60
 
                                     v                   v                                      NC
                       (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>-..>>>->>>>>,,,,,,<<<<______>>>>))))) CS
@@ -157,7 +118,7 @@ Hit alignments:
 >> NANV_MF139575.1  MF139575.1 Nanay virus strain PRD316/PER/09, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (11) !   6.4e-14   63.1   0.0  cm        1       70 []         200         266 + .. 0.97    no 0.52
+  (8) !   5.1e-14   63.1   0.0  cm        1       70 []         200         266 + .. 0.97    no 0.52
 
                               vv       vvv          vvv        vv                             NC
                       (((((<<<<<-<<<<<<<<<<<._____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>))))) CS
@@ -169,7 +130,7 @@ Hit alignments:
 >> NANV_NC_040610.1  NC_040610.1 Nanay virus strain PRD316/PER/09, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (12) !   6.4e-14   63.1   0.0  cm        1       70 []         200         266 + .. 0.97    no 0.52
+  (9) !   5.1e-14   63.1   0.0  cm        1       70 []         200         266 + .. 0.97    no 0.52
 
                                vv       vvv          vvv        vv                             NC
                        (((((<<<<<-<<<<<<<<<<<._____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>))))) CS
@@ -181,7 +142,7 @@ Hit alignments:
 >> BJV_KC496020.1  KC496020.1 Barkedji virus isolate 363/11 polyprotein gene, partial cds.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (13) !   2.3e-11   52.5   0.0  cm        1       67 [~         262         325 + .~ 0.99    3' 0.53
+ (10) !   1.8e-11   52.5   0.0  cm        1       67 [~         262         325 + .~ 0.99    3' 0.53
 
                      ???v          v                   v                                v      NC
                      (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>))~~~~~ CS
@@ -193,7 +154,7 @@ Hit alignments:
 >> BJV_EU078325.1  EU078325.1 Barkedji virus isolate ArD86177 polyprotein gene, partial cds.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (14) !   2.3e-11   52.5   0.0  cm        1       67 [~         262         325 + .~ 0.99    3' 0.53
+ (11) !   1.8e-11   52.5   0.0  cm        1       67 [~         262         325 + .~ 0.99    3' 0.53
 
                      ???v          v                   v                                v      NC
                      (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>))~~~~~ CS
@@ -205,7 +166,7 @@ Hit alignments:
 >> BJV_MG214905.1  MG214905.1 Barkedji virus strain SQU29/Oman/2016, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (15) !   6.7e-09   42.3   0.0  cm        1       57 [~         282         335 + .~ 0.99    3' 0.52
+ (12) !   5.3e-09   42.3   0.0  cm        1       57 [~         282         335 + .~ 0.99    3' 0.52
 
                      ?????         v                   v                 ????         NC
                      (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<__~~~~~~ CS
@@ -217,7 +178,7 @@ Hit alignments:
 >> BJV_MG214906.1  MG214906.1 Barkedji virus strain SQU38/Oman/2016, complete genome.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (16) !   6.7e-09   42.3   0.0  cm        1       57 [~         282         335 + .~ 0.99    3' 0.52
+ (13) !   5.3e-09   42.3   0.0  cm        1       57 [~         282         335 + .~ 0.99    3' 0.52
 
                      ?????         v                   v                 ????         NC
                      (((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<__~~~~~~ CS
@@ -229,7 +190,7 @@ Hit alignments:
 >> NOUV_NC_033715.1  NC_033715.1 Nounane virus polyprotein mRNA, complete cds.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (17) !   1.4e-07   36.8   0.0  cm        1       66 [~         289         347 + .~ 0.87    3' 0.53
+ (14) !   1.1e-07   36.8   0.0  cm        1       66 [~         289         347 + .~ 0.87    3' 0.53
 
                        ????   vv           v       v              vv                             NC
                        (((((<<<<<-<<<<<<<<<<<_____>>>.>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>)~~~~~ CS
@@ -241,7 +202,7 @@ Hit alignments:
 >> NOUV_FJ711167.1  FJ711167.1 Nounane virus isolate B31 polyprotein mRNA, complete cds.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (18) !   1.4e-07   36.8   0.0  cm        1       66 [~         288         346 + .~ 0.87    3' 0.53
+ (15) !   1.1e-07   36.8   0.0  cm        1       66 [~         288         346 + .~ 0.87    3' 0.53
 
                       ????   vv           v       v              vv                             NC
                       (((((<<<<<-<<<<<<<<<<<_____>>>.>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>)~~~~~ CS
@@ -253,7 +214,7 @@ Hit alignments:
 >> NOUV_EU159426.2  EU159426.2 Nounane virus polyprotein mRNA, complete cds.
  rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
  ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
- (19) !   1.4e-07   36.8   0.0  cm        1       66 [~         289         347 + .~ 0.87    3' 0.53
+ (16) !   1.1e-07   36.8   0.0  cm        1       66 [~         289         347 + .~ 0.87    3' 0.53
 
                       ????   vv           v       v              vv                             NC
                       (((((<<<<<-<<<<<<<<<<<_____>>>.>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>)~~~~~ CS
@@ -267,19 +228,19 @@ Hit alignments:
 Internal CM pipeline statistics summary:
 ----------------------------------------
 Query model(s):                                                  1  (70 consensus positions)
-Target sequences:                                               22  (15912 residues searched)
-Target sequences re-searched for truncated hits:                22  (8888 residues re-searched)
-Windows   passing  local HMM SSV           filter:              93  (0.4304); expected (0.35)
+Target sequences:                                               18  (12562 residues searched)
+Target sequences re-searched for truncated hits:                18  (7272 residues re-searched)
+Windows   passing  local HMM SSV           filter:              76  (0.4346); expected (0.35)
 Windows   passing  local HMM Viterbi       filter:                  (off)
 Windows   passing  local HMM Viterbi  bias filter:                  (off)
-Windows   passing  local HMM Forward       filter:              30  (0.1472); expected (0.02)
-Windows   passing  local HMM Forward  bias filter:              30  (0.1472); expected (0.02)
-Windows   passing glocal HMM Forward       filter:              26  (0.1431); expected (0.02)
-Windows   passing glocal HMM Forward  bias filter:              26  (0.1431); expected (0.02)
-Envelopes passing glocal HMM envelope defn filter:              26  (0.06944); expected (0.02)
-Envelopes passing  local CM  CYK           filter:              26  (0.06944); expected (0.0001)
-Total CM hits reported:                                         19  (0.06722); includes 7 truncated hit(s)
+Windows   passing  local HMM Forward       filter:              26  (0.1603); expected (0.02)
+Windows   passing  local HMM Forward  bias filter:              26  (0.1603); expected (0.02)
+Windows   passing glocal HMM Forward       filter:              23  (0.1552); expected (0.02)
+Windows   passing glocal HMM Forward  bias filter:              23  (0.1552); expected (0.02)
+Envelopes passing glocal HMM envelope defn filter:              23  (0.07654); expected (0.02)
+Envelopes passing  local CM  CYK           filter:              23  (0.07654); expected (0.0001)
+Total CM hits reported:                                         16  (0.07376); includes 7 truncated hit(s)
 
-# CPU time: 0.23u 0.01s 00:00:00.24 Elapsed: 00:00:00.24
+# CPU time: 0.19u 0.00s 00:00:00.19 Elapsed: 00:00:00.19
 //
 [ok]
