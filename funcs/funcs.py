@@ -2,8 +2,12 @@ from .InfernalUtils3 import CmsearchOut
 import json
 
 
-def fancy_cmout_to_json(ifile, ofile):
+def fancy_cmout_to_json(ifile):
     """Get .json from .fancy.cmout"""
+
+    ipath = f"example/{ifile}"
+    ofile = ifile.replace(".fancy.cmout", ".json")
+    opath = f"output/{ofile}"
 
     attrs = (
         "rank",
@@ -28,13 +32,19 @@ def fancy_cmout_to_json(ifile, ofile):
         "uid",
     )
 
-    results = CmsearchOut(ifile)
+    results = CmsearchOut(ipath)
+    # L = {hit.rank: {k: getattr(hit, k) for k in attrs} for hit in results.hits}
+    L = [{k: getattr(hit, k) for k in attrs} for hit in results.hits]
 
-    L = {hit.rank: {k: getattr(hit, k) for k in attrs} for hit in results.hits}
+    with open(opath, "w", encoding="utf8") as f:
+        json.dump(L, f, indent=4)
 
-    with open(ofile, "w", encoding="utf-8") as f:
-        json.dump(L, f, ensure_ascii=False, indent=4)
 
-    print("getting json finished")
+def visualize_cmhits(ifile):
+    ipath = f"output/{ifile}"
 
+    with open(ipath, "r", encoding="utf8") as f:
+        j = json.load(f)
+
+    # print(j)
 

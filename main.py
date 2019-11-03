@@ -1,10 +1,8 @@
-from funcs.funcs import fancy_cmout_to_json
+from funcs.funcs import fancy_cmout_to_json, visualize_cmhits
 
 if __name__ == "__main__":
-    ifile = "all_dISFVG.DB__all_dISFVG_3UTR.20190905.fancy.cmout"
-    ipath = f"example/{ifile}"
-    
-    ofile = ifile.replace(".fancy.cmout", ".json")
-    opath = f"output/{ofile}"
+    fancy_file="all_dISFVG.DB__all_dISFVG_3UTR.20190905.fancy.cmout"
+    json_file="all_dISFVG.DB__all_dISFVG_3UTR.20190905.json"
+    fancy_cmout_to_json(fancy_file)
 
-    fancy_cmout_to_json(ipath, ofile)
+    visualize_cmhits(json_file)

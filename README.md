@@ -1,13 +1,15 @@
 ## Tasks
 - :full_moon: .fancy.cmout -> .json
 - :new_moon: recreate cm-hit viz in d3.js
-    - :new_moon: get d3.js running
+    - :full_moon: get d3.js running
 
 
 ## Notes 
 ### :scroll: Code
 -  `InfernalUtils3.py`, `RNAUtils3.py` are Python3 compatible
 - `imports.py` puts Vienna RNA package on path if not already on path
+- run localhost via `python3 -m http.server` in order for d3.js to run properly
+    - see page @ http://localhost:8000/d3test.html
 
 ### :package: Class structure
 - attributes for CmsearchHit in Userguide.pdf page 60
