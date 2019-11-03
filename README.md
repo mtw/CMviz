@@ -1,6 +1,6 @@
 ## Tasks
 - [x] .fancy.cmout -> .json
-- [] recreate cm-hit viz in d3.js
+- [ ] recreate cm-hit viz in d3.js
     - [x] get d3.js running
 
 
