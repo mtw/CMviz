@@ -1,7 +1,7 @@
 ## Tasks
-- :full_moon: .fancy.cmout -> .json
-- :new_moon: recreate cm-hit viz in d3.js
-    - :full_moon: get d3.js running
+- [x] .fancy.cmout -> .json
+- [] recreate cm-hit viz in d3.js
+    - [x] get d3.js running
 
 
 ## Notes 
