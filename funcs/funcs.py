@@ -1,5 +1,6 @@
 from .InfernalUtils3 import CmsearchOut
 import json
+import pandas as pd
 
 
 def fancy_cmout_to_json(ifile):
@@ -48,3 +49,9 @@ def visualize_cmhits(ifile):
 
     # print(j)
 
+
+def genomes_tab_to_csv(ifile, ofile):
+    with open(ifile, "r") as f:
+        records = [line.strip().split("\t") for line in f.readlines()]
+        df = pd.DataFrame.from_records(records)
+        df.to_csv(ofile, sep=",", index=False, header=False)

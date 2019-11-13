@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+	<style>
+		.background {
+			fill: #fff;
+		}
+
+		rect {
+			stroke: #fff;
+			stroke-width: 1;
+		}
+
+		text {
+			text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+			cursor: move;
+		}
+	</style>
+	<title> MATRIX DRAG AND DROP </title>
+</head>
+
+<body>
+
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+
+	<script>
+
+		var n = 6;
+
+		var margin = { top: 50, right: 30, bottom: 30, left: 50 },
+			width = 800 - margin.left - margin.right,
+			height = 800 - margin.top - margin.bottom;
+
+
+		var y = d3.scale.ordinal().rangeBands([0, height], 0, 1),
+			x = d3.scale.ordinal().rangeBands([0, width], 0, 1),
+			c = d3.scale.category20().domain(d3.range(36));
+
+
+		var dragging = {};
+
+
+		var svg = d3.select("body")
+			.append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+			.style("margin-left", margin.left + "px")
+			.append("g")
+			.attr("id", "matrix")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+		var matrixA = [],
+			matrixB = [],
+			nodes = [{ "name": "A" },
+			{ "name": "B" },
+			{ "name": "C" },
+			{ "name": "D" },
+			{ "name": "E" },
+			{ "name": "F" }],
+			n = nodes.length;
+
+		nodes.forEach(function (node, i) {
+			node.index = i;
+			node.count = 0;
+			matrixA[i] = d3.range(n).map(function (j) {
+				return { x: j, y: i, z: 1 + (n * i) + j };
+			});
+			matrixB[i] = d3.range(n).map(function (j) {
+				return { x: i, y: j, z: (n * j) + 1 + i };
+			});
+		});
+
+
+
+		// Default order
+		var orders = {
+			name: d3.range(n).sort(function (a, b) {
+				return d3.ascending(nodes[a].name, nodes[b].name);
+			})
+		};
+
+		// The default sort order.
+		y.domain(orders.name);
+		x.domain(orders.name);
+
+
+		svg.append("rect")
+			.attr("class", "background")
+			.attr("width", width)
+			.attr("height", height);
+
+
+		var row = svg.selectAll(".row")
+			.data(matrixA)
+			.enter().append("g")
+			.attr("class", "row")
+			.attr("transform", function (d, i) {
+				return "translate(0," + y(i) + ")";
+			})
+			.each(row);
+
+		var drag_behavior = d3.behavior.drag();
+		var trigger;
+
+
+		d3.selectAll(".row").call(d3.behavior.drag()
+			.origin(function (d) {
+				return { y: y(d[0].y) };
+			})
+			.on("dragstart", function (d) {
+
+				trigger = d3.event.sourceEvent.target.className.baseVal;
+
+				if (trigger == "label") {
+					d3.selectAll(".cellrow").attr("opacity", 1);
+					dragging[d[0].y] = y(d[0].y);
+				}
+			})
+			.on("drag", function (d) {
+				// Hide what is in the back
+
+				if (trigger == "label") {
+
+					d3.selectAll(".cellcolumn").attr("opacity", 0);
+
+					dragging[d[0].y] = Math.min(height, Math.max(0, d3.event.y));
+					orders.name.sort(function (a, b) { return position(a) - position(b); });
+					y.domain(orders.name);
+
+					d3.selectAll(".row").attr("transform", function (d, i) {
+						return "translate(0," + position(d[0].y) + ")";
+					});
+				}
+			})
+			.on("dragend", function (d) {
+
+				if (trigger == "label") {
+					delete dragging[d[0].y];
+					transition(d3.select(this)).attr("transform", "translate(0," + y(d[0].y) + ")");
+
+					d3.selectAll(".column").each(function (d) {
+						d3.select(this).selectAll(".cellcolumn").attr("x", function (d) {
+							return -y(d.y) - 90;
+						});
+					});
+				}
+			})
+		);
+
+		row.append("text")
+			.attr("class", "label")
+			.attr("x", 60)
+			.attr("y", y.rangeBand() / 2)
+			.attr("dy", ".32em")
+			.attr("text-anchor", "end")
+			.text(function (d, i) { return nodes[i].name; });
+
+
+
+
+
+		function row(row) {
+			var cell = d3.select(this).selectAll(".cellrow")
+				.data(row.filter(function (d) {
+					return d.z;
+				}))
+				.enter().append("rect")
+				.attr("class", "cellrow")
+				.attr("x", function (d) {
+					return y(d.x);
+				})
+				.attr("width", y.rangeBand())
+				.attr("height", y.rangeBand())
+				.style("fill", function (d) {
+					return c(d.z);
+				});
+		}
+
+		function column(column) {
+			var cell = d3.select(this).selectAll(".cellcolumn")
+				.data(column.filter(function (d) {
+					return d.z;
+				}))
+				.enter().append("rect")
+				.attr("class", "cellcolumn")
+				.attr("x", function (d) {
+					return -x(d.y) - 90;
+				})
+				.attr("width", x.rangeBand())
+				.attr("height", x.rangeBand())
+				.style("fill", function (d) {
+					return c(d.z);
+				});
+
+		}
+
+		d3.selection.prototype.moveToFront = function () {
+			return this.each(function () {
+				this.parentNode.appendChild(this);
+			});
+		};
+
+		function position(d) {
+			var v = dragging[d];
+			return v == null ? y(d) : v;
+		}
+
+		function cPosition(d) {
+			var v = dragging[d];
+			return v == null ? x(d) : v;
+		}
+
+		function transition(g) {
+			return g.transition().duration(500);
+		}
+
+
+
+	</script>
+
+</body>

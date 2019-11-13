@@ -12,6 +12,17 @@
     </div>
 
     <script>
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+
+    <script>
         // loads asynchronously, thus do everything inside
         d3.json("test.json", function (data) {
             console.log(data);
@@ -29,15 +40,12 @@
                 .data(data)
                 .enter().append('g')
                 .attr('width', width / 2)
-                .attr('height', height / 2)
-                .attr('transform', function (d, i) {
-                    return 'translate(' + gLocator(i)[0] + ',' + gLocator(i)[1] + ')'
-                });
+                .attr('height', height / 2);
 
         });
     </script>
 
-    <script>
+    <!-- <script>
 
         var tools = ['embed', 'interactive', 'rapidDev', 'support', 'predictive', 'modelDev', 'cost']
 
@@ -81,7 +89,7 @@
 
         tools.map(function (x) { path_tool(x) });
 
-    </script>
+    </script> -->
 </body>
 
 </html>
