@@ -15,7 +15,7 @@ d3.csv("genomes.csv", function (data) {
         var line = data[i]
         genomes[line[1]] = line
     }
-    console.log(Object.keys(genomes)[1]);
+    // console.log(Object.keys(genomes)[1]);
     dof(genomes);
 });
 
@@ -26,10 +26,16 @@ function dof(genomes) {
     d3.json("test_modified.json", function (error, data) {
 
         var poslist = data.map((_, i) => specs.group_height * (i + 1) + specs.group_gap * i);
+        poslist.push(poslist[-1] + specs.group_height)
 
-        var objpos = data.map((_, i) => i) // objectid => position
+        // var objpos = data.map((_, i) => i) // objectid => position
 
-        console.log(poslist);
+        // console.log(typeof(objpos))
+
+        var ip = [...data.keys()];
+        var pi = ip.slice();
+
+        // console.log(poslist);
 
         const svg = d3.select('svg')
         svg.attr('x', 1000)
@@ -40,7 +46,7 @@ function dof(genomes) {
             .append('g')
             .attr('transform', function (d, i) {
                 // console.log(d);
-                return `translate(150, ${poslist[objpos[i]]})`
+                return `translate(150, ${poslist[ip[i]]})`
                 // return `translate(120, ${poslist[order[i]]- 40})`
             })
 
@@ -50,32 +56,20 @@ function dof(genomes) {
 
         gs.selectAll('.cm')
             .attr('fill', function (d) {
-                console.log(d);
                 return colors[d.cm]
             });
 
+        // get lengths of seqs
         var lengths = [];
-
         for (i in data) {
             var d = data[i];
             var iden = d.seq.slice(d.seq.indexOf('_') + 1);
-            // console.log(d.seq,iden);
             var leng = +genomes[iden]['utr3'];
-            // console.log(iden, leng);
             lengths.push(leng)
         }
-
-        console.log(lengths)
-
         var maxlength = Math.max(...lengths)
-        console.log(maxlength)
 
-        // for (i in lengths){
-        //     lengths[i] = lengths[i] / maxlength * specs.group_length;
-        // }
-
-        console.log(lengths)
-
+        // make lines long lengths
         gs.selectAll('line')
             .attr('x2', function (d, i) {
                 var i = d.rank - 1;
@@ -85,40 +79,68 @@ function dof(genomes) {
 
 
 
+
+
+        // ANIMATE DRAGGING
         gs.call(d3.drag()
-            // .subject(function (d, i) {
-            // })
             .on("start", function (d, i) {
+                gs.transition()
+                    // .delay(1)
+                    .attr('transform', function (d, i) {
+                        return `translate(150, ${poslist[pi.indexOf(i)]})`
+                    });
+                d3.select(this).style('opacity', 0.5)
             })
             .on("drag", function (d, i) {
 
-                // console.log(d3.event.y);
-
-                var y = d3.event.y + specs.group_height / 2;
-
-                var o = objpos[i]
-
-                // console.log(o, y)
-
-                var onew = Math.round((y - 1) / (specs.group_height + specs.group_gap)) - 1
-
-                if (onew < 0 || onew > objpos.length - 1) {
-                    return;
-                }
-
-                if (o != onew) {
-                    var i_old = objpos.indexOf(onew);
-                    objpos[i] = onew;
-                    objpos[i_old] = o;
-
-                    gs.attr('transform', function (d, i) {
-                        return `translate(150, ${poslist[objpos[i]]})`
-                    });
-                }
+                d3.select(this).attr("transform", function (d, i) {
+                    return "translate(150," + d3.event.y + ")"
+                })
 
 
             })
-            .on("end", function (d) {
+            .on("end", function (d, i) {
+                d3.select(this).style('opacity', 1)
+
+                var y = d3.event.y + specs.group_height / 2;
+
+                var onew = Math.round((y - 1) / (specs.group_height + specs.group_gap)) - 1
+
+                // shift
+
+                var pOld = pi.indexOf(i);
+                var pNew = onew;
+                if (pNew == pOld) {
+
+                    d3.select(this).attr("transform", function (d, i) {
+                        return `translate(150, ${poslist[pOld]})`
+                    });
+                    return;
+                }
+
+                pi.splice(pOld, 1)
+                pi.splice(pNew, 0, i)
+
+
+                // if (o > onew) {
+                //     for (oi = onew; oi < o; oi++) {
+                //         objpos[objpos.indexOf(oi)] = oi + 1
+                //     }
+                //     objpos[i] = onew
+                // }
+
+                // if (o < onew) {
+                //     for (oi = onew; oi > o; oi--) {
+                //         objpos[objpos.indexOf(oi)] = oi - 1
+                //     }
+                //     objpos[i] = onew
+                // }
+
+                gs.transition()
+                    // .delay(1)
+                    .attr('transform', function (d, i) {
+                        return `translate(150, ${poslist[pi.indexOf(i)]})`
+                    });
 
             })
         );
@@ -129,6 +151,19 @@ function dof(genomes) {
     });
 }
 
+function reorder(ip, pi, i, pNew) {
+
+    var pOld = ip[i]
+
+
+
+
+
+    if (new_pos > old_pos) {
+
+    }
+
+}
 
 
 function generate_all(gs) {
@@ -164,7 +199,7 @@ function generate_all(gs) {
             return d.cm
         })
         .attr('class', 'cm')
-        .attr('opacity',0.8)
+        .attr('opacity', 0.8)
 
 
     gs.append('text')

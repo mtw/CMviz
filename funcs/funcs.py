@@ -3,12 +3,12 @@ import json
 import pandas as pd
 
 
-def fancy_cmout_to_json(ifile):
+def fancy_cmout_to_json(ipath, opath):
     """Get .json from .fancy.cmout"""
 
-    ipath = f"example/{ifile}"
-    ofile = ifile.replace(".fancy.cmout", ".json")
-    opath = f"output/{ofile}"
+    # ipath = f"example/{ifile}"
+    # ofile = ifile.replace(".fancy.cmout", ".json")
+    # opath = f"output/{ofile}"
 
     attrs = (
         "rank",
@@ -29,13 +29,14 @@ def fancy_cmout_to_json(ifile):
         "trunc",
         "seq",
         "cm",
-        # 'alignment',
+        'alignment',
         "uid",
     )
 
     results = CmsearchOut(ipath)
-    # L = {hit.rank: {k: getattr(hit, k) for k in attrs} for hit in results.hits}
     L = [{k: getattr(hit, k) for k in attrs} for hit in results.hits]
+    for d in L:
+        d['alignment'] = str(d['alignment'])
 
     with open(opath, "w", encoding="utf8") as f:
         json.dump(L, f, indent=4)
