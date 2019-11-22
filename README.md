@@ -1,6 +1,6 @@
 ## Instructions :bird:
 - run localhost via `python3 -m http.server`
-- open http://localhost:8000/viz/index.html in browser
+- open http://localhost:8000/web/index.html in browser
 
 ## Tasks :wrench:
 - [ ] update headers of genomes.csv
