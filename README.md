@@ -22,5 +22,3 @@
 - script that merges cmsearch files (get UTR, CDS lengths from tab file)
 - turn to json
 - json to d3 svg
-
-# martin
