@@ -53,7 +53,7 @@ function main() {
     POSLIST.push(POSLIST[-1] + SPECS.group_height);
 
     // position: line id
-    PI = [...JSONDATA.keys()];
+    PI = []; var i = 0; for (_ in UTRDATA){PI.push(i); i++;};
 
     // make funcs    
     makeLinegs();
