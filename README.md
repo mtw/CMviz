@@ -11,6 +11,8 @@
 - [ ] be able to select hits
 - [ ] add overview of cm's which are clickable (so that all hits of that cm are displayed in the graphic)
 - [ ] output: identifier + sequence hit
+- [ ] control menu on the left: scrollbar for evalues, bitscores, 
+- [ ] upload meme output, poster with graphic for presentation, additional cmout
 
 ## Notes :scroll:
 - `InfernalUtils3.py`, `RNAUtils3.py` are Python3 compatible
