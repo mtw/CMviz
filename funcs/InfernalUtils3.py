@@ -2,8 +2,8 @@ __author__ = "romanoch"
 __date__ = "$Nov 27, 2015 5:30:51 PM$"
 
 import re
-from RNAUtils import ParseSS, Db2pair, Pair2db, ParseSSunbalanced, RemoveNoncanonical
 from math import log10
+from .RNAUtils3 import ParseSS, Db2pair, Pair2db, ParseSSunbalanced, RemoveNoncanonical
 
 class CmsearchHit:
     '''Data Container Class for Output of INFERNAL's Cmsearch/Cmscan'''
@@ -539,8 +539,8 @@ def ParseTbloutGeneric(filename):
             else:
                 data = line.split()
                 if len(data) < 17:
-                    print len(data)
-                    print 'LINE: ' + line
+                    print (len(data))
+                    print ('LINE: ' + line)
                     raise ValueError('Invalid Data')
                 dic = {'target_name': data[0],
                 'target_accession': data[1],
@@ -583,8 +583,8 @@ def ParseTblout(filename):
             else:
                 data = line.split()
                 if len(data) < 17:
-                    print len(data)
-                    print 'LINE: ' + line
+                    print (len(data))
+                    print ('LINE: ' + line)
                     raise ValueError('Invalid Data')
                 dic = {'tgt_name': data[0],
                 'tgt_accession': data[1],

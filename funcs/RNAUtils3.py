@@ -5,11 +5,12 @@
 __author__ = "romanoch"
 __date__ = "$Oct 11, 2016 4:34:16 PM$"
 
-import RNA, math
+import math
 import sys
+from .imports import RNA
 
 if __name__ == "__main__":
-    print "Not meant as executable!"
+    print ("Not meant as executable!")
     sys.exit()
 
 #Set model details
@@ -131,7 +132,7 @@ def ParseSS(ss):
                 j = p.pop()
                 res.append((j,i))
             except IndexError as ERR:
-                print ss
+                print (ss)
                 raise ERR
 
     if len(p) != 0:
@@ -177,7 +178,7 @@ def Db2pair(ss):
                 j = p.pop()
                 res.append((j,i))
             except IndexError as ERR:
-                print ss
+                print (ss)
                 raise ERR
 
     if len(p) != 0:
