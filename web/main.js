@@ -3,8 +3,8 @@
 
 // define specs
 const SPECS = {
-    group_height: 25,
-    group_gap: 5,
+    group_height: 15,
+    group_gap: 25,
     group_length: 800,
     svg_left_gap: 200,
     utrjsonFile: 'test_multi.json',
@@ -53,12 +53,24 @@ function main() {
     POSLIST.push(POSLIST[-1] + SPECS.group_height);
 
     // position: line id
-    PI = []; var i = 0; for (_ in UTRDATA){PI.push(i); i++;};
+    PI = []; var i = 0; for (_ in UTRDATA) { PI.push(i); i++; };
 
-    // make funcs    
+    // make funcs
+    // makePanel();
+
+    // d3.select('#panel').selectAll('linegs')
+    // .data(d3.entries(UTRDATA))
+    // .enter()
+    // .append('g')
+
+
     makeLinegs();
     makeFrame();
     makeUTRs();
+    // makeTooltips();
+    makeSelectors();
+    makeEvalueSlider();
+    makeBitscoreSlider();
 
     // viz funcs 
     fixWidth();
@@ -69,6 +81,6 @@ function main() {
     // behave funcs
     defineDragging();
     defineTicking();
+    // defineTooltipping();
 
 };
-

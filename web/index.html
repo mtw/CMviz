@@ -5,14 +5,45 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-drag.v1.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>UTR tool</h1>
-    <hr>
 
-    <svg id='main'></svg>
+    <div id="wrapper">
+        <div id="top">
+            <div id="topleft">
+                <h1 style='margin:0'>UTR tool</h1>
+
+            </div>
+            <div id="topright">blabla</div>
+        </div>
+        <div id="middle">
+            <div id="middleleft">
+                <!-- <span>asdf</span> -->
+                <div id="container" style="height:300px; overflow-y: scroll">
+                    <svg id="cm-box"></svg>
+                </div>
+                <span style='color:black'>evalue</span>
+                <svg id="svg-evalue"></svg>
+                <span style='color:black'>bitscore</span>
+                <svg id="svg-bitscore"></svg>
+                <!-- <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange" onchange="d3.select()">
+                    <input type="text" min="1" max="100" value="50" i>
+                </div> -->
+            </div>
+            <div id="middleright"><svg id='main'></svg>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="bottomleft">bla2</div>
+            <div id="bottomright">bla3</div>
+        </div>
+    </div>
+
+
+
     <!-- <svg id='dash'></svg> -->
     <script src="hsvtoRgb.js"></script>
     <script src="funcs-make.js"></script>

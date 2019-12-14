@@ -71,4 +71,9 @@ function colorUTRs() {
         .attr('fill', function (d) {
             return rcolors[d.cm]
         });
+    d3.selectAll('.cm-box-rect')
+        .attr('fill', function (d) {
+            console.log(d);
+            return rcolors[d]
+        })
 }

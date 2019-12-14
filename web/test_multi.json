@@ -33,7 +33,7 @@
         "mdl_alntype": "[]",
         "seq_start": 141,
         "seq_end": 215,
-        "strand": "+",
+        "strand": "-",
         "seq_alntype": "..",
         "acc": 1.0,
         "gc": 0.56,
@@ -77,7 +77,7 @@
         "mdl_alntype": "[]",
         "seq_start": 131,
         "seq_end": 200,
-        "strand": "+",
+        "strand": "-",
         "seq_alntype": "..",
         "acc": 0.99,
         "gc": 0.64,
@@ -132,7 +132,7 @@
         "uid": "all_dISFVG.DB:NHUV_NC_024017.1:6"
     },
     {
-        "rank": 1,
+        "rank": 7,
         "inc": true,
         "evalue": 5.2e-16,
         "bitscore": 71.4,
@@ -143,7 +143,7 @@
         "mdl_alntype": "[]",
         "seq_start": 141,
         "seq_end": 215,
-        "strand": "+",
+        "strand": "-",
         "seq_alntype": "..",
         "acc": 1.0,
         "gc": 0.56,
@@ -154,7 +154,7 @@
         "uid": "all_dISFVG.DB:NHUV_NC_024017.1:1"
     },
     {
-        "rank": 7,
+        "rank": 8,
         "inc": true,
         "evalue": 2.9e-14,
         "bitscore": 64.1,
@@ -176,7 +176,7 @@
         "uid": "all_dISFVG.DB:LAMV_FJ606789.2:7"
     },
     {
-        "rank": 8,
+        "rank": 9,
         "inc": true,
         "evalue": 5.1e-14,
         "bitscore": 63.1,
@@ -198,7 +198,7 @@
         "uid": "all_dISFVG.DB:NANV_MF139575.1:8"
     },
     {
-        "rank": 9,
+        "rank": 10,
         "inc": true,
         "evalue": 5.1e-14,
         "bitscore": 63.1,
@@ -220,7 +220,7 @@
         "uid": "all_dISFVG.DB:NANV_NC_040610.1:9"
     },
     {
-        "rank": 12,
+        "rank": 11,
         "inc": true,
         "evalue": 5.3e-09,
         "bitscore": 42.3,
@@ -242,7 +242,7 @@
         "uid": "all_dISFVG.DB:NANV_NC_040610.1:12"
     },
     {
-        "rank": 10,
+        "rank": 12,
         "inc": true,
         "evalue": 1.8e-11,
         "bitscore": 52.5,
@@ -264,7 +264,7 @@
         "uid": "all_dISFVG.DB:BJV_KC496020.1:10"
     },
     {
-        "rank": 11,
+        "rank": 13,
         "inc": true,
         "evalue": 1.8e-11,
         "bitscore": 52.5,
@@ -286,7 +286,7 @@
         "uid": "all_dISFVG.DB:BJV_EU078325.1:11"
     },
     {
-        "rank": 12,
+        "rank": 14,
         "inc": true,
         "evalue": 5.3e-09,
         "bitscore": 42.3,
@@ -308,7 +308,7 @@
         "uid": "all_dISFVG.DB:BJV_MG214905.1:12"
     },
     {
-        "rank": 13,
+        "rank": 15,
         "inc": true,
         "evalue": 5.3e-09,
         "bitscore": 42.3,
@@ -330,7 +330,7 @@
         "uid": "all_dISFVG.DB:BJV_MG214906.1:13"
     },
     {
-        "rank": 14,
+        "rank": 16,
         "inc": true,
         "evalue": 1.1e-07,
         "bitscore": 36.8,
@@ -352,7 +352,7 @@
         "uid": "all_dISFVG.DB:NOUV_NC_033715.1:14"
     },
     {
-        "rank": 15,
+        "rank": 17,
         "inc": true,
         "evalue": 1.1e-07,
         "bitscore": 36.8,
@@ -374,7 +374,7 @@
         "uid": "all_dISFVG.DB:NOUV_FJ711167.1:15"
     },
     {
-        "rank": 16,
+        "rank": 18,
         "inc": true,
         "evalue": 1.1e-07,
         "bitscore": 36.8,

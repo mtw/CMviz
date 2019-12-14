@@ -1,18 +1,19 @@
 ## Instructions :bird:
-- run localhost via `python3 -m http.server`
+- run localhost via `python3 -m http.server`, then goto http://localhost:8000/web/index.html
 - open http://localhost:8000/web/index.html in browser
 
 ## Tasks :wrench:
 - [ ] update headers of genomes.csv
 - [ ] can upload (multiple) CM search output file
-- [ ] take strand orientation in account (+ above, - below)
-- [ ] thin black line, align left
+- [x] take strand orientation in account (+ above, - below)
+- [x] thin black line, align left
 - [ ] tooltip: monospace,
-- [ ] be able to select hits
+- [x] be able to select hits
 - [ ] add overview of cm's which are clickable (so that all hits of that cm are displayed in the graphic)
 - [ ] output: identifier + sequence hit
-- [ ] control menu on the left: scrollbar for evalues, bitscores, 
+- [x] control menu on the left: scrollbar for evalues, bitscores, 
 - [ ] upload meme output, poster with graphic for presentation, additional cmout
+- [ ] extend draggable region
 
 ## Notes :scroll:
 - `InfernalUtils3.py`, `RNAUtils3.py` are Python3 compatible

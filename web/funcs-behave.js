@@ -18,7 +18,7 @@ function defineDragging() {
             })
 
             // calculate new position in list
-            var y = d3.event.y + SPECS.group_height / 2;
+            var y = d3.event.y + SPECS.group_height * 1.5 /// 2;
             var pNew = Math.round((y - 1) / (SPECS.group_height + SPECS.group_gap)) - 1
             var pOld = PI.indexOf(i);
 
@@ -59,18 +59,58 @@ function defineDragging() {
 };
 
 function defineTicking() {
-    tickboxes = d3.selectAll('rect.tickbox');
-    tickboxes.on('click', function (d, i) {
-        if (CHOSEN.includes(d.key)) {
+    //     tickboxes = d3.selectAll('rect.tickbox');
+    //     tickboxes.on('click', function (d, i) {
+    //         if (CHOSEN.includes(d.key)) {
+    //             CHOSEN.splice(CHOSEN.indexOf(i), 1);
+    //             d3.select(this)
+    //                 .attr('fill', 'grey')
+    //         }
+    //         else {
+    //             CHOSEN.push(d.key);
+    //             d3.select(this)
+    //                 .attr('fill', '#1495db')
+    //         }
+    //         console.log(CHOSEN)
+    //     });
+    // };
+
+    utrs.on('click', function (d, i) {
+        if (CHOSEN.includes(d.rank)) {
             CHOSEN.splice(CHOSEN.indexOf(i), 1);
             d3.select(this)
-                .attr('fill', 'grey')
+                .attr('stroke-width', 0);
         }
         else {
-            CHOSEN.push(d.key);
+            CHOSEN.push(d.rank);
             d3.select(this)
-                .attr('fill', '#1495db')
+                .attr('stroke', 'black')
+                .attr('stroke-width', 2)
+                .style("stroke-dasharray", ("2,2"))
         }
         console.log(CHOSEN)
     });
-};
+}
+
+// function defineTooltipping() {
+
+//     tooltip = d3.select('body')
+//         .append("div")  // declare the tooltip div 
+//         .attr("id", "tooltip")              // apply the 'tooltip' class
+//         .style("opacity", 0)
+
+//     utrs.on("mouseover", function (d) {
+//         tooltip.html(d.alignment)
+//             .transition()
+//             .duration(5)
+//             .style("opacity", .9)
+//             .style("left", (d3.event.pageX) + "px")
+//             .style("top", (d3.event.pageY - 28) + "px");
+//     });
+
+//     utrs.on("mouseout", function (d) {
+//         tooltip.transition()
+//             .duration(5)
+//             .style("opacity", 0);
+//     });
+// }
