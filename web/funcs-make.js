@@ -13,7 +13,7 @@ function makeLinegs() {
         .style('cursor', 'pointer')
 };
 
-function makeSelectors() {
+function makeSelectors2() {
     var SHOWING = new Map();
     for (var x of JSONDATA) if (!SHOWING.has(x.cm)) { SHOWING.set(x.cm, 1) };
     var data = Array(...SHOWING.keys())
@@ -25,12 +25,10 @@ function makeSelectors() {
         'cinactive': 'white',
     }
 
-
-
     var cmbox = d3.select('#cm-box')
         .attr('width', 300)
         // .attr("viewBox", "0,0,300,200")
-        .attr('height',data.length*(specs.h+2)+10)
+        .attr('height', data.length * (specs.h + 2) + 10)
         .selectAll('cmbox')
         .data(data)
         .enter()
@@ -63,6 +61,91 @@ function makeSelectors() {
         .text(d => d)
         .attr('transform', `translate(150,${specs.h / 2 + 5})`)
         .style("text-anchor", "middle")
+}
+
+function makeSelectors() {
+    var SHOWING = new Map();
+    for (var x of JSONDATA) if (!SHOWING.has(x.cm)) { SHOWING.set(x.cm, 1) };
+    var data = Array(...SHOWING.keys())
+
+    var specs = {
+        'h': 30,
+        'w': 260,
+        'cactive': 'orange',
+        'cinactive': 'white',
+    }
+
+    var cmbox = d3.select('#container')
+        .selectAll('cmbox')
+        .data(data)
+        .enter()
+        .append('div')
+        .attr('class', 'cm-box-rect')
+        .text(function (d) { return d })
+        .style('color', '#eeeeee')
+        // .style('float', 'left')
+        .style('display', 'inline-block')
+        .style('padding', '2px 4px')
+        .style('margin', '3px')
+        .style('border-radius', '2px')
+        .style('cursor', 'pointer')
+
+    cmbox.on('click', function (d, i) {
+        SHOWING.get(d) == 1 ? SHOWING.set(d, 0.1) : SHOWING.set(d, 1);
+
+        utrs.select('rect').attr('selector-opacity', function (d) {
+            return SHOWING.get(d.cm)
+        });
+
+        updateUtrsOpacity();
+
+
+
+        d3.select(this)
+            // .style('', function (d) {
+            //     return SHOWING.get(d)
+            // })
+            .style('border-color',d3.select(this).style('background-color'))
+            .style('background-color','transparent')
+            .style('color','#333333')
+    })
+
+    // .attr('height')
+    // .attr('width', 300)
+    // // .attr("viewBox", "0,0,300,200")
+    // .attr('height',data.length*(specs.h+2)+10)
+    // .selectAll('cmbox')
+    // .data(data)
+    // .enter()
+    // .append('div')
+    // .attr('transform', function (d, i) { return `translate(0,${i * (specs.h + 2) + 10})` })
+    // .style('cursor', 'pointer')
+
+    // cmbox.append('rect')
+    //     .attr('class', 'cm-box-rect')
+    //     .attr('fill', specs.cactive)
+    //     .attr('stroke', 'gray')
+    //     .attr('transform', `translate(20,0)`)
+    //     .attr('width', specs.w)
+    //     .attr('height', specs.h)
+    //     .on('click', function (d, i) {
+    //         SHOWING.get(d) == 1 ? SHOWING.set(d, 0.1) : SHOWING.set(d, 1);
+
+    //         utrs.select('rect').attr('selector-opacity', function (d) {
+    //             return SHOWING.get(d.cm)
+    //         });
+
+    //         updateUtrsOpacity();
+
+    //         d3.select(this).style('fill-opacity', function (d) {
+    //             return SHOWING.get(d) + 0.15
+    //         });
+    //     })
+
+    // cmbox.append('text')
+    //     .text(d => d)
+    //     .attr('transform', `translate(150,${specs.h / 2 + 5})`)
+    //     .style("text-anchor", "middle")
 }
 
 

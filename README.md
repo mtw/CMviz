@@ -15,6 +15,9 @@
 - [ ] upload meme output, poster with graphic for presentation, additional cmout
 - [ ] extend draggable region
 
+## Tasks - next
+- [ ] make display panel with data
+
 ## Notes :scroll:
 - `InfernalUtils3.py`, `RNAUtils3.py` are Python3 compatible
 - `imports.py` puts Vienna RNA package on path if not already on path
