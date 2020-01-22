@@ -8,60 +8,9 @@ function makeLinegs() {
 
         .attr('transform', function (d, i) {
             return `translate(${SPECS.svg_left_gap}, ${POSLIST[PI[i]]})`
-            // return `translate(0, ${POSLIST[PI[i]]})`
         })
         .style('cursor', 'pointer')
 };
-
-function makeSelectors2() {
-    var SHOWING = new Map();
-    for (var x of JSONDATA) if (!SHOWING.has(x.cm)) { SHOWING.set(x.cm, 1) };
-    var data = Array(...SHOWING.keys())
-
-    var specs = {
-        'h': 30,
-        'w': 260,
-        'cactive': 'orange',
-        'cinactive': 'white',
-    }
-
-    var cmbox = d3.select('#cm-box')
-        .attr('width', 300)
-        // .attr("viewBox", "0,0,300,200")
-        .attr('height', data.length * (specs.h + 2) + 10)
-        .selectAll('cmbox')
-        .data(data)
-        .enter()
-        .append('g')
-        .attr('transform', function (d, i) { return `translate(0,${i * (specs.h + 2) + 10})` })
-        .style('cursor', 'pointer')
-
-    cmbox.append('rect')
-        .attr('class', 'cm-box-rect')
-        .attr('fill', specs.cactive)
-        .attr('stroke', 'gray')
-        .attr('transform', `translate(20,0)`)
-        .attr('width', specs.w)
-        .attr('height', specs.h)
-        .on('click', function (d, i) {
-            SHOWING.get(d) == 1 ? SHOWING.set(d, 0.1) : SHOWING.set(d, 1);
-
-            utrs.select('rect').attr('selector-opacity', function (d) {
-                return SHOWING.get(d.cm)
-            });
-
-            updateUtrsOpacity();
-
-            d3.select(this).style('fill-opacity', function (d) {
-                return SHOWING.get(d) + 0.15
-            });
-        })
-
-    cmbox.append('text')
-        .text(d => d)
-        .attr('transform', `translate(150,${specs.h / 2 + 5})`)
-        .style("text-anchor", "middle")
-}
 
 function makeSelectors() {
     var SHOWING = new Map();
@@ -88,64 +37,36 @@ function makeSelectors() {
         .style('padding', '2px 4px')
         .style('margin', '3px')
         .style('border-radius', '2px')
+        .style('border', '0.5px solid #333333')
         .style('cursor', 'pointer')
 
-    cmbox.on('click', function (d, i) {
-        SHOWING.get(d) == 1 ? SHOWING.set(d, 0.1) : SHOWING.set(d, 1);
+    // d3.selectAll('div.cm-box-rect')
+    cmbox
+        .on('click', function (d) {
 
-        utrs.select('rect').attr('selector-opacity', function (d) {
-            return SHOWING.get(d.cm)
+            if (SHOWING.get(d) == 1) {
+                SHOWING.set(d, 0.1);
+                d3.select(this)
+                    .style('border-color', d3.select(this).style('background-color'))
+                    .style('background-color', 'transparent')
+                    .style('color', '#333333')
+            } else {
+                SHOWING.set(d, 1);
+                d3.select(this)
+                    .style('background-color', d3.select(this).style('border-color'))
+                    .style('border-color', '#333333')
+                    .style('color', 'white')
+            }
+
+            utrs.select('rect')
+                .attr('selector-opacity', function (d) {
+                    return SHOWING.get(d.cm)
+                });
+
+            updateUtrsOpacity();
+
         });
 
-        updateUtrsOpacity();
-
-
-
-        d3.select(this)
-            // .style('', function (d) {
-            //     return SHOWING.get(d)
-            // })
-            .style('border-color',d3.select(this).style('background-color'))
-            .style('background-color','transparent')
-            .style('color','#333333')
-    })
-
-    // .attr('height')
-    // .attr('width', 300)
-    // // .attr("viewBox", "0,0,300,200")
-    // .attr('height',data.length*(specs.h+2)+10)
-    // .selectAll('cmbox')
-    // .data(data)
-    // .enter()
-    // .append('div')
-    // .attr('transform', function (d, i) { return `translate(0,${i * (specs.h + 2) + 10})` })
-    // .style('cursor', 'pointer')
-
-    // cmbox.append('rect')
-    //     .attr('class', 'cm-box-rect')
-    //     .attr('fill', specs.cactive)
-    //     .attr('stroke', 'gray')
-    //     .attr('transform', `translate(20,0)`)
-    //     .attr('width', specs.w)
-    //     .attr('height', specs.h)
-    //     .on('click', function (d, i) {
-    //         SHOWING.get(d) == 1 ? SHOWING.set(d, 0.1) : SHOWING.set(d, 1);
-
-    //         utrs.select('rect').attr('selector-opacity', function (d) {
-    //             return SHOWING.get(d.cm)
-    //         });
-
-    //         updateUtrsOpacity();
-
-    //         d3.select(this).style('fill-opacity', function (d) {
-    //             return SHOWING.get(d) + 0.15
-    //         });
-    //     })
-
-    // cmbox.append('text')
-    //     .text(d => d)
-    //     .attr('transform', `translate(150,${specs.h / 2 + 5})`)
-    //     .style("text-anchor", "middle")
 }
 
 
@@ -211,14 +132,14 @@ function makeEvalueSlider() {
         .attr('x', maxValue + 10)
         .attr('y', y)
         .text('...')
-}
+};
 
 function makeBitscoreSlider() {
 
     function dragCircle() {
-        var selectedValue = d3.event.x
+        var selectedValue = d3.event.x - minValue
 
-        if (selectedValue < 0) selectedValue = 0;
+        if (selectedValue < minValue) selectedValue = minValue;
         if (selectedValue > maxValue) selectedValue = maxValue;
 
         valueCircle.attr('cx', selectedValue);
@@ -227,9 +148,9 @@ function makeBitscoreSlider() {
 
         d3.event.sourceEvent.stopPropagation()
 
-        var normedValue = selectedValue / maxValue;
+        // var normedValue = selectedValue / (maxValue;
 
-        var bitscore = normedValue * 200
+        var bitscore = selectedValue / (maxValue-minValue) * maxValue
         valueText.text(bitscore.toFixed(1))
 
         utrs.selectAll('rect').attr('bitscore-opacity', function (d) {
@@ -240,30 +161,47 @@ function makeBitscoreSlider() {
 
     }
 
+    console.log(JSONDATA)
+
+    var minValue = Number.POSITIVE_INFINITY
+    var maxValue = Number.NEGATIVE_INFINITY
+
+    for (obj of JSONDATA) {
+        if (obj.bitscore > maxValue){
+            maxValue = obj.bitscore
+        }
+        if (obj.bitscore < minValue){
+            minValue = obj.bitscore
+        }
+    }
+
+    console.log(maxValue)
+
     var obj = d3.select('#svg-bitscore')
         .append('g')
         .attr('transform', `translate(20,0)`)
 
-    var maxValue = 200.0;
+    // var minValue = 0;
+    // var maxValue = 200.0;
     var y = 20;
-    var selectedValue = 0.0;
+    var selectedValue = minValue;
 
     var emptyLine = obj.append('line')
         .attr('x1', 0)
-        .attr('x2', selectedValue)
+        .attr('x2', selectedValue-minValue)
         .attr('y1', y)
         .attr('y2', y)
         .style('stroke', 'black')
 
     var valueLine = obj.append('line')
-        .attr('x1', selectedValue)
-        .attr('x2', maxValue)
+        .attr('x1', selectedValue-minValue)
+        .attr('x2', maxValue-minValue)
         .attr('y1', y)
         .attr('y2', y)
         .style('stroke', 'red')
 
     var valueCircle = obj.append('circle')
-        .attr('cx', selectedValue)
+        .attr('cx', selectedValue-minValue)
         .attr('cy', y)
         .attr('r', 7)
         .attr('fill', 'red')
@@ -274,8 +212,8 @@ function makeBitscoreSlider() {
     var valueText = obj.append('text')
         .attr('x', maxValue + 10)
         .attr('y', y)
-        .text('...')
-}
+        .text(minValue)
+};
 
 // creates the "static" elements: sequence name, tickbox and sequence line
 function makeFrame() {
@@ -335,21 +273,60 @@ function makeUTRs() {
         .attr('evalue-opacity', 1)
         .attr('selector-opacity', 1)
         .attr('bitscore-opacity', 1)
+    // .style('border','0.5px solid #333333')
+};
 
+// fills in the p-tags in the info panel
+function makeInfoPanel() {
 
+    var divinfo = d3.select("div#info div")
+
+    var fields = [
+        'rank', 'inc', 'evalue', 'bitscore', 'bias', 'mdl', 'cm_start', 'cm_end',
+        'mdl_alntype', 'seq_start', 'seq_end', 'strand',
+        'seq_alntype', 'acc', 'gc', 'trunc', 'seq', 'cm', 'uid',
+    ]
+
+    var p = divinfo.selectAll('p')
+        .data(fields)
+        .enter()
+        .append('p')
+        .attr('class', 'toolbar-information-p')
+        .text(d => d + ': ')
+        .append('span')
+        .text('...')
+        .style('font-weight', 'normal')
+        .attr('id', d => d)
 
 };
 
+// creates the tooltip
+function makeTooltip() {
 
+    var tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        // .text("~~~ alignment ~~~")
+        // .style("font-style","italic")
+        .style("text-align", "center")
+        .style("visibility", "hidden")
+        .attr("id", "tooltip")
+        .append("pre")
+        .style("font-style", "normal")
+        .style("margin", 0);
 
-function updateUtrsOpacity() {
-    utrs.selectAll('rect').attr('fill-opacity', function (d) {
-        var ego = d3.select(this)
-
-        return Math.min(
-            ego.attr('evalue-opacity'),
-            ego.attr('selector-opacity'),
-            ego.attr('bitscore-opacity'),
-        )
-    })
+    // mouseover behavior defined elsewhere
 };
+
+
+function makeUploadButton() {
+    d3.select("#uploader")
+        .append('span')
+        .attr('id', 'upload-button')
+        .text('Click and pick file')
+
+    d3.select('#uploader')
+        .append('span')
+        .text(' (accepted format is .blabla)')
+}

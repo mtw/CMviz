@@ -8,44 +8,58 @@
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Roboto&display=swap" rel="stylesheet">
 </head>
 
+
 <body>
 
-    <div id="wrapper">
-        <div id="top">
-            <div id="topleft">
-                <h1 style='margin:0'>UTR tool</h1>
+    <div>
+
+        <div id="toolbar" style="padding:15px;">
+            <!-- <h1 style="line-height:30px;background-color:lightgreen;margin:0;padding:20px 20px;border-radius:5px;">UTR
+                Tool</h1> -->
+            <div style="position:relative;margin:10px 0 20px 0">
+                <img src="logo3.png" alt="UTR" width=40 height=40 style="margin-left:20px;">
+                <h1 style="display:inline;position:absolute;top:0;margin:3px 0px 0 5px;line-height: 40px;;">UTR Tool
+                </h1>
+            </div>
+
+            <div id="uploader">
+                <p class="toolbar-header">UPLOAD</p>
 
             </div>
-            <div id="topright">blabla</div>
-        </div>
-        <div id="middle">
-            <div id="middleleft" style='padding:0'>
-                <!-- <span>asdf</span> -->
-                <div id="container"> 
-                    <!-- style="height:300px; overflow-y: scroll"> -->
-                    <!-- <svg id="cm-box"></svg> -->
+
+            <div id="container">
+                <p class="toolbar-header">CM TYPES</p>
+            </div>
+
+            <div>
+                <p class="toolbar-header">SELECTION</p>
+                <div style="padding-left:10px;">
+                    <p style='color:black;margin:0;'>evalue</p>
+                    <svg id="svg-evalue"></svg>
+                    <p style='color:black;margin:0;'>bitscore</p>
+                    <svg id="svg-bitscore"></svg>
                 </div>
-                <span style='color:black'>evalue</span>
-                <svg id="svg-evalue"></svg>
-                <span style='color:black'>bitscore</span>
-                <svg id="svg-bitscore"></svg>
-                <!-- <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange" onchange="d3.select()">
-                    <input type="text" min="1" max="100" value="50" i>
-                </div> -->
             </div>
-            <div id="middleright"><svg id='main'></svg>
+
+            <div id="info">
+                <p class="toolbar-header">INFORMATION</p>
+                <div style="padding-left:10px;"></div>
+            </div>
+
+            <div id="selected">
+                <p class="toolbar-header">SELECTED</p>
+                <span></span>
             </div>
         </div>
-        <div id="bottom">
-            <div id="bottomleft">bla2</div>
-            <div id="bottomright">bla3</div>
+
+        <div style="position:absolute;top:0;left:280px;margin:20px;bottom:0;right:0;">
+            <div style="width:100%;height:100%;overflow:scroll;">
+                <svg id='main'></svg>
+            </div>
         </div>
     </div>
 
 
-
-    <!-- <svg id='dash'></svg> -->
     <script src="hsvtoRgb.js"></script>
     <script src="funcs-make.js"></script>
     <script src="funcs-behave.js"></script>

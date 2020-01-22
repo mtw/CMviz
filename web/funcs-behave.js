@@ -59,22 +59,6 @@ function defineDragging() {
 };
 
 function defineTicking() {
-    //     tickboxes = d3.selectAll('rect.tickbox');
-    //     tickboxes.on('click', function (d, i) {
-    //         if (CHOSEN.includes(d.key)) {
-    //             CHOSEN.splice(CHOSEN.indexOf(i), 1);
-    //             d3.select(this)
-    //                 .attr('fill', 'grey')
-    //         }
-    //         else {
-    //             CHOSEN.push(d.key);
-    //             d3.select(this)
-    //                 .attr('fill', '#1495db')
-    //         }
-    //         console.log(CHOSEN)
-    //     });
-    // };
-
     utrs.on('click', function (d, i) {
         if (CHOSEN.includes(d.rank)) {
             CHOSEN.splice(CHOSEN.indexOf(i), 1);
@@ -89,28 +73,68 @@ function defineTicking() {
                 .style("stroke-dasharray", ("2,2"))
         }
         console.log(CHOSEN)
+        d3.select('#selected span').text(CHOSEN)
     });
 }
 
-// function defineTooltipping() {
+function defineCMHovering() {
 
-//     tooltip = d3.select('body')
-//         .append("div")  // declare the tooltip div 
-//         .attr("id", "tooltip")              // apply the 'tooltip' class
-//         .style("opacity", 0)
+    var fields = [
+        'rank', 'inc', 'evalue', 'bitscore', 'bias', 'mdl', 'cm_start', 'cm_end',
+        'mdl_alntype', 'seq_start', 'seq_end', 'strand',
+        'seq_alntype', 'acc', 'gc', 'trunc', 'seq', 'cm', 'uid',
+    ]
 
-//     utrs.on("mouseover", function (d) {
-//         tooltip.html(d.alignment)
-//             .transition()
-//             .duration(5)
-//             .style("opacity", .9)
-//             .style("left", (d3.event.pageX) + "px")
-//             .style("top", (d3.event.pageY - 28) + "px");
-//     });
+    var tooltip = d3.select("div#tooltip")
 
-//     utrs.on("mouseout", function (d) {
-//         tooltip.transition()
-//             .duration(5)
-//             .style("opacity", 0);
-//     });
-// }
+    function updateFields(d) {
+        for (field of fields) {
+            d3.select(`div#info span#${field}`).text(d[field])
+        }
+    };
+
+    function eraseFields() {
+        for (field of fields) {
+            d3.select(`div#info span#${field}`).text('...')
+        }
+    }
+
+    function showTooltip(d) {
+        tooltip.style('visibility', 'visible')
+        tooltip.select("pre").text(d.alignment)
+    };
+
+
+    d3.selectAll('rect.cm')
+        .on('mouseover', function (d) {
+            updateFields(d);
+            showTooltip(d);
+
+        })
+        .on('mousemove', function (d) {
+            tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
+        })
+        .on('mouseout', function (d) {
+            tooltip.style('visibility', 'hidden')
+            // eraseFields()
+        })
+
+};
+
+
+function updateUtrsOpacity() {
+    utrs.selectAll('rect')
+        .attr('fill-opacity', function (d) {
+            var ego = d3.select(this)
+
+            return Math.min(
+                ego.attr('evalue-opacity'),
+                ego.attr('selector-opacity'),
+                ego.attr('bitscore-opacity'),
+            )
+        })
+};
+
+function clickCMBox() {
+    // it is in the makeSelectors because of the SHOWING array
+}

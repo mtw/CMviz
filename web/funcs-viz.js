@@ -75,4 +75,5 @@ function colorUTRs() {
         .style('background-color', function (d) {
             return rcolors[d];
         })
+        .attr('background-color', d => rcolors[d]);
 }

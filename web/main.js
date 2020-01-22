@@ -55,22 +55,17 @@ function main() {
     // position: line id
     PI = []; var i = 0; for (_ in UTRDATA) { PI.push(i); i++; };
 
+    
     // make funcs
-    // makePanel();
-
-    // d3.select('#panel').selectAll('linegs')
-    // .data(d3.entries(UTRDATA))
-    // .enter()
-    // .append('g')
-
-
     makeLinegs();
     makeFrame();
     makeUTRs();
-    // makeTooltips();
     makeSelectors();
     makeEvalueSlider();
     makeBitscoreSlider();
+    makeInfoPanel();
+    makeTooltip();
+    makeUploadButton();
 
     // viz funcs 
     fixWidth();
@@ -81,6 +76,6 @@ function main() {
     // behave funcs
     defineDragging();
     defineTicking();
-    // defineTooltipping();
-
+    defineCMHovering();
+    clickCMBox();
 };

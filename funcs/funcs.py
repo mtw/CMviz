@@ -29,7 +29,7 @@ def fancy_cmout_to_json(ipath, opath):
         "trunc",
         "seq",
         "cm",
-        'alignment',
+        "alignment",
         "uid",
     )
 

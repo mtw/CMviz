@@ -2,10 +2,19 @@
 - run localhost `python3 -m http.server`
 - http://localhost:8000/web/index.html
 
-## Tasks :wrench:
+## Tasks
+- [ ] consider creating Tooltip using HTML and CSS
+- [ ] consider making a general slider making function
+- [ ] consider deleting infopanel data upon mouseout
+- [ ] what to do with line lenghts?
+- [ ] re-layout for sliders
+- [ ] add alignment to clipboard
+- [ ] evalue and bitscore make limits depend on max and min of the data
+
+## Tasks(old) :wrench:
 - [ ] update headers of genomes.csv
 - [ ] can upload (multiple) CM search output file
-- [ ] take strand orientation in account (+ above, - below)
+- [x] take strand orientation in account (+ above, - below)
 - [ ] thin black line, align left
 - [ ] tooltip: monospace,
 - [ ] be able to select hits
