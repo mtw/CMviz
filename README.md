@@ -10,6 +10,7 @@
 - [ ] re-layout for sliders
 - [ ] add alignment to clipboard
 - [ ] evalue and bitscore make limits depend on max and min of the data
+- [ ] fix RNA import
 
 ## Tasks(old) :wrench:
 - [ ] update headers of genomes.csv
