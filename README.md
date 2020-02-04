@@ -3,18 +3,16 @@
 - http://localhost:8000/web/index.html -->
 
 # Tasks
-- [ ] consider creating Tooltip using HTML and CSS
 - [ ] consider making a general slider making function
-- [ ] consider deleting infopanel data upon mouseout
 - [ ] what to do with line lenghts?
-- [ ] re-layout for sliders
-- [ ] add alignment to clipboard
-- [ ] evalue and bitscore make limits depend on max and min of the data
 - [ ] fix RNA import
 
 ## frontend
 - [ ] how to correctly regulate visibility of toolbar
 - [ ] fix selection of UTRs (numbers change)
+- [ ] evalue and bitscore make limits depend on max and min of the data
+- [ ] add alignment to clipboard
+- [ ] re-layout for sliders
 
 ## backend
 - [ ] upload multiple files (https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/)
