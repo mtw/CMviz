@@ -1,0 +1,26 @@
+{% load bootstrap4 %}
+
+<a class="btn btn-primary" href="/upload_file/name">Hallo</a>
+
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+
+<a class="btn btn-primary" href="/upload_file/file">Get started</a>
+{% endblock %}
+
+
+<form  method="post" class="form">
+    {% csrf_token %}
+    {% for field in form %}
+      {% bootstrap_field field %}
+    {% endfor %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    {% endbuttons %}
+</form>
