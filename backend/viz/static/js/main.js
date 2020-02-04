@@ -7,7 +7,7 @@ const SPECS = {
     group_gap: 25,
     group_length: 800,
     svg_left_gap: 200,
-    utrjsonFile: 'static/data/test_multi.json',
+    // utrjsonFile: 'static/data/test_multi.json',
     genomesFile: 'static/data/genomes.csv',
 };
 
@@ -18,14 +18,13 @@ var CHOSEN = [];
 var POSLIST, PI, UTRDATA, JSONDATA;
 const svg = d3.select('svg#main')
 
-
 // load data
 d3.csv(SPECS.genomesFile, function (idata) {
     for (var i in idata) {
         var line = idata[i]
         GENOMES[line[1]] = line
     };
-    d3.json(SPECS.utrjsonFile, function (error, idata) {
+    d3.json(fileToDisplay, function (error, idata) {
         JSONDATA = idata;
         UTRDATA = getUtrData();
         main();
