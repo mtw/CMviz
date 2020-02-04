@@ -57,7 +57,8 @@ ROOT_URLCONF = 'CMviz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/matthias/Uni/Bioinformatik/WS19_20/SEP/CMviz/CMviz/templates/'],
+        # 'DIRS': ['/home/matthias/Uni/Bioinformatik/WS19_20/SEP/CMviz/CMviz/templates/'],
+        'DIRS': ['/mnt/m/projects-active/uniW19/UE softdev/CMviz/CMviz/CMviz/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

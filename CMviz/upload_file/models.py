@@ -1,5 +1,5 @@
 from django.db import models
-from InfernalUtils import CmsearchOut
+# from InfernalUtils import CmsearchOut
 # Create your models here.
 
 
