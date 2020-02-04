@@ -7,8 +7,8 @@ const SPECS = {
     group_gap: 25,
     group_length: 800,
     svg_left_gap: 200,
-    utrjsonFile: 'static/test_multi.json',
-    genomesFile: 'static/genomes.csv',
+    utrjsonFile: 'static/data/test_multi.json',
+    genomesFile: 'static/data/genomes.csv',
 };
 
 
