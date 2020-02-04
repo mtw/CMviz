@@ -11,18 +11,10 @@
 - [ ] add alignment to clipboard
 - [ ] evalue and bitscore make limits depend on max and min of the data
 - [ ] fix RNA import
+- [ ] ha
 
-## Tasks(old) :wrench:
-- [ ] update headers of genomes.csv
-- [ ] can upload (multiple) CM search output file
-- [x] take strand orientation in account (+ above, - below)
-- [ ] thin black line, align left
-- [ ] tooltip: monospace,
-- [ ] be able to select hits
-- [ ] add overview of cm's which are clickable (so that all hits of that cm are displayed in the graphic)
-- [ ] output: identifier + sequence hit
-- [ ] control menu on the left: scrollbar for evalues, bitscores, 
-- [ ] upload meme output, poster with graphic for presentation, additional cmout
+## Tasks frontend
+- [ ] how to correctly regulate visibility of toolbar
 
 ## Notes :scroll:
 - `InfernalUtils3.py`, `RNAUtils3.py` are Python3 compatible

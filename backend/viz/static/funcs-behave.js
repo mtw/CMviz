@@ -6,9 +6,13 @@ function defineDragging() {
             d3.select(this).selectAll('.utr')
                 .transition(2)
                 .style('opacity', 0.5)
+
             d3.select(this).selectAll('line')
                 .transition(2)
                 .style('opacity', 0.5)
+
+            d3.select("#tooltip")
+                .style('opacity', 0)
         })
 
         .on("drag", function (d, i) {
@@ -48,6 +52,10 @@ function defineDragging() {
             d3.select(this).selectAll('line')
                 .transition(2)
                 .style('opacity', 1);
+
+
+            d3.select("#tooltip")
+                .style('opacity', 1)
 
             // return dragged item to its place
             linegs.transition()
