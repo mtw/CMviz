@@ -3,7 +3,8 @@ from django.shortcuts import render
 from .forms import UploadFileForm
 
 
-UPLOAD_LOCATION = 'uploader/uploads'
+# UPLOAD_LOCATION = 'uploader/uploads'
+UPLOAD_LOCATION = 'viz/static/uploads'
 
 
 def upload_file(request):
