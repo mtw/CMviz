@@ -21,8 +21,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'viz',
-    'upload_file',
-    'bootstrap4',
+    'uploader',
+    # 'upload_file',
+    # 'bootstrap4',
 ]
 
 MIDDLEWARE = [

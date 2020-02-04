@@ -1,0 +1,23 @@
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <h1>Upload</h1>
+
+</html> -->
+
+
+<a class="btn btn-primary" href="/upload">Hallo</a>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+

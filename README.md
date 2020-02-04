@@ -16,6 +16,9 @@
 ## Tasks frontend
 - [ ] how to correctly regulate visibility of toolbar
 
+## Tasks backend
+- [ ] upload multiple files (https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/)
+
 ## Notes :scroll:
 - `InfernalUtils3.py`, `RNAUtils3.py` are Python3 compatible
 - `imports.py` puts Vienna RNA package on path if not already on path
