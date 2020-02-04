@@ -2,22 +2,25 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import UploadFileForm
 
-# Imaginary function to handle an uploaded file.
-# from somewhere import handle_uploaded_file
+
+UPLOAD_LOCATION = 'uploader/uploads'
+
 
 def upload_file(request):
+
+    def handle_file(f):
+        path = f'{UPLOAD_LOCATION}/{f._name}'
+        with open(path, 'wb+') as destination:
+            for chunk in f.chunks():
+                destination.write(chunk)
+
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
+
         if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/')
+            handle_file(request.FILES['file'])
+            return render(request, 'viz/main.html')
     else:
         form = UploadFileForm()
+
     return render(request, 'uploader/upload.html', {'form': form})
-
-
-def handle_uploaded_file(f):
-    print(f.__dict__)
-    with open(f._name, 'wb+') as destination:
-        for chunk in f.chunks():
-            destination.write(chunk)
