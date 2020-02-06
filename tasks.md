@@ -22,7 +22,7 @@
 - [ ] evalue and bitscore make limits depend on max and min of the data
 - [ ] add alignment to clipboard
 - [ ] re-layout for sliders
-- [ ] add + -
+- [x] add + -
 - [x] FASTA, penultimate line (remove gaps), identifier, position (separator |)
     <!-- // >DONV_JQ086551.1|141|215|+
     // [penultimate line without gaps] -->
