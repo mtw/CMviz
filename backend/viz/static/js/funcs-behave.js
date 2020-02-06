@@ -69,7 +69,7 @@ function defineDragging() {
 function defineTicking() {
     utrs.on('click', function (d, i) {
         if (CHOSEN.includes(d.rank)) {
-            CHOSEN.splice(CHOSEN.indexOf(i), 1);
+            CHOSEN.splice(CHOSEN.indexOf(d.rank), 1); // i -> d.rank
             d3.select(this)
                 .attr('stroke-width', 0);
         }
@@ -80,7 +80,7 @@ function defineTicking() {
                 .attr('stroke-width', 2)
                 .style("stroke-dasharray", ("2,2"))
         }
-        console.log(CHOSEN)
+        // console.log(CHOSEN)
         d3.select('#selected span').text(CHOSEN)
     });
 }

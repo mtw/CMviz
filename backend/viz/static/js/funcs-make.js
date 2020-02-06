@@ -150,7 +150,7 @@ function makeBitscoreSlider() {
 
         // var normedValue = selectedValue / (maxValue;
 
-        var bitscore = selectedValue / (maxValue-minValue) * maxValue
+        var bitscore = selectedValue / (maxValue - minValue) * maxValue
         valueText.text(bitscore.toFixed(1))
 
         utrs.selectAll('rect').attr('bitscore-opacity', function (d) {
@@ -167,10 +167,10 @@ function makeBitscoreSlider() {
     var maxValue = Number.NEGATIVE_INFINITY
 
     for (obj of JSONDATA) {
-        if (obj.bitscore > maxValue){
+        if (obj.bitscore > maxValue) {
             maxValue = obj.bitscore
         }
-        if (obj.bitscore < minValue){
+        if (obj.bitscore < minValue) {
             minValue = obj.bitscore
         }
     }
@@ -188,20 +188,20 @@ function makeBitscoreSlider() {
 
     var emptyLine = obj.append('line')
         .attr('x1', 0)
-        .attr('x2', selectedValue-minValue)
+        .attr('x2', selectedValue - minValue)
         .attr('y1', y)
         .attr('y2', y)
         .style('stroke', 'black')
 
     var valueLine = obj.append('line')
-        .attr('x1', selectedValue-minValue)
-        .attr('x2', maxValue-minValue)
+        .attr('x1', selectedValue - minValue)
+        .attr('x2', maxValue - minValue)
         .attr('y1', y)
         .attr('y2', y)
         .style('stroke', 'red')
 
     var valueCircle = obj.append('circle')
-        .attr('cx', selectedValue-minValue)
+        .attr('cx', selectedValue - minValue)
         .attr('cy', y)
         .attr('r', 7)
         .attr('fill', 'red')
@@ -329,4 +329,11 @@ function makeUploadButton() {
     d3.select('#uploader')
         .append('span')
         .text(' (accepted format is .blabla)')
+}
+
+function makeDownloadButton() {
+    d3.select('#selected')
+        .append('span')
+        .attr('id', 'download-button')
+        .text('Download selection')
 }

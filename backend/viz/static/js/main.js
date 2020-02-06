@@ -65,6 +65,7 @@ function main() {
     makeInfoPanel();
     makeTooltip();
     makeUploadButton();
+    makeDownloadButton();
 
     // viz funcs 
     fixWidth();
