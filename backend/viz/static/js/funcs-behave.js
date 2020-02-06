@@ -81,7 +81,7 @@ function defineTicking() {
                 .style("stroke-dasharray", ("2,2"))
         }
         // console.log(CHOSEN)
-        d3.select('#selected span').text(CHOSEN)
+        d3.select('#selected #current').text(CHOSEN)
     });
 }
 

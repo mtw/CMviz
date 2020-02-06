@@ -324,7 +324,7 @@ function makeUploadButton() {
     d3.select("#uploader")
         .append('span')
         .attr('id', 'upload-button')
-        .text('Click and pick file')
+        .text('upload file!')
 
     d3.select('#uploader')
         .append('span')
@@ -332,8 +332,40 @@ function makeUploadButton() {
 }
 
 function makeDownloadButton() {
+
+    // http://simey.me/saving-loading-files-with-javascript/
+
+    function returnFASTA() {
+        
+        function extractUTRFasta(rank){
+            var utr = JSONDATA[rank];
+            var almnt = utr.alignment.split('\n');
+            almnt.pop();
+            almnt = almnt.pop();
+            almnt = almnt.replace(/-/g,'');
+            console.log(almnt)
+            var text = `>${utr.seq}|${utr.seq_start}|${utr.seq_end}|${utr.strand}\n${almnt}\n`
+            return text
+        }
+
+        var text = '';
+        for (rank of CHOSEN){
+            text += extractUTRFasta(rank);
+        }
+
+        // var data = JSON.stringify(text);
+        d3.select(this).attr('href', 'data:application/octet-stream,' + text);
+    }
+
     d3.select('#selected')
-        .append('span')
+        .append('a')
         .attr('id', 'download-button')
-        .text('Download selection')
+        .text('download selection!')
+        .attr('download', 'CMViz_selection.fasta')
+        .style('text-decoration', 'none')
+        .on('click', returnFASTA)
+
+    // >DONV_JQ086551.1|141|215|+
+    // [penultimate line without gaps]
+
 }

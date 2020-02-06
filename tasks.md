@@ -13,6 +13,8 @@
 - [ ] stress test!
 - [ ] add README.md
 
+## questions
+- [ ] include *[] in FASTA output?
 
 ## frontend
 - [ ] how to correctly regulate visibility of toolbar
@@ -21,12 +23,13 @@
 - [ ] add alignment to clipboard
 - [ ] re-layout for sliders
 - [ ] add + -
-- [ ] FASTA, penultimate line (remove gaps), identifier, position (separator |)
+- [x] FASTA, penultimate line (remove gaps), identifier, position (separator |)
     <!-- // >DONV_JQ086551.1|141|215|+
     // [penultimate line without gaps] -->
 - [ ] landing page: dependencies, dummy example, mini tutorial
 - [ ] consider compressed layout
 - [ ] length selection slider
+
 
 ## backend
 - [ ] upload multiple files (https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/)
