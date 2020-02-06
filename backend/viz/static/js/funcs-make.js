@@ -236,6 +236,17 @@ function makeFrame() {
         .attr('stroke-width', 0.7)
         .attr('stroke', '#222222')
         .attr('stroke-linecap', 'round')
+
+    linegs.append('text')
+        .text('+')
+        .attr('x', 0)
+        .attr('y', SPECS.group_height / 8 - 4)
+
+
+    linegs.append('text')
+        .text('−')
+        .attr('x', 0)
+        .attr('y', SPECS.group_height / 8 + 8)
 };
 
 // make UTR groups with: colored rect, text and hover tooltip
@@ -336,20 +347,20 @@ function makeDownloadButton() {
     // http://simey.me/saving-loading-files-with-javascript/
 
     function returnFASTA() {
-        
-        function extractUTRFasta(rank){
+
+        function extractUTRFasta(rank) {
             var utr = JSONDATA[rank];
             var almnt = utr.alignment.split('\n');
             almnt.pop();
             almnt = almnt.pop();
-            almnt = almnt.replace(/-/g,'');
+            almnt = almnt.replace(/-/g, '');
             console.log(almnt)
             var text = `>${utr.seq}|${utr.seq_start}|${utr.seq_end}|${utr.strand}\n${almnt}\n`
             return text
         }
 
         var text = '';
-        for (rank of CHOSEN){
+        for (rank of CHOSEN) {
             text += extractUTRFasta(rank);
         }
 
