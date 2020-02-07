@@ -1,66 +1,189 @@
-//Slider Properties
-var width = 320;
 
-var maxValue = 100;
-var minValue = 10;
-var initialValue = minValue;
-var color = "#51CB3F";
-var emptyColor = "#ECECEC";
-var thumbColor = "white";
-var lineWidth = 6;
-var thumbSize = 6;
-////////////////////////////////////////
+function makeEvalueSlider() {
 
-var NormValue = (initialValue - minValue) / (maxValue - minValue); // value normalized between 0-1
-var selectedValue;
-var svg2 = d3.select("#vis").append("svg2").attr('width', width + 30).attr("viewBox", '-15,0,' + (width + 30) + ',40');
-// d3.select('#maxValue')
-// document.getElementById("maxValue").innerHTML = maxValue;
-document.getElementById("value").value = initialValue;
+    function dragCircle() {
+        var selectedValue = d3.event.x
 
-function dragEnded() {
-    selectedValue = d3.event.x;
+        if (selectedValue < 0) selectedValue = 0;
+        if (selectedValue > maxValue) selectedValue = maxValue;
 
-    if (selectedValue < 0)
-        selectedValue = 0;
-    else if (selectedValue > width)
-        selectedValue = width;
+        valueCircle.attr('cx', selectedValue);
+        valueLine.attr('x2', selectedValue);
+        emptyLine.attr('x1', selectedValue);
 
-    NormValue = selectedValue / width;
-    valueCircle.attr("cx", selectedValue);
-    valueLine.attr("x2", width * NormValue);
-    emptyLine.attr("x1", width * NormValue);
+        d3.event.sourceEvent.stopPropagation()
 
-    d3.event.sourceEvent.stopPropagation();
-    document.getElementById("value").value = (NormValue * (maxValue - minValue) + minValue).toFixed(2)
-}
+        var normedValue = selectedValue / maxValue;
+        var exponent = normedValue * 101 - 100
+        var evalue = 10 ** exponent
+        valueText.text(evalue.toExponential(1))
 
-//Line to represent the current value
-var valueLine = svg2.append("line")
-    .attr("x1", 0)
-    .attr("x2", width * NormValue)
-    .attr("y1", 20)
-    .attr("y2", 20)
-    .style("stroke", color)
-    .style("stroke-linecap", "round")
-    .style("stroke-width", lineWidth);
+        utrs.selectAll('rect').attr('evalue-opacity', function (d) {
+            return d.evalue >= evalue ? 0.1 : 1;
+        });
 
-//Line to show the remaining value
-var emptyLine = svg2.append("line")
-    .attr("x1", width * NormValue)
-    .attr("x2", width)
-    .attr("y1", 20)
-    .attr("y2", 20)
-    .style("stroke", emptyColor)
-    .style("stroke-linecap", "round")
-    .style("stroke-width", lineWidth);
+        updateUtrsOpacity()
 
-//Draggable circle to represent the current value
-var valueCircle = svg2.append("circle")
-    .attr("cx", width * NormValue)
-    .attr("cy", 20)
-    .attr("r", thumbSize)
-    .style("stroke", "black")
-    .style("stroke-width", 1)
-    .style("fill", thumbColor)
-    .call(d3.drag().on("drag", dragEnded));
+    }
+
+    var obj = d3.select('#svg-evalue')
+        .append('g')
+        .attr('transform', `translate(20,0)`)
+
+    var maxValue = 200;
+    var y = 20;
+    var selectedValue = maxValue;
+
+    var emptyLine = obj.append('line')
+        .attr('x1', selectedValue)
+        .attr('x2', maxValue)
+        .attr('y1', y)
+        .attr('y2', y)
+        .style('stroke', 'black')
+
+    var valueLine = obj.append('line')
+        .attr('x1', 0)
+        .attr('x2', selectedValue)
+        .attr('y1', y)
+        .attr('y2', y)
+        .style('stroke', 'red')
+
+    var valueCircle = obj.append('circle')
+        .attr('cx', selectedValue)
+        .attr('cy', y)
+        .attr('r', 7)
+        .attr('fill', 'red')
+        .attr('stroke', '#333333')
+        .attr('stroke-width', 0.7)
+        .call(d3.drag().on('drag', dragCircle))
+
+    var valueText = obj.append('text')
+        .attr('x', maxValue + 10)
+        .attr('y', y)
+        .text('...')
+};
+
+function makeSlider(scoreType) {
+
+    // var opacityType = 'bitscore-opacity'
+    // var scoreType = 'bitscore'
+    // var d3SelectPosition = '#svg-bitscore'
+    // var selectedValueProp = 0
+
+
+    var minValue = Number.POSITIVE_INFINITY;
+    var maxValue = Number.NEGATIVE_INFINITY;
+
+
+    for (obj of JSONDATA) {
+        if (obj[scoreType] > maxValue) {
+            maxValue = obj[scoreType]
+        }
+        if (obj[scoreType] < minValue) {
+            minValue = obj[scoreType]
+        }
+    }
+
+    minValue = minValue - 1e-10;
+    maxValue = maxValue + 1e-10;
+
+    var totalLength = 170;
+
+    if (scoreType == 'evalue') {
+        var d3SelectPosition = '#svg-evalue'
+        var opacityType = 'evalue-opacity'
+        var selectedValueProp = 1
+        function xToValue(x) {
+            return minValue + x / totalLength * (maxValue - minValue)
+        }
+
+        function valueToX(value) {
+            return (value - minValue) / (maxValue - minValue) * totalLength
+        }
+
+        function getText(score) {
+            return score.toExponential(1)
+        }
+
+    } else if (scoreType == 'bitscore') {
+        var d3SelectPosition = '#svg-bitscore'
+        var opacityType = 'bitscore-opacity'
+        var selectedValueProp = 0
+
+        function xToValue(x) {
+            return minValue + x / totalLength * (maxValue - minValue)
+        }
+
+        function valueToX(value) {
+            return (value - minValue) / (maxValue - minValue) * totalLength
+        }
+
+        function getText(score) {
+            return score.toFixed(1)
+        }
+
+    }
+
+
+    function dragCircle() {
+        var x = d3.event.x;
+        d3.event.sourceEvent.stopPropagation()
+
+        if (x < 0) x = 0;
+        if (x > totalLength) x = totalLength;
+
+        valueCircle.attr('cx', x);
+        valueLine.attr('x1', x);
+        emptyLine.attr('x2', x);
+
+
+        var score = xToValue(x)
+        var text = getText(score)
+        valueText.text(text)
+
+
+        utrs.selectAll('rect').attr(opacityType, function (d) {
+            return d[scoreType] < score ? 0.1 : 1;
+        });
+
+        updateUtrsOpacity()
+
+    }
+
+
+    var selectedValue = minValue + selectedValueProp * (maxValue - minValue);
+
+    var obj = d3.select(d3SelectPosition)
+        .append('g')
+        .attr('transform', `translate(20,0)`)
+
+    var y = 20;
+
+    var emptyLine = obj.append('line')
+        .attr('x1', 0)
+        .attr('x2', valueToX(selectedValue))
+        .attr('y1', y)
+        .attr('y2', y)
+        .style('stroke', 'black')
+
+    var valueLine = obj.append('line')
+        .attr('x1', valueToX(selectedValue))
+        .attr('x2', totalLength)
+        .attr('y1', y)
+        .attr('y2', y)
+        .style('stroke', 'red')
+
+    var valueCircle = obj.append('circle')
+        .attr('cx', valueToX(selectedValue))
+        .attr('cy', y)
+        .attr('r', 7)
+        .attr('fill', 'red')
+        .attr('stroke', '#333333')
+        .attr('stroke-width', 0.7)
+        .call(d3.drag().on('drag', dragCircle))
+
+    var valueText = obj.append('text')
+        .attr('x', totalLength + 10)
+        .attr('y', y)
+        .text(getText(selectedValue))
+};

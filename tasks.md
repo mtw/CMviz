@@ -21,7 +21,7 @@
 - [x] fix selection of UTRs (numbers change)
 - [ ] evalue and bitscore make limits depend on max and min of the data
 - [ ] add alignment to clipboard
-- [ ] re-layout for sliders
+- [x] re-layout for sliders
 - [x] add + -
 - [x] FASTA, penultimate line (remove gaps), identifier, position (separator |)
     <!-- // >DONV_JQ086551.1|141|215|+
@@ -29,6 +29,7 @@
 - [ ] landing page: dependencies, dummy example, mini tutorial
 - [ ] consider compressed layout
 - [ ] length selection slider
+- [ ] slider exponential change for evalue
 
 
 ## backend
