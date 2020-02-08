@@ -15,7 +15,7 @@
 - [ ] include *[] in FASTA output?
 
 ## frontend
-- [ ] slider exponential change for evalue
+- [x] slider exponential change for evalue
 - [x] fix selection of UTRs (numbers change)
 - [x] evalue and bitscore make limits depend on max and min of the data
 - [x] re-layout for sliders

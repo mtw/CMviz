@@ -60,9 +60,10 @@ function main() {
     makeFrame();
     makeUTRs();
     makeSelectors();
-    // makeEvalueSlider();
-    makeSlider('evalue');
-    makeSlider('bitscore');
+    makeEvalueSlider();
+    makeBitscoreSlider();
+    // makeSlider('evalue');
+    // makeSlider('bitscore');
 
     
     // var opacityType = 'bitscore-opacity'
