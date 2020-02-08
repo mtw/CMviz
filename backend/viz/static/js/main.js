@@ -62,19 +62,6 @@ function main() {
     makeSelectors();
     makeEvalueSlider();
     makeBitscoreSlider();
-    // makeSlider('evalue');
-    // makeSlider('bitscore');
-
-    
-    // var opacityType = 'bitscore-opacity'
-    // var scoreType = 'bitscore'
-    // var d3SelectPosition = '#svg-bitscore'
-    // var selectedValueProp = 0
-
-    // var slider = new Slider();
-    // slider.calcMinMax();
-    // slider.selectedValue = slider.minValue
-    // slider.makeObjs('#svg-bitscore');
 
     makeInfoPanel();
     makeTooltip();

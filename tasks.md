@@ -10,6 +10,8 @@
 - [ ] wiki documentation, tutorial
 - [ ] stress test!
 - [ ] add README.md
+- [ ] make favicon
+- [ ] make logo
 
 ## questions
 - [ ] include *[] in FASTA output?
@@ -21,8 +23,9 @@
 - [x] re-layout for sliders
 - [x] add + -
 - [x] FASTA, penultimate line (remove gaps), identifier, position (separator |)
-- [ ] style viz buttons on hover
-- [ ] redesign slider
+- [x] style viz buttons on hover
+- [x] redesign slider
+- [ ] make dragging utr independent
 
 ## frontend - landing page
 - [ ] dependencies, dummy example, mini tutorial
@@ -33,6 +36,11 @@
 - [ ] how to correctly regulate visibility of toolbar
 - [ ] add alignment to clipboard
 - [ ] using scales instead of xtovalue functions
+- [ ] knobbed slider
+- [ ] use gradients for rect fill
+- [ ] continuous sliders on both sides
+- [ ] add buttons to configure visualization style
+- [ ] add show/hide diminished
 
 
 ## backend
@@ -60,3 +68,32 @@
 - ensure readability | font size 18px
 - when presenting software compare with alternatives
 - give use cases
+
+
+## data types from cmout
+### discrete
+- inc | true or false
+- mdl | cm or hmm
+- strand | + or -
+- mdl_alntype
+- seq_alntype
+- trunc | 5' or 3' or 5'3'
+
+### continuous
+- evalue
+- bitscore
+- bias
+- cm_start
+- cm_end
+- seq_start
+- seq_end
+- acc
+- gc
+
+### identifiers
+- rank
+- seq
+- cm
+
+### other
+- alignment

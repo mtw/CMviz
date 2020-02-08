@@ -12,65 +12,6 @@ function makeLinegs() {
         .style('cursor', 'pointer')
 };
 
-function makeSelectors() {
-    var SHOWING = new Map();
-    for (var x of JSONDATA) if (!SHOWING.has(x.cm)) { SHOWING.set(x.cm, 1) };
-    var data = Array(...SHOWING.keys())
-
-    var specs = {
-        'h': 30,
-        'w': 260,
-        'cactive': 'orange',
-        'cinactive': 'white',
-    }
-
-    var cmbox = d3.select('#container')
-        .selectAll('cmbox')
-        .data(data)
-        .enter()
-        .append('div')
-        .attr('class', 'cm-box-rect')
-        .text(function (d) { return d })
-        .style('color', '#eeeeee')
-        // .style('float', 'left')
-        .style('display', 'inline-block')
-        .style('padding', '2px 4px')
-        .style('margin', '3px')
-        .style('border-radius', '2px')
-        .style('border', '0.5px solid #333333')
-        .style('cursor', 'pointer')
-
-    // d3.selectAll('div.cm-box-rect')
-    cmbox
-        .on('click', function (d) {
-
-            if (SHOWING.get(d) == 1) {
-                SHOWING.set(d, 0.1);
-                d3.select(this)
-                    .style('border-color', d3.select(this).style('background-color'))
-                    .style('background-color', 'transparent')
-                    .style('color', '#333333')
-            } else {
-                SHOWING.set(d, 1);
-                d3.select(this)
-                    .style('background-color', d3.select(this).style('border-color'))
-                    .style('border-color', '#333333')
-                    .style('color', 'white')
-            }
-
-            utrs.select('rect')
-                .attr('selector-opacity', function (d) {
-                    return SHOWING.get(d.cm)
-                });
-
-            updateUtrsOpacity();
-
-        });
-
-}
-
-
-
 // creates the "static" elements: sequence name, tickbox and sequence line
 function makeFrame() {
 
@@ -142,46 +83,5 @@ function makeUTRs() {
     // .style('border','0.5px solid #333333')
 };
 
-// fills in the p-tags in the info panel
-function makeInfoPanel() {
 
-    var divinfo = d3.select("div#info div")
-
-    var fields = [
-        'rank', 'inc', 'evalue', 'bitscore', 'bias', 'mdl', 'cm_start', 'cm_end',
-        'mdl_alntype', 'seq_start', 'seq_end', 'strand',
-        'seq_alntype', 'acc', 'gc', 'trunc', 'seq', 'cm', //'uid',
-    ]
-
-    var p = divinfo.selectAll('p')
-        .data(fields)
-        .enter()
-        .append('p')
-        .attr('class', 'toolbar-information-p')
-        .text(d => d + ': ')
-        .append('span')
-        .text('...')
-        .style('font-weight', 'normal')
-        .attr('id', d => d)
-
-};
-
-// creates the tooltip
-function makeTooltip() {
-
-    var tooltip = d3.select("body")
-        .append("div")
-        .style("position", "absolute")
-        .style("z-index", "10")
-        // .text("~~~ alignment ~~~")
-        // .style("font-style","italic")
-        .style("text-align", "center")
-        .style("visibility", "hidden")
-        .attr("id", "tooltip")
-        .append("pre")
-        .style("font-style", "normal")
-        .style("margin", 0);
-
-    // mouseover behavior defined elsewhere
-};
 

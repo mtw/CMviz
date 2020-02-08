@@ -63,7 +63,8 @@ function makeBitscoreSlider() {
 
     var obj = d3.select('#svg-bitscore')
         .style('height', y * 2)
-        .style('width', totalLength + 50 + 50)
+        .style('height', 20)
+        .style('width', totalLength + 50 + 60)
         .append('g')
         .attr('transform', `translate(62,0)`)
 
@@ -173,14 +174,14 @@ function makeEvalueSlider() {
     }
 
 
+    var y = 10;
+
     var obj = d3.select('#svg-evalue')
         .style('height', y * 2)
         .style('width', totalLength + 50 + 60)
         .append('g')
         .attr('transform', `translate(62,0)`)
 
-
-    var y = 20;
 
     // var leftLine = obj.append('line')
     //     .attr('x1', 0)

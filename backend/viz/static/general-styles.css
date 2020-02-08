@@ -37,6 +37,7 @@ html, body {
 
 .button:hover {
   background-color: hsl(210, 100%, 66%);
+  /* filter: brightness(0.9); */
 }
 
 .button:active {
