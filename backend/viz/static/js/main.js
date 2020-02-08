@@ -3,8 +3,8 @@
 
 // define specs
 const SPECS = {
-    group_height: 15,
-    group_gap: 25,
+    group_height: 10,
+    group_gap: 15,
     group_length: 800,
     svg_left_gap: 200,
     // utrjsonFile: 'static/data/test_multi.json',

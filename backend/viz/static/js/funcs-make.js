@@ -234,11 +234,6 @@ function makeDownloadButton() {
         .text('download selection!')
         .style('text-decoration', 'none')
         .attr('download', 'CMViz_selection.fasta')
-        // .attr('href', null)
         .on('click', returnFASTA)
-    // returnFASTA
-
-    // >DONV_JQ086551.1|141|215|+
-    // [penultimate line without gaps]
 
 }

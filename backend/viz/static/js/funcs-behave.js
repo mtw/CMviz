@@ -76,9 +76,11 @@ function defineTicking() {
                 .attr('stroke-width', 0);
             if (CHOSEN.size == 0) {
                 d3.select('#download-button')
-                    .style('background-color', 'gray')
-                    .style('cursor', 'help')
-                    .attr('title', 'no selected CMs')
+                    .classed('downloadable', false)
+                // d3.select('#download-button')
+                //     .style('background-color', 'gray')
+                //     .style('cursor', 'help')
+                //     .attr('title', 'no selected CMs')
             }
         }
         else {
@@ -90,14 +92,15 @@ function defineTicking() {
 
             if (CHOSEN.size == 1) {
                 d3.select('#download-button')
-                    .style('background-color', 'green')
-                    .style('cursor', 'pointer')
+                    .classed('downloadable', true)
+                // .style('background-color', 'green')
+                // .style('cursor', 'pointer')
             }
         }
 
-        console.log(CHOSEN, CHOSEN.size)
+        // console.log(CHOSEN, CHOSEN.size)
 
-        d3.select('#selected #current').text(CHOSEN)
+        d3.select('#selected #current').text(Array.from(CHOSEN))
     });
 }
 
