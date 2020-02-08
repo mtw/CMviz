@@ -6,6 +6,7 @@
 <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-drag.v1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'general-styles.css' %}">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Roboto&display=swap" rel="stylesheet">
@@ -27,14 +28,18 @@
             </div>
 
             <div id="uploader">
-                <p class="toolbar-header">UPLOAD</p>
-            </div>
+                <p class="toolbar-header">I/O</p>
+            <!-- </div> -->
 
-            <div id="selected">
-                <p class="toolbar-header">DOWNLOAD</p>
+            <!-- <div id="selected"> -->
+                <!-- <p class="toolbar-header">DOWNLOAD</p> -->
+                <div class="button">upload file</div>
+
+                <a class="button unclickable" id="download-button">download selection</a>
+
                 <!-- <p id="current"></p> -->
             </div>
-            
+
             <div id="container">
                 <p class="toolbar-header">CM TYPES</p>
             </div>
@@ -61,6 +66,8 @@
         </div>
     </div>
 
+    <script src="{% static 'js/upload-button.js' %}"></script>
+    <script src="{% static 'js/download-button.js' %}"></script>
     <script src="{% static 'js/slider.js' %}"></script>
     <script src="{% static 'js/hsvtoRgb.js' %}"></script>
     <script src="{% static 'js/funcs-make.js' %}"></script>
