@@ -1,5 +1,9 @@
 function makeBitscoreSlider() {
 
+
+    var totalLength = 120;
+    var y = 10;
+
     var minValue = Number.POSITIVE_INFINITY;
     var maxValue = Number.NEGATIVE_INFINITY;
 
@@ -17,7 +21,6 @@ function makeBitscoreSlider() {
     minValue = minValue * 0.999;
     maxValue = maxValue * 1.001;
 
-    var totalLength = 170;
 
     var initPos = 0;
 
@@ -57,40 +60,52 @@ function makeBitscoreSlider() {
         updateUtrsOpacity();
     }
 
-    var obj = d3.select('#svg-bitscore')
-        .append('g')
-        .attr('transform', `translate(20,0)`)
 
-    var y = 20;
+    var obj = d3.select('#svg-bitscore')
+        .style('height', y * 2)
+        .style('width', totalLength + 50 + 50)
+        .append('g')
+        .attr('transform', `translate(62,0)`)
+
 
     var leftLine = obj.append('line')
         .attr('x1', 0)
         .attr('x2', initPos)
         .attr('y1', y)
         .attr('y2', y)
-        .style('stroke', 'red')
+        .style('stroke', '#ccc')
+        .style('stroke-linecap', 'round')
 
     var rightLine = obj.append('line')
         .attr('x1', initPos)
         .attr('x2', totalLength)
         .attr('y1', y)
         .attr('y2', y)
-        .style('stroke', 'green')
+        .style('stroke', '#ccc')
+        .style('stroke-width', 6)
+        .style('stroke-linecap', 'round')
 
 
     var valueCircle = obj.append('circle')
         .attr('cx', initPos)
         .attr('cy', y)
         .attr('r', 7)
-        .attr('fill', 'gray')
-        .attr('stroke', '#333333')
+        .attr('fill', 'white')
+        .attr('stroke', '#666')
         .attr('stroke-width', 0.7)
         .call(d3.drag().on('drag', dragCircle))
 
-    var valueText = obj.append('text')
-        .attr('x', totalLength + 10)
-        .attr('y', y)
+    var valueText = d3.select('#svg-bitscore').append('text')
+        .attr('x', totalLength + 74)
+        .attr('y', y + 4)
         .text(getText(minValue))
+
+    d3.select('#svg-bitscore').append('text')
+        .attr('x', 50)
+        .attr('y', y + 4)
+        .attr('text-anchor', 'end')
+        .text('bitscore')
+
 };
 
 function makeEvalueSlider() {
@@ -114,7 +129,7 @@ function makeEvalueSlider() {
     console.log(minValue, maxValue);
     maxValue = maxValue * 1.001;
 
-    var totalLength = 170;
+    var totalLength = 120;
 
     var initPos = totalLength;
 
@@ -159,37 +174,75 @@ function makeEvalueSlider() {
 
 
     var obj = d3.select('#svg-evalue')
+        .style('height', y * 2)
+        .style('width', totalLength + 50 + 60)
         .append('g')
-        .attr('transform', `translate(20,0)`)
+        .attr('transform', `translate(62,0)`)
+
 
     var y = 20;
+
+    // var leftLine = obj.append('line')
+    //     .attr('x1', 0)
+    //     .attr('x2', initPos)
+    //     .attr('y1', y)
+    //     .attr('y2', y)
+    //     .style('stroke', 'green')
+
+    // var rightLine = obj.append('line')
+    //     .attr('x1', initPos)
+    //     .attr('x2', totalLength)
+    //     .attr('y1', y)
+    //     .attr('y2', y)
+    //     .style('stroke', 'red')
+
+    // var valueCircle = obj.append('circle')
+    //     .attr('cx', initPos)
+    //     .attr('cy', y)
+    //     .attr('r', 7)
+    //     .attr('fill', 'gray')
+    //     .attr('stroke', '#333333')
+    //     .attr('stroke-width', 0.7)
+    //     .call(d3.drag().on('drag', dragCircle))
+
+
 
     var leftLine = obj.append('line')
         .attr('x1', 0)
         .attr('x2', initPos)
         .attr('y1', y)
         .attr('y2', y)
-        .style('stroke', 'green')
+        .style('stroke', '#ccc')
+        .style('stroke-width', 6)
+        .style('stroke-linecap', 'round')
 
     var rightLine = obj.append('line')
         .attr('x1', initPos)
         .attr('x2', totalLength)
         .attr('y1', y)
         .attr('y2', y)
-        .style('stroke', 'red')
+        .style('stroke', '#ccc')
+        .style('stroke-linecap', 'round')
+
 
     var valueCircle = obj.append('circle')
         .attr('cx', initPos)
         .attr('cy', y)
         .attr('r', 7)
-        .attr('fill', 'gray')
-        .attr('stroke', '#333333')
+        .attr('fill', 'white')
+        .attr('stroke', '#666')
         .attr('stroke-width', 0.7)
         .call(d3.drag().on('drag', dragCircle))
 
-    var valueText = obj.append('text')
-        .attr('x', totalLength + 10)
-        .attr('y', y)
+    var valueText = d3.select('#svg-evalue').append('text')
+        .attr('x', totalLength + 74)
+        .attr('y', y + 4)
         .text(getText(maxValue))
+
+    d3.select('#svg-evalue').append('text')
+        .attr('x', 50)
+        .attr('y', y + 4)
+        .attr('text-anchor', 'end')
+        .text('evalue')
 };
 

@@ -150,7 +150,7 @@ function makeInfoPanel() {
     var fields = [
         'rank', 'inc', 'evalue', 'bitscore', 'bias', 'mdl', 'cm_start', 'cm_end',
         'mdl_alntype', 'seq_start', 'seq_end', 'strand',
-        'seq_alntype', 'acc', 'gc', 'trunc', 'seq', 'cm', 'uid',
+        'seq_alntype', 'acc', 'gc', 'trunc', 'seq', 'cm', //'uid',
     ]
 
     var p = divinfo.selectAll('p')

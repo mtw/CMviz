@@ -42,7 +42,7 @@ div#tooltip {
 }
 
 #svg-bitscore {
-  height: 40px;
+  width:300px;
 }
 
 #toolbar {
@@ -51,8 +51,8 @@ div#tooltip {
   left: 0;
   bottom: 0;
   width: 250px;
-  background: rgba(0,0,0,0.03);
-  border-right: 0.5px solid rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.03);
+  border-right: 0.5px solid rgba(0, 0, 0, 0.15);
 }
 
 .toolbar-header {

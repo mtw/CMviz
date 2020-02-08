@@ -30,6 +30,11 @@
                 <p class="toolbar-header">UPLOAD</p>
             </div>
 
+            <div id="selected">
+                <p class="toolbar-header">DOWNLOAD</p>
+                <!-- <p id="current"></p> -->
+            </div>
+            
             <div id="container">
                 <p class="toolbar-header">CM TYPES</p>
             </div>
@@ -37,9 +42,7 @@
             <div>
                 <p class="toolbar-header">SELECTION</p>
                 <div style="padding-left:10px;">
-                    <p style='color:black;margin:0;'>evalue</p>
                     <svg id="svg-evalue"></svg>
-                    <p style='color:black;margin:0;'>bitscore</p>
                     <svg id="svg-bitscore"></svg>
                 </div>
             </div>
@@ -49,11 +52,6 @@
                 <div style="padding-left:10px;"></div>
             </div>
 
-            <div id="selected">
-                <p class="toolbar-header">SELECTED</p>
-                <p id="current"></p>
-
-            </div>
         </div>
 
         <div style="position:absolute;top:0;left:280px;margin:20px;bottom:0;right:0;">
@@ -62,7 +60,7 @@
             </div>
         </div>
     </div>
-    
+
     <script src="{% static 'js/slider.js' %}"></script>
     <script src="{% static 'js/hsvtoRgb.js' %}"></script>
     <script src="{% static 'js/funcs-make.js' %}"></script>
