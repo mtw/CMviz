@@ -134,7 +134,6 @@ function makeUTRs() {
             return d.cm
         })
         .attr('class', 'cm')
-        // .attr('opacity', 0.95)
         .attr('rx', 1)
         .attr('ry', 1)
         .attr('evalue-opacity', 1)

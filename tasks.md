@@ -32,6 +32,7 @@
 - [ ] length selection slider
 - [ ] how to correctly regulate visibility of toolbar
 - [ ] add alignment to clipboard
+- [ ] using scales instead of xtovalue functions
 
 
 ## backend
