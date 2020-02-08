@@ -68,19 +68,35 @@ function defineDragging() {
 
 function defineTicking() {
     utrs.on('click', function (d, i) {
-        if (CHOSEN.includes(d.rank)) {
-            CHOSEN.splice(CHOSEN.indexOf(d.rank), 1); // i -> d.rank
+
+
+        if (CHOSEN.has(d.rank)) {
+            CHOSEN.delete(d.rank)
             d3.select(this)
                 .attr('stroke-width', 0);
+            if (CHOSEN.size == 0) {
+                d3.select('#download-button')
+                    .style('background-color', 'gray')
+                    .style('cursor', 'help')
+                    .attr('title', 'no selected CMs')
+            }
         }
         else {
-            CHOSEN.push(d.rank);
+            CHOSEN.add(d.rank)
             d3.select(this)
                 .attr('stroke', 'black')
                 .attr('stroke-width', 2)
-                .style("stroke-dasharray", ("2,2"))
+                .style("stroke-dasharray", ("2,2"));
+
+            if (CHOSEN.size == 1) {
+                d3.select('#download-button')
+                    .style('background-color', 'green')
+                    .style('cursor', 'pointer')
+            }
         }
-        // console.log(CHOSEN)
+
+        console.log(CHOSEN, CHOSEN.size)
+
         d3.select('#selected #current').text(CHOSEN)
     });
 }

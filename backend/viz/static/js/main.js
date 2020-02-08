@@ -14,7 +14,7 @@ const SPECS = {
 
 // define globals
 var GENOMES = {};
-var CHOSEN = [];
+var CHOSEN = new Set();
 var POSLIST, PI, UTRDATA, JSONDATA;
 const svg = d3.select('svg#main')
 

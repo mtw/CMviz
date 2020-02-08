@@ -22,6 +22,7 @@
 - [x] add + -
 - [x] FASTA, penultimate line (remove gaps), identifier, position (separator |)
 - [ ] landing page: dependencies, dummy example, mini tutorial
+- [ ] style viz buttons on hover
 
 ### frontend - consider
 - [ ] compressed layout

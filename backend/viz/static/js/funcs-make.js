@@ -202,7 +202,7 @@ function makeDownloadButton() {
 
     // http://simey.me/saving-loading-files-with-javascript/
 
-    function returnFASTA() {
+    function returnFASTA(me) {
 
         function extractUTRFasta(rank) {
             var utr = JSONDATA[rank];
@@ -210,27 +210,33 @@ function makeDownloadButton() {
             almnt.pop();
             almnt = almnt.pop();
             almnt = almnt.replace(/-/g, '');
-            console.log(almnt)
+            // console.log(almnt)
             var text = `>${utr.seq}|${utr.seq_start}|${utr.seq_end}|${utr.strand}\n${almnt}\n`
             return text
         }
 
-        var text = '';
-        for (rank of CHOSEN) {
-            text += extractUTRFasta(rank);
+        if (CHOSEN.size == 0) {
+            var href = null
+        } else {
+            var text = '';
+            for (rank of Array.from(CHOSEN)) {
+                text += extractUTRFasta(rank);
+            }
+            var href = 'data:application/octet-stream,' + text;
         }
 
-        // var data = JSON.stringify(text);
-        d3.select(this).attr('href', 'data:application/octet-stream,' + text);
+        d3.select(this).attr('href', href)
     }
 
     d3.select('#selected')
         .append('a')
         .attr('id', 'download-button')
         .text('download selection!')
-        .attr('download', 'CMViz_selection.fasta')
         .style('text-decoration', 'none')
+        .attr('download', 'CMViz_selection.fasta')
+        // .attr('href', null)
         .on('click', returnFASTA)
+    // returnFASTA
 
     // >DONV_JQ086551.1|141|215|+
     // [penultimate line without gaps]
