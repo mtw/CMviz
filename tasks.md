@@ -21,8 +21,11 @@
 - [x] re-layout for sliders
 - [x] add + -
 - [x] FASTA, penultimate line (remove gaps), identifier, position (separator |)
-- [ ] landing page: dependencies, dummy example, mini tutorial
 - [ ] style viz buttons on hover
+- [ ] redesign slider
+
+## frontend - landing page
+- [ ] dependencies, dummy example, mini tutorial
 
 ### frontend - consider
 - [ ] compressed layout
