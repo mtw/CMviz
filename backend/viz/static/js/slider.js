@@ -163,6 +163,7 @@ function makeDoubleSlider(scoreType, textType) {
             if (right < left) left = right;
         }
 
+        rightCircle.style('fill', right == left ? 'hsl(210, 100%, 90%)' : 'white')
 
 
         function updateInRange() {
