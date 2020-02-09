@@ -77,7 +77,6 @@ function main() {
         var scale = makeDoubleSlider(scoreType, textType);
         scales.push(scale);
     }
-    console.log(scales);
 
     discreteScores.map(scoreType => makeSausage(scoreType))
 
@@ -99,4 +98,7 @@ function main() {
     defineDragging();
     defineTicking();
     defineCMHovering();
+
+    makeCmfield();
+
 };
