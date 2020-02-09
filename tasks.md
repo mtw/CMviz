@@ -46,6 +46,7 @@
 - [ ] add buttons to configure visualization style
 - [ ] add show/hide diminished
 - [ ] turn evalue into exponent so you can work with it linearly
+- [ ] figure out positioning for hoverCircle
 
 
 ## backend

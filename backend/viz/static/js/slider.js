@@ -93,8 +93,9 @@ function makeDoubleSlider(scoreType, textType) {
             .style('stroke', '#ccc')
             .style('stroke-width', 5)
             .style('stroke-linecap', 'round')
-        // .on('mousemove', hoverLine)
-        // .on('mouseout', unhoverLine)
+            // .on('mouseover', hoverLine)
+            .on('mousemove', hoverLine)
+            .on('mouseout', unhoverLine)
 
         Line = obj.append('line')
             .attr('y1', y)
@@ -104,8 +105,21 @@ function makeDoubleSlider(scoreType, textType) {
             .style('stroke', 'dodgerblue')
             .style('stroke-width', 8)
             .style('stroke-linecap', 'round')
-        // .on('mousemove', hoverLine)
-        // .on('mouseout', unhoverLine)
+            // .on('mouseover', hoverLine)
+            .on('mousemove', hoverLine)
+            .on('mouseout', unhoverLine)
+
+
+        hoverCircle = obj.append('circle')
+            .classed('hoverCircle', true)
+            .attr('cy', y)
+            .attr('r', 6)
+            .style('fill', 'hsl(209.6,100%,90%)')
+            .style('stroke', '#666')
+            .style('stroke-width', 0.7)
+            .style('display', 'none')
+            .on('mousemove', hoverLine)
+            .on('mouseout', unhoverLine)
 
         leftCircle = obj.append('circle')
             .attr('cy', y)
@@ -115,7 +129,6 @@ function makeDoubleSlider(scoreType, textType) {
             .style('stroke', '#666')
             .style('stroke-width', 0.7)
             .attr('which', 'left')
-            // .style('opacity', 0.8)
             .call(dragHandler)
 
         rightCircle = obj.append('circle')
@@ -126,7 +139,6 @@ function makeDoubleSlider(scoreType, textType) {
             .style('stroke', '#666')
             .style('stroke-width', 0.7)
             .attr('which', 'right')
-            // .style('opacity', 0.9)
             .call(dragHandler)
 
         valueText = svg
@@ -141,16 +153,6 @@ function makeDoubleSlider(scoreType, textType) {
             .attr('text-anchor', 'end')
             .text(scoreType)
 
-        hoverCircle = obj.append('circle')
-            .classed('hoverCircle', true)
-            .attr('cy', y)
-            .attr('r', 6)
-            .style('fill', 'hsl(209.6,100%,90%)')
-            .style('stroke', '#666')
-            .style('stroke-width', 0.7)
-            .style('display', 'none')
-        // .on('mousemove', hoverLine)
-        // .on('mouseout', unhoverLine)
 
     }
 
@@ -180,6 +182,12 @@ function makeDoubleSlider(scoreType, textType) {
             d3.select(this).style('fill', 'hsl(210, 100%, 90%)')
         }
 
+
+        valueText.text(getText(scale(x)))
+        updatePositions();
+        updateInRange();
+        updateUtrsOpacity();
+
         function updateInRange() {
             var attrName = `${scoreType}-in-range`;
             var valLeft = scale(left);
@@ -188,10 +196,6 @@ function makeDoubleSlider(scoreType, textType) {
                 .attr(attrName, d => valLeft <= d[scoreType] && valRight >= d[scoreType])
         }
 
-        valueText.text(getText(scale(x)))
-        updatePositions();
-        updateInRange();
-        updateUtrsOpacity();
     }
 
     function dragCircleStart() {
@@ -205,15 +209,23 @@ function makeDoubleSlider(scoreType, textType) {
     }
 
     function hoverLine() {
-        console.log(d3.event.x)
+        var x = d3.event.x - 90
+
+        if (x < 0) x = 0;
+        if (x > totalLength) x = totalLength;
+
+
+        valueText.text(getText(scale(x)))
+
+        // console.log(newX)
         hoverCircle
-            .attr('cx', d3.event.x - 90)
+            .attr('cx', x)
             .style('display', 'initial')
     }
 
     function unhoverLine() {
-        hoverCircle
-            .style('display', 'none')
+        valueText.text(null)
+        hoverCircle.style('display', 'none')
     }
 };
 
