@@ -58,17 +58,7 @@ function main() {
     continuousScoresText = ['exp', 'float1', 'int', 'int', 'int', 'float2', 'float2']
     scales = [];
 
-
-
-    // - evalue
-    // - bitscore
-    // - bias
-    // - cm_start
-    // - cm_end
-    // - seq_start
-    // - seq_end
-    // - acc
-    // - gc
+    discreteScores = ['inc', 'mdl', 'strand', 'mdl_alntype', 'seq_alntype', 'trunc']
 
     // make funcs
     makeLinegs();
@@ -88,6 +78,8 @@ function main() {
         scales.push(scale);
     }
     console.log(scales);
+
+    discreteScores.map(scoreType => makeSausage(scoreType))
 
     makeUTRs();
     // makeDoubleSlider();

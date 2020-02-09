@@ -31,7 +31,9 @@
 - [x] on slider hover create circle and see value
 - [x] add all continuous sliders
 - [ ] add min width for the seq field and x-scale it as the window stretches
-- [ ] add discrete "sliders" / sausages
+- [x] add discrete "sliders" / sausages
+- [ ] add opacity control to sausages
+- [ ] fix centering of sausage links
 
 ## frontend - landing page
 - [ ] dependencies, dummy example, mini tutorial
@@ -50,6 +52,7 @@
 - [ ] turn evalue into exponent so you can work with it linearly
 - [ ] figure out positioning for hoverCircle
 - [ ] consider sorting the sequence groups by a criterion
+- [ ] restyle sausages
 
 
 ## backend
