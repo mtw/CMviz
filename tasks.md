@@ -38,7 +38,7 @@
 
 
 ### cm field
-- [ ] cm gradients
+- [x] cm gradients
 - [ ] add dragging to seq identifier (grab grabbing cursors)
 - [ ] add picking to cm's
 - [x] add hovering to cm's

@@ -16,11 +16,11 @@ function makeDownloadButton() {
             return text
         }
 
-        if (CHOSEN.size == 0) {
+        if (cmFieldChosen.size == 0) {
             var href = null
         } else {
             var text = '';
-            for (rank of Array.from(CHOSEN)) {
+            for (rank of Array.from(cmFieldChosen)) {
                 text += extractUTRFasta(rank);
             }
             var href = 'data:application/octet-stream,' + text;

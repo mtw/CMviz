@@ -14,6 +14,14 @@ function getData() {
     return data;
 }
 
+function getUniqueCm() {
+    var uniqueCm = new Set();
+    for (var cm of JSONDATA) {
+        uniqueCm.add(cm['cm'])
+    }
+    return Array.from(uniqueCm)
+}
+
 function makeCmfield() {
 
     var conf = {
@@ -26,6 +34,11 @@ function makeCmfield() {
 
     var data = getData();
 
+    console.log(JSONDATA)
+
+    var uniqueCm = getUniqueCm();
+    console.log(uniqueCm)
+    makeNGradients(uniqueCm);
 
     var root = d3.select('svg#cmfield')
         .attr('height', _ => Object.keys(data).length * conf.seqHeight)
@@ -100,7 +113,8 @@ function makeCmfield() {
         .attr('structure_type', d => d.cm)
         .attr('x', d => d.seq_start)
         .attr('y', d => d.strand == '+' ? conf.cmGap : conf.seqHeight / 2)
-        .attr('fill', 'red')
+        // .attr('fill', 'url(#grad1)')
+        .attr('fill', d => `url(#${d.cm})`)
         .on('mouseover', function (d) {
 
             // show tooltip
@@ -121,10 +135,62 @@ function makeCmfield() {
             d3.selectAll('text.valueText').text(null);
             d3.selectAll('circle.cmCircle').style('display', 'none');
         })
+        .on('click', function (d) {
+
+
+            if (cmFieldChosen.has(d.rank)) {
+                cmFieldChosen.delete(d.rank)
+                d3.select(this)
+                    .classed('chosen', false)
+                    .attr('fill', d => `url(#${d.cm})`)
+                    .attr('stroke-width', 0)
+
+                if (cmFieldChosen.size == 0) {
+                    d3.select('#download-button')
+                        .classed('downloadable', false)
+                        .classed('unclickable', true)
+                }
+            }
+            else {
+                cmFieldChosen.add(d.rank)
+                d3.select(this)
+                    .attr('fill', '#eee')
+                    .attr('stroke', 'gray')
+                    .attr('stroke-width', 0.5)
+                    .style("stroke-dasharray", ("2,2"))
+                    .classed('chosen', true)
+
+                blinkAnimation(d3.select(this))
+
+                if (cmFieldChosen.size == 1) {
+                    d3.select('#download-button')
+                        .classed('downloadable', true)
+                        .classed('unclickable', false)
+                }
+            }
+
+        });
 
 
     function getSeqLength() {
         return 700;
+    }
+
+}
+
+function blinkAnimation(obj) {
+
+    blink();
+
+    function blink() {
+        if (obj.classed('chosen')) {
+            obj.style('fill', 'red').transition().duration(2000)
+                .style('fill', 'gray').transition().duration(2000)
+                .style('fill', 'red').on('end', blink)
+        } else {
+            obj.attr('fill', d => `url(#${d.cm})`)
+
+        }
     }
 
 }

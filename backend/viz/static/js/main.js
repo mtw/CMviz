@@ -18,6 +18,8 @@ var CHOSEN = new Set();
 var POSLIST, PI, UTRDATA, JSONDATA;
 const svg = d3.select('svg#main')
 
+var cmFieldChosen = new Set();
+
 // load data
 d3.csv(SPECS.genomesFile, function (idata) {
     for (var i in idata) {
