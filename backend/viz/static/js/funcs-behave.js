@@ -148,13 +148,12 @@ function defineCMHovering() {
 function updateUtrsOpacity() {
     utrs.selectAll('rect')
         .attr('fill-opacity', function (d) {
-            var ego = d3.select(this)
+            var I = d3.select(this)
+            var ifInRange = score => I.attr(`${score}-in-range`) == "true"
+            var inAllRanges = continuousScores.every(ifInRange)
 
-            return Math.min(
-                ego.attr('evalue-opacity'),
-                ego.attr('selector-opacity'),
-                ego.attr('bitscore-opacity'),
-            )
+            return inAllRanges ? 1 : 0.1
+
         })
 };
 

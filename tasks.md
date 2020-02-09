@@ -27,7 +27,9 @@
 - [x] redesign slider
 - [ ] make dragging utr independent
 - [ ] add clicking mode: selection, diminishing
-- [ ] turn evalue into exponent so you can work with it linearly
+- [ ] on utr hover create circle on sliders and update valueText
+- [ ] on slider hover create circle and see value
+- [ ] add all continuous sliders
 
 ## frontend - landing page
 - [ ] dependencies, dummy example, mini tutorial
@@ -43,6 +45,7 @@
 - [ ] continuous sliders on both sides
 - [ ] add buttons to configure visualization style
 - [ ] add show/hide diminished
+- [ ] turn evalue into exponent so you can work with it linearly
 
 
 ## backend

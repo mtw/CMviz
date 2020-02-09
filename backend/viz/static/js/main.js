@@ -54,18 +54,39 @@ function main() {
     // position: line id
     PI = []; var i = 0; for (_ in UTRDATA) { PI.push(i); i++; };
 
+    continuousScores = ['evalue','bitscore','cm_end','seq_start','seq_end','acc','gc'] // 'bias','cm_start'
+    continuousScoresText = ['exp','float1','int','int','int','float2','float2']
     
+    
+// - evalue
+// - bitscore
+// - bias
+// - cm_start
+// - cm_end
+// - seq_start
+// - seq_end
+// - acc
+// - gc
+
     // make funcs
     makeLinegs();
     makeFrame();
     makeUTRs();
     makeSelectors();
-    makeEvalueSlider();
-    makeBitscoreSlider();
+    // makeEvalueSlider();
+    // makeBitscoreSlider();
     makeContinuousSlider();
     makeContinuousSlider();
     makeContinuousSlider();
     makeContinuousSlider();
+
+    for (var i in continuousScores){
+        var scoreType = continuousScores[i];
+        var textType = continuousScoresText[i];
+        makeDoubleSlider(scoreType, textType);
+    }
+
+    // makeDoubleSlider();
 
     makeInfoPanel();
     makeTooltip();

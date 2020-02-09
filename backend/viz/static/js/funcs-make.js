@@ -77,10 +77,15 @@ function makeUTRs() {
         .attr('class', 'cm')
         .attr('rx', 1)
         .attr('ry', 1)
-        .attr('evalue-opacity', 1)
-        .attr('selector-opacity', 1)
-        .attr('bitscore-opacity', 1)
+        // .attr('selector-opacity', 1)
+        // .attr('evalue-opacity', 1)
+        // .attr('bitscore-opacity', 1)
     // .style('border','0.5px solid #333333')
+
+    for (var score of continuousScores) {
+        utrs.selectAll('rect').attr(`${score}-in-range`, true)
+    }
+
 };
 
 
