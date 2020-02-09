@@ -115,6 +115,7 @@ function makeDoubleSlider(scoreType, textType) {
             .style('stroke', '#666')
             .style('stroke-width', 0.7)
             .attr('which', 'left')
+            // .style('opacity', 0.8)
             .call(dragHandler)
 
         rightCircle = obj.append('circle')
@@ -125,6 +126,7 @@ function makeDoubleSlider(scoreType, textType) {
             .style('stroke', '#666')
             .style('stroke-width', 0.7)
             .attr('which', 'right')
+            // .style('opacity', 0.9)
             .call(dragHandler)
 
         valueText = svg
@@ -170,7 +172,13 @@ function makeDoubleSlider(scoreType, textType) {
             if (right < left) left = right;
         }
 
-        rightCircle.style('fill', right == left ? 'hsl(210, 100%, 80%)' : 'white')
+
+        if (right == left) {
+            rightCircle.style('fill', 'hsl(210, 100%, 80%)')
+        } else {
+            rightCircle.style('fill', 'white')
+            d3.select(this).style('fill', 'hsl(210, 100%, 90%)')
+        }
 
         function updateInRange() {
             var attrName = `${scoreType}-in-range`;
@@ -180,26 +188,18 @@ function makeDoubleSlider(scoreType, textType) {
                 .attr(attrName, d => valLeft <= d[scoreType] && valRight >= d[scoreType])
         }
 
-
         valueText.text(getText(scale(x)))
         updatePositions();
-
         updateInRange();
         updateUtrsOpacity();
     }
 
     function dragCircleStart() {
         d3.select(this).style('fill', 'hsl(210, 100%, 90%)')
-        // var leftBrace = scale(left) == minValue ? '[ ' : '<';
-        // var rightBrace = scale(right) == maxValue ? ' ]' : '>';
-        // valueText.text(leftBrace + rightBrace)
         valueText.text(null)
     }
 
     function dragCircleEnd() {
-        // var leftBrace = scale(left) == minValue ? '[ ' : '<';
-        // var rightBrace = scale(right) == maxValue ? ' ]' : '>';
-        // valueText.text(leftBrace + rightBrace)
         d3.select(this).style('fill', 'white')
         valueText.text(null)
     }
