@@ -25,7 +25,7 @@ function makeDoubleSlider(scoreType, textType) {
     setScale();
 
     // make objects
-    var Line, leftCircle, rightCircle, valueText;
+    var Line, leftCircle, rightCircle, valueText, hoverCircle;
     makeObjs();
 
     /// FUNCTION DEFINITIONS
@@ -70,6 +70,7 @@ function makeDoubleSlider(scoreType, textType) {
     function makeObjs() {
 
         var dragHandler = d3.drag()
+            .on('start', dragCircleStart)
             .on('drag', dragCircle)
             .on('end', dragCircleEnd)
 
@@ -90,8 +91,10 @@ function makeDoubleSlider(scoreType, textType) {
             .attr('y1', y)
             .attr('y2', y)
             .style('stroke', '#ccc')
-            .style('stroke-width', 6)
+            .style('stroke-width', 5)
             .style('stroke-linecap', 'round')
+        // .on('mousemove', hoverLine)
+        // .on('mouseout', unhoverLine)
 
         Line = obj.append('line')
             .attr('y1', y)
@@ -99,8 +102,10 @@ function makeDoubleSlider(scoreType, textType) {
             .attr('x1', left)
             .attr('x2', right)
             .style('stroke', 'dodgerblue')
-            .style('stroke-width', 6)
+            .style('stroke-width', 8)
             .style('stroke-linecap', 'round')
+        // .on('mousemove', hoverLine)
+        // .on('mouseout', unhoverLine)
 
         leftCircle = obj.append('circle')
             .attr('cy', y)
@@ -137,11 +142,13 @@ function makeDoubleSlider(scoreType, textType) {
         hoverCircle = obj.append('circle')
             .classed('hoverCircle', true)
             .attr('cy', y)
-            .attr('r', 2)
-            .style('fill', 'rgba(0,0,0,0)')
-            .style('stroke', 'red')
-            .style('stroke-width', 1.4)
-            .style('opacity', 0)
+            .attr('r', 6)
+            .style('fill', 'hsl(209.6,100%,90%)')
+            .style('stroke', '#666')
+            .style('stroke-width', 0.7)
+            .style('display', 'none')
+        // .on('mousemove', hoverLine)
+        // .on('mouseout', unhoverLine)
 
     }
 
@@ -163,8 +170,7 @@ function makeDoubleSlider(scoreType, textType) {
             if (right < left) left = right;
         }
 
-        rightCircle.style('fill', right == left ? 'hsl(210, 100%, 90%)' : 'white')
-
+        rightCircle.style('fill', right == left ? 'hsl(210, 100%, 80%)' : 'white')
 
         function updateInRange() {
             var attrName = `${scoreType}-in-range`;
@@ -182,11 +188,32 @@ function makeDoubleSlider(scoreType, textType) {
         updateUtrsOpacity();
     }
 
-    function dragCircleEnd() {
+    function dragCircleStart() {
+        d3.select(this).style('fill', 'hsl(210, 100%, 90%)')
         // var leftBrace = scale(left) == minValue ? '[ ' : '<';
         // var rightBrace = scale(right) == maxValue ? ' ]' : '>';
         // valueText.text(leftBrace + rightBrace)
         valueText.text(null)
+    }
+
+    function dragCircleEnd() {
+        // var leftBrace = scale(left) == minValue ? '[ ' : '<';
+        // var rightBrace = scale(right) == maxValue ? ' ]' : '>';
+        // valueText.text(leftBrace + rightBrace)
+        d3.select(this).style('fill', 'white')
+        valueText.text(null)
+    }
+
+    function hoverLine() {
+        console.log(d3.event.x)
+        hoverCircle
+            .attr('cx', d3.event.x - 90)
+            .style('display', 'initial')
+    }
+
+    function unhoverLine() {
+        hoverCircle
+            .style('display', 'none')
     }
 };
 
