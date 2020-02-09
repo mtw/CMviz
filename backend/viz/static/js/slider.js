@@ -77,6 +77,7 @@ function makeDoubleSlider(scoreType, textType) {
             .append('svg')
             .style('height', y * 2)
             .style('width', totalLength + 65 + 60)
+            .classed(scoreType, true)
 
         var obj = svg
             .append('g')
@@ -105,9 +106,9 @@ function makeDoubleSlider(scoreType, textType) {
             .attr('cy', y)
             .attr('r', 7)
             .attr('cx', left)
-            .attr('fill', 'white')
-            .attr('stroke', '#666')
-            .attr('stroke-width', 0.7)
+            .style('fill', 'white')
+            .style('stroke', '#666')
+            .style('stroke-width', 0.7)
             .attr('which', 'left')
             .call(dragHandler)
 
@@ -115,14 +116,15 @@ function makeDoubleSlider(scoreType, textType) {
             .attr('cy', y)
             .attr('r', 7)
             .attr('cx', right)
-            .attr('fill', 'white')
-            .attr('stroke', '#666')
-            .attr('stroke-width', 0.7)
+            .style('fill', 'white')
+            .style('stroke', '#666')
+            .style('stroke-width', 0.7)
             .attr('which', 'right')
             .call(dragHandler)
 
         valueText = svg
             .append('text')
+            .classed('valueText', true)
             .attr('x', totalLength + 78)
             .attr('y', y + 4)
 
@@ -131,6 +133,16 @@ function makeDoubleSlider(scoreType, textType) {
             .attr('y', y + 4)
             .attr('text-anchor', 'end')
             .text(scoreType)
+
+        hoverCircle = obj.append('circle')
+            .classed('hoverCircle', true)
+            .attr('cy', y)
+            .attr('r', 2)
+            .style('fill', 'rgba(0,0,0,0)')
+            .style('stroke', 'red')
+            .style('stroke-width', 1.4)
+            .style('opacity', 0)
+
     }
 
     // behaviors

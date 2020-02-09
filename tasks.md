@@ -25,9 +25,9 @@
 - [x] FASTA, penultimate line (remove gaps), identifier, position (separator |)
 - [x] style viz buttons on hover
 - [x] redesign slider
+- [ ] on utr hover create circle on sliders and update valueText
 - [ ] make dragging utr independent
 - [ ] add clicking mode: selection, diminishing
-- [ ] on utr hover create circle on sliders and update valueText
 - [ ] on slider hover create circle and see value
 - [ ] add all continuous sliders
 
