@@ -56,6 +56,8 @@ function main() {
 
     continuousScores = ['evalue', 'bitscore', 'cm_end', 'seq_start', 'seq_end', 'acc', 'gc'] // 'bias','cm_start'
     continuousScoresText = ['exp', 'float1', 'int', 'int', 'int', 'float2', 'float2']
+    scales = [];
+
 
 
     // - evalue
@@ -82,8 +84,10 @@ function main() {
     for (var i in continuousScores) {
         var scoreType = continuousScores[i];
         var textType = continuousScoresText[i];
-        makeDoubleSlider(scoreType, textType);
+        var scale = makeDoubleSlider(scoreType, textType);
+        scales.push(scale);
     }
+    console.log(scales);
 
     makeUTRs();
     // makeDoubleSlider();

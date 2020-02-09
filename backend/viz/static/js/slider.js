@@ -33,11 +33,17 @@ function makeDoubleSlider(scoreType, textType) {
     // helper functions
     function setScale() {
         if (textType == 'exp') {
-            var deltae = Math.log(maxValue / minValue);
-            var minord = Math.log(minValue);
-            scale = x => Math.exp(1) ** (minord + deltae * (x / totalLength))
+            // var deltae = Math.log(maxValue / minValue);
+            // var minord = Math.log(minValue);
+            // // scale = x => Math.exp(1) ** (minord + deltae * (x / totalLength))
+            // scale = x => minValue * (maxValue / minValue) ** (x / totalLength)
+            scale = d3.scalePow()
+                .exponent(10)
+                .domain([0, totalLength])
+                .range([minValue, maxValue])
         } else {
-            scale = d3.scaleLinear().domain([0, totalLength])
+            scale = d3.scaleLinear()
+                .domain([0, totalLength])
                 .range([minValue, maxValue])
         }
     }
@@ -109,7 +115,6 @@ function makeDoubleSlider(scoreType, textType) {
             .on('mousemove', hoverLine)
             .on('mouseout', unhoverLine)
 
-
         hoverCircle = obj.append('circle')
             .classed('hoverCircle', true)
             .attr('cy', y)
@@ -141,6 +146,17 @@ function makeDoubleSlider(scoreType, textType) {
             .attr('which', 'right')
             .call(dragHandler)
 
+
+        cmCircle = obj.append('circle')
+            .classed('cmCircle', true)
+            .attr('cy', y)
+            .attr('r', 3)
+            // .style('fill', 'rgba(0,0,0,0.1)')
+            .style('fill','white')
+            .style('stroke', 'red')
+            .style('stroke-width', 0.7)
+            .style('display', 'none')
+
         valueText = svg
             .append('text')
             .classed('valueText', true)
@@ -152,7 +168,6 @@ function makeDoubleSlider(scoreType, textType) {
             .attr('y', y + 4)
             .attr('text-anchor', 'end')
             .text(scoreType)
-
 
     }
 
@@ -227,5 +242,7 @@ function makeDoubleSlider(scoreType, textType) {
         valueText.text(null)
         hoverCircle.style('display', 'none')
     }
+
+    return scale;
 };
 

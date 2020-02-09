@@ -1,28 +1,27 @@
-
-// make UTR groups with: colored rect, text and hover tooltip
 function makeUTRs() {
 
-    // create UTR containers for each UTR
+    // CM container groups
     utrs = linegs.selectAll('utrs')
         .data(d => d.value)
         .enter()
         .append('g')
-        .attr('class', 'utr')
+        .classed('utr', true)
         .attr('transform', function (d) {
             var ypos = d.strand == '+' ? -SPECS.group_height : 0;
             return `translate(${d.seq_start}, ${ypos})`
         })
         .attr('seq', d => d.seq)
 
-    // create a colored rectangle for each UTR
+    // CM rectangles
     var utrRect = utrs.append('rect')
+        .classed('cm', true)
         .attr('width', d => d.seq_end - d.seq_start)
         .attr('height', SPECS.group_height)
         .attr('structure_type', d => d.cm)
-        .attr('class', 'cm')
         .attr('rx', 1)
         .attr('ry', 1)
 
+    // add score-in-range attrs
     for (var score of continuousScores) {
         utrRect.attr(`${score}-in-range`, true)
     }
@@ -31,7 +30,7 @@ function makeUTRs() {
 };
 
 
-
+// is every score-in-range
 function updateUtrsOpacity() {
     utrs.selectAll('rect')
         .attr('fill-opacity', function (d) {
@@ -50,8 +49,22 @@ function updateSliders(d) {
     var updateValueText = scoreType => d3.select(`svg.${scoreType} .valueText`).text(d[scoreType]);
     continuousScores.map(updateValueText);
 
-    // update hoverCircle
-    var updateHoverCircle = scoreType => d3.select(`svg.${scoreType} .hoverCircle`).text(d[scoreType]);
+    // update cmCircle
+
+    for (var i in continuousScores) {
+        var scoreType = continuousScores[i];
+        var scale = scales[i];
+
+        var obj = d3.select(`svg.${scoreType} .cmCircle`);
+        var value = d[scoreType]
+        var x = scale.invert(value)
+
+        // console.log(obj);
+
+        obj.attr('cx', x)
+            .style('display', 'initial')
+    }
+
 
 }
 
@@ -95,7 +108,8 @@ function defineCMHovering() {
         })
         .on('mouseout', function (d) {
             tooltip.style('visibility', 'hidden');
-            d3.selectAll('text.valueText').text(null)
+            d3.selectAll('text.valueText').text(null);
+            d3.selectAll('circle.cmCircle').style('display', 'none');
         })
 
 
