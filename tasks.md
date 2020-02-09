@@ -25,11 +25,13 @@
 - [x] FASTA, penultimate line (remove gaps), identifier, position (separator |)
 - [x] style viz buttons on hover
 - [x] redesign slider
-- [ ] on utr hover create circle on sliders and update valueText
+- [x] on utr hover create circle on sliders and update valueText
 - [ ] make dragging utr independent
 - [ ] add clicking mode: selection, diminishing
-- [ ] on slider hover create circle and see value
-- [ ] add all continuous sliders
+- [x] on slider hover create circle and see value
+- [x] add all continuous sliders
+- [ ] add min width for the seq field and x-scale it as the window stretches
+- [ ] add discrete "sliders" / sausages
 
 ## frontend - landing page
 - [ ] dependencies, dummy example, mini tutorial
@@ -39,14 +41,15 @@
 - [ ] length selection slider
 - [ ] how to correctly regulate visibility of toolbar
 - [ ] add alignment to clipboard
-- [ ] using scales instead of xtovalue functions
+- [x] using scales instead of xtovalue functions
 - [ ] knobbed slider
 - [ ] use gradients for rect fill
-- [ ] continuous sliders on both sides
+- [x] continuous sliders on both sides
 - [ ] add buttons to configure visualization style
 - [ ] add show/hide diminished
 - [ ] turn evalue into exponent so you can work with it linearly
 - [ ] figure out positioning for hoverCircle
+- [ ] consider sorting the sequence groups by a criterion
 
 
 ## backend
