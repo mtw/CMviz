@@ -62,6 +62,10 @@ function main() {
     makeSelectors();
     makeEvalueSlider();
     makeBitscoreSlider();
+    makeContinuousSlider();
+    makeContinuousSlider();
+    makeContinuousSlider();
+    makeContinuousSlider();
 
     makeInfoPanel();
     makeTooltip();

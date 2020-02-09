@@ -26,6 +26,8 @@
 - [x] style viz buttons on hover
 - [x] redesign slider
 - [ ] make dragging utr independent
+- [ ] add clicking mode: selection, diminishing
+- [ ] turn evalue into exponent so you can work with it linearly
 
 ## frontend - landing page
 - [ ] dependencies, dummy example, mini tutorial

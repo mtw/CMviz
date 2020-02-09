@@ -58,3 +58,18 @@ div#tooltip {
   line-height: 40px;
   color: #333;
 } */
+
+.continuous-slider {
+  transition: 0.4s;
+  border-radius: 3px;
+  /* border: 0.5px solid gray; */
+}
+
+.continuous-slider:hover {
+  filter: drop-shadow(0 0 3px lightgray);
+  /* box-shadow: 0 0 5px #888888; */
+}
+
+/* .continuous-slider:active {
+  filter: brightness(1.05) drop-shadow(0 0 2px lightgray);
+} */

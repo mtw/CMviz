@@ -5,7 +5,7 @@
 
 <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://d3js.org/d3-drag.v1.min.js"></script>
+    <!-- <script src="https://d3js.org/d3-drag.v1.min.js"></script> -->
     <link rel="stylesheet" href="{% static 'general-styles.css' %}">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
@@ -16,7 +16,9 @@
     </script>
 </head>
 
-<body>
+<body oncontextmenu="return false">
+
+<!-- <body> -->
 
     <div>
 
@@ -42,10 +44,10 @@
             </div>
 
 
-            <div id="info">
+            <!-- <div id="info">
                 <p class="toolbar-header">Information</p>
                 <div id="info-container" style="padding-left:10px;"></div>
-            </div>
+            </div> -->
 
             <div>
                 <p class="toolbar-header">Selection</p>
@@ -60,6 +62,9 @@
                 <p class="toolbar-header">Covariance model types</p>
             </div>
 
+            <div id="continuous-sliders">
+                <p class="toolbar-header">Continuous sliders</p>
+            </div>
 
 
         </div>
@@ -71,6 +76,7 @@
         </div>
     </div>
 
+    <script src="{% static 'js/continuous-slider.js' %}"></script>
     <script src="{% static 'js/tooltip.js' %}"></script>
     <script src="{% static 'js/infobar.js' %}"></script>
     <script src="{% static 'js/selectors.js' %}"></script>
