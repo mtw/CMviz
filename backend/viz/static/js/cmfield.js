@@ -101,39 +101,52 @@ function makeCmfield() {
         .attr('x', d => d.seq_start)
         .attr('y', d => d.strand == '+' ? conf.cmGap : conf.seqHeight / 2)
         .attr('fill', 'red')
+        .on('mouseover', function (d) {
+
+            // show tooltip
+            d3.select("div#tooltip")
+                .style('visibility', 'visible')
+                .select("pre").text(d.alignment)
+
+            // update sliders
+            updateSliders(d);
+        })
+        .on('mousemove', function (d) {
+            d3.select("div#tooltip")
+                .style("top", (event.pageY) + "px")
+                .style("left", (event.pageX + 13) + "px");
+        })
+        .on('mouseout', function (d) {
+            d3.select("div#tooltip").style('visibility', 'hidden');
+            d3.selectAll('text.valueText').text(null);
+            d3.selectAll('circle.cmCircle').style('display', 'none');
+        })
 
 
     function getSeqLength() {
         return 700;
     }
 
-
-
-
-    //     .attr('asdf', function (d) { console.log(d); return 0 })
-
-
-    //     .classed('utr', true)
-    //     .attr('transform', function (d) {
-    //         var ypos = d.strand == '+' ? -SPECS.group_height : 0;
-    //         return `translate(${d.seq_start}, ${ypos})`
-    //     })
-    //     .attr('seq', d => d.seq)
-
-    // // CM rectangles
-    // var utrRect = utrs.append('rect')
-    //     .classed('cm', true)
-    //     .attr('width', d => d.seq_end - d.seq_start)
-    //     .attr('height', SPECS.group_height)
-    //     .attr('structure_type', d => d.cm)
-    //     .attr('rx', 1)
-    //     .attr('ry', 1)
-
-
-
-    // console.log(data);
-
-
-    // console.log(JSONDATA);
-    // console.log(UTRDATA);
 }
+
+// function updateSliders(d) {
+//     // update valueText
+//     var updateValueText = scoreType => d3.select(`svg.${scoreType} .valueText`).text(d[scoreType]);
+//     continuousScores.map(updateValueText);
+
+//     // update cmCircle
+
+//     for (var i in continuousScores) {
+//         var scoreType = continuousScores[i];
+//         var scale = scales[i];
+
+//         var obj = d3.select(`svg.${scoreType} .cmCircle`);
+//         var value = d[scoreType]
+//         var x = scale.invert(value)
+
+//         // console.log(obj);
+
+//         obj.attr('cx', x)
+//             .style('display', 'initial')
+//     }
+// }

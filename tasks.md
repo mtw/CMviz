@@ -34,11 +34,19 @@
 - [x] add discrete "sliders" / sausages
 - [ ] add opacity control to sausages
 - [ ] fix centering of sausage links
+- [ ] restyle tooltip
+
+
+### cm field
+- [ ] cm gradients
+- [ ] add dragging to seq identifier (grab grabbing cursors)
+- [ ] add picking to cm's
+- [x] add hovering to cm's
 
 ## frontend - landing page
 - [ ] dependencies, dummy example, mini tutorial
 
-### frontend - consider
+## frontend - consider
 - [ ] compressed layout
 - [ ] length selection slider
 - [ ] how to correctly regulate visibility of toolbar

@@ -13,6 +13,7 @@ function makeTooltip() {
         .attr("id", "tooltip")
         .append("pre")
         .style("font-style", "normal")
+        .style('font-size',6)
         .style("margin", 0);
 
     // mouseover behavior defined elsewhere
