@@ -61,11 +61,11 @@ function getUtrData() {
 function main() {
 
     // dlist of y0 positions of a group
-    POSLIST = JSONDATA.map((_, i) => SPECS.group_height * (i + 1) + SPECS.group_gap * i);
-    POSLIST.push(POSLIST[-1] + SPECS.group_height);
+    // POSLIST = JSONDATA.map((_, i) => SPECS.group_height * (i + 1) + SPECS.group_gap * i);
+    // POSLIST.push(POSLIST[-1] + SPECS.group_height);
 
     // position: line id
-    PI = []; var i = 0; for (_ in UTRDATA) { PI.push(i); i++; };
+    // PI = []; var i = 0; for (_ in UTRDATA) { PI.push(i); i++; };
 
     continuousScores = ['evalue', 'bitscore', 'cm_end', 'seq_start', 'seq_end', 'acc', 'gc'] // 'bias','cm_start'
     continuousScoresText = ['exp', 'float1', 'int', 'int', 'int', 'float2', 'float2']
@@ -74,15 +74,10 @@ function main() {
     discreteScores = ['inc', 'mdl', 'strand', 'mdl_alntype', 'seq_alntype', 'trunc']
 
     // make funcs
-    makeLinegs();
-    makeFrame();
+    // makeLinegs();
+    // makeFrame();
     makeSelectors();
     
-    // makeContinuousSlider();
-    // makeContinuousSlider();
-    // makeContinuousSlider();
-    // makeContinuousSlider();
-
     for (var i in continuousScores) {
         var scoreType = continuousScores[i];
         var textType = continuousScoresText[i];
@@ -92,8 +87,7 @@ function main() {
 
     discreteScores.map(scoreType => makeSausage(scoreType))
 
-    makeUTRs();
-    // makeDoubleSlider();
+    // makeUTRs();
 
     makeInfoPanel();
     makeTooltip();
@@ -101,14 +95,7 @@ function main() {
     makeDownloadButton();
 
 
-    // makeCmfieldBackground();
     makeCmfield();
-
-    // viz funcs 
-    // fixWidth();
-    // fixHeight();
-    // colorUTRs();
-    // fixLengths();
 
     // behave funcs
     defineDragging();
