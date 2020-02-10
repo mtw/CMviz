@@ -7,8 +7,8 @@ if __name__ == "__main__":
     odir = '../backend/viz/static/data'
 
     # ipath = 'example/all_dISFVG.DB__all_dISFVG_3UTR.20190905.fancy.cmout'
-    ipath = f'{idir}/all_DENVG_3UTR.3SL.cmout'
-    opath = f'{odir}/all_DENVG_3UTR.3SL.json'
+    ipath = f'{idir}/all_DENVG_3UTR.DB2.cmout'
+    opath = f'{odir}/all_DENVG_3UTR.DB2.json'
 
 
 

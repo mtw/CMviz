@@ -11,7 +11,7 @@ def fancy_cmout_to_json(ipath, opath):
     # opath = f"output/{ofile}"
 
     attrs = (
-        "rank",
+        # "rank",
         "inc",
         "evalue",
         "bitscore",

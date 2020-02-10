@@ -4,11 +4,11 @@
 
 # Tasks
 - [ ] what to do with line lenghts?
-- [ ] fix RNA import
+- [x] fix RNA import
 - [ ] 1! cmout to json
 - [ ] 3! cookies, uploading files, redirecting to viz
 - [ ] wiki documentation, tutorial
-- [ ] stress test!
+- [x] stress test!
 - [ ] add README.md
 - [ ] make favicon
 - [ ] make logo
