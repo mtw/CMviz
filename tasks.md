@@ -34,9 +34,10 @@
 - [x] add discrete "sliders" / sausages
 - [ ] add opacity control to sausages
 - [ ] fix centering of sausage links
-- [ ] restyle tooltip
+- [x] restyle tooltip
 - [ ] extract cm field background details into new function
 - [ ] can i specify class in selectAll before enter
+- [ ] check length of biggest seqText
 
 
 ### cm field

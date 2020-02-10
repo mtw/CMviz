@@ -77,12 +77,11 @@ function main() {
     makeLinegs();
     makeFrame();
     makeSelectors();
-    // makeEvalueSlider();
-    // makeBitscoreSlider();
-    makeContinuousSlider();
-    makeContinuousSlider();
-    makeContinuousSlider();
-    makeContinuousSlider();
+    
+    // makeContinuousSlider();
+    // makeContinuousSlider();
+    // makeContinuousSlider();
+    // makeContinuousSlider();
 
     for (var i in continuousScores) {
         var scoreType = continuousScores[i];
