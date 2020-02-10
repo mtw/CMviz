@@ -7,6 +7,6 @@ def main_visualization(request):
     return render(
         request,
         'viz/main.html',
-        # {'file_to_display': 'static/data/test_multi.json'}
-        {'file_to_display': 'static/uploads/upload1.json'}
+        {'file_to_display': 'static/data/test_multi2.json'}
+        # {'file_to_display': 'static/uploads/upload1.json'}
     )

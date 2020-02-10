@@ -28,42 +28,20 @@ function makeCmfield() {
 
     var data = getData();
 
-    console.log(JSONDATA)
+    // console.log(JSONDATA)
 
     var uniqueCm = getUniqueCm();
-    console.log(uniqueCm)
+    // console.log(uniqueCm)
     makeNGradients(uniqueCm);
+    makeCmfieldBackground(data);
 
     var root = d3.select('svg#cmfield')
+
+    root
         .attr('height', _ => Object.keys(data).length * conf.seqHeight)
-        .attr('width', 1000)
+        .attr('width','100%')
+        .style('top', conf.seqHeight*1)
 
-
-    // vertical grid lines
-    root
-        .append('g')
-        .selectAll('verticalLines')
-        .data([...Array(50).keys()])
-        .enter()
-        .append('line')
-        .attr('x1', d => d * 20 + conf.linesLeftBorder)
-        .attr('x2', d => d * 20 + conf.linesLeftBorder)
-        .attr('y1', 0)
-        .attr('y2', 1000)
-        .attr('stroke', '#ddd')
-        .attr('stroke-dasharray', '3,3')
-
-    // horizontal stripes
-    root
-        .append('g')
-        .selectAll('horizontalStripes')
-        .data([...Array(50).keys()])
-        .enter()
-        .append('rect')
-        .attr('width', 1000)
-        .attr('height', conf.seqHeight - conf.cmGap * 2)
-        .attr('fill', 'rgba(200,200,230,0.2)')
-        .attr('transform', (_, i) => `translate(${conf.linesLeftBorder},${conf.seqHeight * (i * 2 + 1) + conf.cmGap})`)
 
     // horizontal group: text + seq group
     var seqMegaGroups = root.selectAll('seqLines')
@@ -192,6 +170,8 @@ function blinkAnimation(obj) {
     }
 
 }
+
+
 
 // function updateSliders(d) {
 //     // update valueText

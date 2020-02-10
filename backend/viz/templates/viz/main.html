@@ -70,12 +70,13 @@
 
         </div>
 
-        <div style="position:absolute;top:0;left:280px;margin:20px;bottom:0;right:0;">
-            <div style="width:100%;height:50%;overflow:scroll;">
+        <div style="position:absolute;top:0;left:295px;bottom:0;right:0;overflow-y:scroll;">
+            <!-- <div style="width:100%;height:50%;overflow:scroll;">
                 <svg id='main'></svg>
-            </div>
+            </div> -->
             <!-- <p></p> -->
-            <svg id='cmfield'>
+            <svg id="cmfieldbackground"></svg>
+            <svg id='cmfield' style="position:absolute;left:0;">
 
                 <defs>
                     <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -89,6 +90,7 @@
     </div>
 
     <script src="{% static 'js/gradients.js' %}"></script>
+    <script src="{% static 'js/cmfield-background.js' %}"></script>
     <script src="{% static 'js/cmfield.js' %}"></script>
     <script src="{% static 'js/dragging.js' %}"></script>
     <script src="{% static 'js/sausages.js' %}"></script>

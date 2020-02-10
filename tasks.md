@@ -26,7 +26,7 @@
 - [x] style viz buttons on hover
 - [x] redesign slider
 - [x] on utr hover create circle on sliders and update valueText
-- [ ] make dragging utr independent
+- [x] make dragging utr independent
 - [ ] add clicking mode: selection, diminishing
 - [x] on slider hover create circle and see value
 - [x] add all continuous sliders
@@ -44,6 +44,7 @@
 - [x] add dragging to seq identifier (grab grabbing cursors)
 - [ ] add picking to cm's
 - [x] add hovering to cm's
+- [ ] restyle overflow scroll
 
 ## frontend - landing page
 - [ ] dependencies, dummy example, mini tutorial
