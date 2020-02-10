@@ -20,6 +20,17 @@ const svg = d3.select('svg#main')
 
 var cmFieldChosen = new Set();
 
+var SETTINGS = {
+    cmfield: {
+        seqHeight: 23,
+        textRightBorder: 150,
+        linesLeftBorder: 160,
+        seqTextSize: 12,
+        cmGap: 2,
+    },
+}
+
+
 // load data
 d3.csv(SPECS.genomesFile, function (idata) {
     for (var i in idata) {
@@ -90,6 +101,9 @@ function main() {
     // makeUploadButton();
     makeDownloadButton();
 
+    
+    makeCmfield();
+
     // viz funcs 
     fixWidth();
     fixHeight();
@@ -101,6 +115,5 @@ function main() {
     defineTicking();
     defineCMHovering();
 
-    makeCmfield();
 
 };

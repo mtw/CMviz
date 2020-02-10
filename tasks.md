@@ -35,11 +35,13 @@
 - [ ] add opacity control to sausages
 - [ ] fix centering of sausage links
 - [ ] restyle tooltip
+- [ ] extract cm field background details into new function
+- [ ] can i specify class in selectAll before enter
 
 
 ### cm field
 - [x] cm gradients
-- [ ] add dragging to seq identifier (grab grabbing cursors)
+- [x] add dragging to seq identifier (grab grabbing cursors)
 - [ ] add picking to cm's
 - [x] add hovering to cm's
 

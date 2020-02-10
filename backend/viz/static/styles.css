@@ -73,3 +73,16 @@ div#tooltip {
 /* .continuous-slider:active {
   filter: brightness(1.05) drop-shadow(0 0 2px lightgray);
 } */
+
+.seqText {
+  cursor: grab;
+}
+
+.seqText:hover {
+  fill: dodgerblue;
+}
+
+.seqText:active {
+  fill: rgb(30, 173, 255);
+  cursor: grabbing;
+}

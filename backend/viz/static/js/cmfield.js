@@ -24,13 +24,7 @@ function getUniqueCm() {
 
 function makeCmfield() {
 
-    var conf = {
-        seqHeight: 23,
-        textRightBorder: 150,
-        linesLeftBorder: 160,
-        seqTextSize: 12,
-        cmGap: 2,
-    }
+    var conf = SETTINGS.cmfield
 
     var data = getData();
 
@@ -76,13 +70,17 @@ function makeCmfield() {
         .data(d3.entries(data))
         .enter()
         .append('g')
+        .classed('seqIdentifier', true)
+        // .attr('identifier', d => d.key)
         .attr('transform', (_, i) => `translate(0,${(i + 0) * conf.seqHeight})`)
 
     // left seq id text
     var seqText = seqMegaGroups
         .append('text')
-        .classed('seqIdentifier', true)
         .text(d => d.key)
+        // .classed('seqIdentifier', true)
+        .classed('seqText', true)
+        .attr('identifier', d => d.key)
         .style('text-anchor', 'end')
         .style('font-size', conf.seqTextSize)
         .attr('transform', `translate(${conf.textRightBorder},${conf.seqHeight - conf.seqTextSize / 2 - 1})`)
