@@ -4,12 +4,10 @@
 
 # Tasks
 - [ ] what to do with line lenghts?
-- [x] fix RNA import
-- [ ] 1! cmout to json
 - [ ] 3! cookies, uploading files, redirecting to viz
 - [ ] wiki documentation, tutorial
-- [x] stress test!
 - [ ] add README.md
+- [ ] add dependencies in documentation
 - [ ] make favicon
 - [ ] make logo
 
@@ -17,24 +15,17 @@
 - [ ] include *[] in FASTA output?
 
 ## frontend
-- [ ] add clicking mode: selection, diminishing
-- [ ] add min width for the seq field and x-scale it as the window stretches
+- [ ] add dimming cursor
+- [ ] add clicking mode (selection, dimming, help)
+- [ ] import sequence lengths
+- [ ] update sequence lengths when resizing screen
 - [ ] add opacity control to sausages
-- [ ] fix centering of sausage links
-- [ ] extract cm field background details into new function
-- [ ] can i specify class in selectAll before enter
-- [ ] check length of biggest seqText
-
-
-### cm field
-- [ ] add picking to cm's
-- [ ] restyle overflow scroll
-
-## frontend - landing page
-- [ ] dependencies, dummy example, mini tutorial
+- [ ] restyle sausages
+- [ ] add help tooltip
 
 ## frontend - consider
 - [ ] compressed layout
+- [ ] control sausage link count
 - [ ] length selection slider
 - [ ] how to correctly regulate visibility of toolbar
 - [ ] add alignment to clipboard
@@ -45,8 +36,7 @@
 - [ ] turn evalue into exponent so you can work with it linearly
 - [ ] figure out positioning for hoverCircle
 - [ ] consider sorting the sequence groups by a criterion
-- [ ] restyle sausages
-
+- [ ] can i specify class in selectAll before enter
 
 ## backend
 - [ ] upload multiple files (https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/)
