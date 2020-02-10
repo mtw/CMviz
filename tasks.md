@@ -17,34 +17,17 @@
 - [ ] include *[] in FASTA output?
 
 ## frontend
-- [x] slider exponential change for evalue
-- [x] fix selection of UTRs (numbers change)
-- [x] evalue and bitscore make limits depend on max and min of the data
-- [x] re-layout for sliders
-- [x] add + -
-- [x] FASTA, penultimate line (remove gaps), identifier, position (separator |)
-- [x] style viz buttons on hover
-- [x] redesign slider
-- [x] on utr hover create circle on sliders and update valueText
-- [x] make dragging utr independent
 - [ ] add clicking mode: selection, diminishing
-- [x] on slider hover create circle and see value
-- [x] add all continuous sliders
 - [ ] add min width for the seq field and x-scale it as the window stretches
-- [x] add discrete "sliders" / sausages
 - [ ] add opacity control to sausages
 - [ ] fix centering of sausage links
-- [x] restyle tooltip
 - [ ] extract cm field background details into new function
 - [ ] can i specify class in selectAll before enter
 - [ ] check length of biggest seqText
 
 
 ### cm field
-- [x] cm gradients
-- [x] add dragging to seq identifier (grab grabbing cursors)
 - [ ] add picking to cm's
-- [x] add hovering to cm's
 - [ ] restyle overflow scroll
 
 ## frontend - landing page
@@ -55,10 +38,8 @@
 - [ ] length selection slider
 - [ ] how to correctly regulate visibility of toolbar
 - [ ] add alignment to clipboard
-- [x] using scales instead of xtovalue functions
 - [ ] knobbed slider
 - [ ] use gradients for rect fill
-- [x] continuous sliders on both sides
 - [ ] add buttons to configure visualization style
 - [ ] add show/hide diminished
 - [ ] turn evalue into exponent so you can work with it linearly

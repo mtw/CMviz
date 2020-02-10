@@ -105,10 +105,10 @@ function main() {
     makeCmfield();
 
     // viz funcs 
-    fixWidth();
-    fixHeight();
-    colorUTRs();
-    fixLengths();
+    // fixWidth();
+    // fixHeight();
+    // colorUTRs();
+    // fixLengths();
 
     // behave funcs
     defineDragging();

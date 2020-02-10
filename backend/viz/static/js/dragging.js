@@ -4,6 +4,8 @@ function defineDragging() {
 
     var seqText = d3.selectAll('g.seqIdentifier > text')
 
+    console.log('asdf')
+
     var ip = {};
     var pi = {};
 
@@ -64,5 +66,6 @@ function defineDragging() {
         })
 
     seqText.call(dragHandler)
+
 
 }
