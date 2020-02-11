@@ -74,8 +74,8 @@ function makeCmfield() {
         .attr('x2', getSeqLength())
         .attr('y1', conf.seqHeight / 2)
         .attr('y2', conf.seqHeight / 2)
-        .style('stroke', '#222')
-        .style('stroke-width', 0.5)
+        .style('stroke', '#000')
+        .style('stroke-width', conf.seqLineWidth)
 
     // cm's
     var cms = seqMinigroup
@@ -88,7 +88,7 @@ function makeCmfield() {
         .attr('height', conf.seqHeight / 2 - conf.cmGap)
         .attr('structure_type', d => d.cm)
         .attr('x', d => d.seq_start)
-        .attr('y', d => d.strand == '+' ? conf.cmGap : conf.seqHeight / 2)
+        .attr('y', d => d.strand == '+' ? conf.cmGap - conf.seqLineWidth : conf.seqHeight / 2 + conf.seqLineWidth)
         // .attr('fill', 'url(#grad1)')
         .attr('fill', d => `url(#${d.cm})`)
         .on('mouseover', function (d) {

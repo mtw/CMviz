@@ -12,6 +12,7 @@ var SETTINGS = {
         linesLeftBorder: 160,
         seqTextSize: 12,
         cmGap: 2,
+        seqLineWidth: 0.5,
     },
 }
 
