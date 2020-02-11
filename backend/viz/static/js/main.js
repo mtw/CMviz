@@ -37,7 +37,7 @@ d3.csv(SPECS.genomesFile, function (idata) {
         var line = idata[i]
         GENOMES[line[1]] = line
     };
-    d3.json(fileToDisplay, function (error, idata) {
+    d3.csv(fileToDisplay, function (error, idata) {
         JSONDATA = idata;
         UTRDATA = getUtrData();
         main();
@@ -99,7 +99,7 @@ function main() {
 
     // behave funcs
     defineDragging();
-    defineTicking();
+    // defineTicking();
     defineCMHovering();
 
 

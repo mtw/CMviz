@@ -1,45 +1,96 @@
+import csv
 from InfernalUtils3 import CmsearchOut
 import json
 import pandas as pd
+import os
+
+attrs = (
+    # "rank",
+    "inc",
+    "evalue",
+    "bitscore",
+    "bias",
+    "mdl",
+    "cm_start",
+    "cm_end",
+    "mdl_alntype",
+    "seq_start",
+    "seq_end",
+    "strand",
+    "seq_alntype",
+    "acc",
+    "gc",
+    "trunc",
+    "seq",
+    "cm",
+    "alignment",
+    "uid",
+)
 
 
-def fancy_cmout_to_json(ipath, opath):
-    """Get .json from .fancy.cmout"""
+# def fancy_cmout_to_json(ipath, opath, file_type='json'):
+#     """Get .json from .fancy.cmout"""
 
-    # ipath = f"example/{ifile}"
-    # ofile = ifile.replace(".fancy.cmout", ".json")
-    # opath = f"output/{ofile}"
+#     results = CmsearchOut(ipath)
+#     L = [{k: getattr(hit, k) for k in attrs} for hit in results.hits]
+#     for d in L:
+#         d['alignment'] = str(d['alignment'])
 
-    attrs = (
-        # "rank",
-        "inc",
-        "evalue",
-        "bitscore",
-        "bias",
-        "mdl",
-        "cm_start",
-        "cm_end",
-        "mdl_alntype",
-        "seq_start",
-        "seq_end",
-        "strand",
-        "seq_alntype",
-        "acc",
-        "gc",
-        "trunc",
-        "seq",
-        "cm",
-        "alignment",
-        "uid",
-    )
+#     file = open(opath, 'w', encoding='utf8')
+
+#     if file_type == 'json':
+#         json.dump(L, file, indent=4)
+
+#     if file_type == 'csv':
+#         writer = csv.writer(file)
+#         writer.writerow(attrs)
+#         for line in L:
+#             writer.writerow([line[attr] for attr in attrs])
+
+#     file.close()
+
+def transform_cmouts(idir, odir, file_type):
+
+    f = {
+        'csv': cmout_to_csv,
+        'json': cmout_to_json,
+    }[file_type]
+
+    filenames = os.listdir(idir)
+
+    for filename in filenames:
+        if filename.endswith('.cmout'):
+
+            new_filename = filename[:-6] + '.' + file_type
+
+            ipath = os.path.join(idir, filename)
+            opath = os.path.join(odir, new_filename)
+            f(ipath, opath)
+
+
+def cmout_to_csv(ipath, opath):
+    results = CmsearchOut(ipath)
+
+    rows = [[getattr(hit, attr) for attr in attrs] for hit in results.hits]
+
+    with open(opath, 'w', encoding='utf8') as file:
+
+        writer = csv.writer(file)
+        writer.writerow(attrs)
+        writer.writerows(rows)
+
+
+def cmout_to_json(ipath, opath):
 
     results = CmsearchOut(ipath)
-    L = [{k: getattr(hit, k) for k in attrs} for hit in results.hits]
-    for d in L:
+
+    dicts = [{k: getattr(hit, k) for k in attrs} for hit in results.hits]
+
+    for d in dicts:
         d['alignment'] = str(d['alignment'])
 
-    with open(opath, "w", encoding="utf8") as f:
-        json.dump(L, f, indent=4)
+    with open(opath, 'w', encoding='utf8') as file:
+        json.dump(dicts, file, indent=4)
 
 
 def visualize_cmhits(ifile):

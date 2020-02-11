@@ -8,7 +8,6 @@ def main_visualization(request):
     return render(
         request,
         'viz/main.html',
-        {'file_to_display': 'static/data/test_multi2.json'}
-        # {'file_to_display': 'static/data/all_DENVG_3UTR.DB2.json'} # all_DENVG_3UTR.DB1.json
-        # {'file_to_display': 'static/uploads/upload1.json'}
+        {'file_to_display': 'static/data/x1.csv'},
+        # {'file_to_display': 'static/data/all_DENVG_3UTR.SL2.csv'},
     )
