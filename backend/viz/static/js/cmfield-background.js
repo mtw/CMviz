@@ -1,14 +1,33 @@
 
 function makeCmfieldBackground(data) {
 
-    var conf = SETTINGS.cmfield
+    var conf = SETTINGS.cmfield;
 
     var count = Object.keys(data).length + 1;
+    var countHeight = count * conf.seqHeight;
+
+    function checkOverflow() {
+        if (countHeight > window.innerHeight) {
+            d3.select('#style-2').style('overflow-y', 'scroll');
+            d3.select('svg#cmfieldbackground')
+                .attr('height', countHeight)
+        } else {
+            d3.select('#style-2').style('overflow-y', 'hidden');
+            d3.select('svg#cmfieldbackground')
+                .attr('height', count * conf.seqHeight)
+
+        }
+    }
+
+    window.addEventListener('resize', checkOverflow);
+
+    if (countHeight < window.screen.height) count = Math.ceil(window.screen.height / conf.seqHeight);
 
     var root = d3.select('svg#cmfieldbackground')
         .attr('height', _ => count * conf.seqHeight)
         .attr('width', '100%')
 
+    checkOverflow();
 
     var screenWidth = window.screen.width;
     var verticalLinesDistance = 20;
@@ -39,6 +58,5 @@ function makeCmfieldBackground(data) {
         .attr('height', conf.seqHeight - conf.cmGap * 2)
         .attr('fill', 'rgba(200,200,230,0.2)')
         .attr('transform', (_, i) => `translate(${conf.linesLeftBorder},${conf.seqHeight * (i * 2 + 1) + conf.cmGap})`)
-
 
 }
