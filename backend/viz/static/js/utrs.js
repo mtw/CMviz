@@ -1,33 +1,33 @@
-function makeUTRs() {
+// function makeUTRs() {
 
-    // CM container groups
-    utrs = linegs.selectAll('utrs')
-        .data(d => d.value)
-        .enter()
-        .append('g')
-        .classed('utr', true)
-        .attr('transform', function (d) {
-            var ypos = d.strand == '+' ? -SPECS.group_height : 0;
-            return `translate(${d.seq_start}, ${ypos})`
-        })
-        .attr('seq', d => d.seq)
+//     // CM container groups
+//     utrs = linegs.selectAll('utrs')
+//         .data(d => d.value)
+//         .enter()
+//         .append('g')
+//         .classed('utr', true)
+//         .attr('transform', function (d) {
+//             var ypos = d.strand == '+' ? -SPECS.group_height : 0;
+//             return `translate(${d.seq_start}, ${ypos})`
+//         })
+//         .attr('seq', d => d.seq)
 
-    // CM rectangles
-    var utrRect = utrs.append('rect')
-        .classed('cm', true)
-        .attr('width', d => d.seq_end - d.seq_start)
-        .attr('height', SPECS.group_height)
-        .attr('structure_type', d => d.cm)
-        .attr('rx', 1)
-        .attr('ry', 1)
+//     // CM rectangles
+//     var utrRect = utrs.append('rect')
+//         .classed('cm', true)
+//         .attr('width', d => d.seq_end - d.seq_start)
+//         .attr('height', SPECS.group_height)
+//         .attr('structure_type', d => d.cm)
+//         .attr('rx', 1)
+//         .attr('ry', 1)
 
-    // add score-in-range attrs
-    for (var score of continuousScores) {
-        utrRect.attr(`${score}-in-range`, true)
-    }
+//     // add score-in-range attrs
+//     for (var score of continuousScores) {
+//         utrRect.attr(`${score}-in-range`, true)
+//     }
 
 
-};
+// };
 
 
 // is every score-in-range
