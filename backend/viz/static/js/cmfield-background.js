@@ -45,7 +45,7 @@ function makeCmfieldBackground(data) {
         .attr('y1', 0)
         .attr('y2', count * conf.seqHeight)
         .attr('stroke', '#ddd')
-        .attr('stroke-dasharray', '3,3')
+        .attr('stroke-dasharray', '2,2')
 
     // horizontal stripes
     root
@@ -59,4 +59,17 @@ function makeCmfieldBackground(data) {
         .attr('fill', 'rgba(200,200,230,0.2)')
         .attr('transform', (_, i) => `translate(${conf.linesLeftBorder},${conf.seqHeight * (i * 2 + 1) + conf.cmGap})`)
 
+    // horizontal grid lines
+    root
+        .append('g')
+        .selectAll('horizontalLines')
+        .data([...Array(count).keys()])
+        .enter()
+        .append('line')
+        .attr('x1', conf.linesLeftBorder)
+        .attr('x2', conf.linesLeftBorder + window.screen.width)
+        .attr('y1', (_, i) => conf.seqHeight * (i + 1.5))
+        .attr('y2', (_, i) => conf.seqHeight * (i + 1.5))
+        .attr('stroke', '#eee')
+        .attr('stroke-dasharray', '3,3')
 }
