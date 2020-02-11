@@ -22,7 +22,8 @@
 - [ ] add opacity control to sausages
 - [ ] restyle sausages
 - [ ] add help tooltip
-- [ ] shift cm's a little so they dont cover the line
+- [x] shift cm's a little so they dont cover the line
+- [ ] fix csv headers
 
 ## frontend - consider
 - [ ] compressed layout

@@ -104,6 +104,10 @@ def visualize_cmhits(ifile):
 
 def genomes_tab_to_csv(ifile, ofile):
     with open(ifile, "r") as f:
-        records = [line.strip().split("\t") for line in f.readlines()]
+        records = []
+        for line in f.readlines():
+            data = line.strip().split('\t')
+            records.append([data[0], data[9]])
+
         df = pd.DataFrame.from_records(records)
-        df.to_csv(ofile, sep=",", index=False, header=False)
+        df.to_csv(ofile, sep=",", index=False)

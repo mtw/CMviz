@@ -1,5 +1,5 @@
 // define globals
-var GENOMES = {};
+var LENDATA = {};
 var JSONDATA;
 
 var cmFieldChosen = new Set();
@@ -19,10 +19,14 @@ var SETTINGS = {
 
 // load data
 d3.csv(SETTINGS.genomesFile, function (idata) {
-    for (var i in idata) {
-        var line = idata[i]
-        GENOMES[line[1]] = line
-    };
+    LENDATA = {};
+
+    idata.map(line => LENDATA[line[0]] = parseInt(line[1]))
+
+    // idata.map(line => LENDATA[line[1]] = parseInt(line[9]))
+
+    console.log(LENDATA)
+
     d3.csv(fileToDisplay, function (error, idata) {
         JSONDATA = idata;
         main();
