@@ -1,7 +1,7 @@
 
 function makeSelectors() {
     var SHOWING = new Map();
-    for (var x of JSONDATA) if (!SHOWING.has(x.cm)) { SHOWING.set(x.cm, 1) };
+    for (var x of CMDATA) if (!SHOWING.has(x.cm)) { SHOWING.set(x.cm, 1) };
     var data = Array(...SHOWING.keys())
 
     // var specs = {

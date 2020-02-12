@@ -53,7 +53,7 @@ function makeDoubleSlider(scoreType, textType) {
         maxValue = Number.NEGATIVE_INFINITY;
 
 
-        for (obj of JSONDATA) {
+        for (obj of CMDATA) {
             if (obj[scoreType] > maxValue) {
                 maxValue = obj[scoreType]
             }

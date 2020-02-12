@@ -5,7 +5,7 @@ function makeSausage(scoreType) {
 
     // get possible values
     var allValues = new Set();
-    for (var entry of JSONDATA) {
+    for (var entry of CMDATA) {
         allValues.add(entry[scoreType])
     }
 

@@ -1,6 +1,6 @@
 // define globals
-var LENDATA = {};
-var JSONDATA;
+var LENDATA;
+var CMDATA;
 
 var cmFieldChosen = new Set();
 
@@ -28,7 +28,7 @@ var SETTINGS = {
 //     console.log(LENDATA)
 
 //     d3.csv(fileToDisplay, function (error, idata) {
-//         JSONDATA = idata;
+//         CMDATA = idata;
 //         main();
 //     });
 // });
@@ -38,7 +38,8 @@ d3.csv(SETTINGS.genomesFile).then(function (data) {
     data.map(x => LENDATA[x[0]] = parseInt(x[1]))
 
     d3.csv(fileToDisplay).then(function (data) {
-        JSONDATA = data;
+        CMDATA = data;
+        console.log(data);
         main()
     })
 })

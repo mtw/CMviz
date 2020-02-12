@@ -2,7 +2,7 @@
 function getData() {
     var data = {};
 
-    for (var cm of JSONDATA) {
+    for (var cm of CMDATA) {
         var seq = cm.seq;
         if (seq in data) {
             data[seq].push(cm)
@@ -16,7 +16,7 @@ function getData() {
 
 function getUniqueCm() {
     var uniqueCm = new Set();
-    for (var cm of JSONDATA) {
+    for (var cm of CMDATA) {
         uniqueCm.add(cm['cm'])
     }
     return Array.from(uniqueCm)
@@ -28,7 +28,7 @@ function makeCmfield() {
 
     var data = getData();
 
-    // console.log(JSONDATA)
+    // console.log(CMDATA)
 
     var uniqueCm = getUniqueCm();
     // console.log(uniqueCm)

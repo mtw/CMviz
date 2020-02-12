@@ -6,7 +6,7 @@ function makeDownloadButton() {
     function returnFASTA() {
 
         function extractUTRFasta(rank) {
-            var utr = JSONDATA[rank];
+            var utr = CMDATA[rank];
             var almnt = utr.alignment.split('\n');
             almnt.pop();
             almnt = almnt.pop();
