@@ -79,7 +79,7 @@ function makeCmfield() {
 
     // cm's
     var cms = seqMinigroup
-        .selectAll('cms')
+        .selectAll()
         .data(d => d.value)
         .enter()
         .append('rect')

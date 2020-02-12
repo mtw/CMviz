@@ -12,7 +12,7 @@ function makeSelectors() {
     // }
 
     var cmbox = d3.select('#container')
-        .selectAll('cmbox')
+        .selectAll()
         .data(data)
         .enter()
         .append('div')

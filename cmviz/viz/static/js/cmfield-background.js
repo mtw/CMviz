@@ -36,7 +36,7 @@ function makeCmfieldBackground(data) {
     // vertical grid lines
     root
         .append('g')
-        .selectAll('verticalLines')
+        .selectAll()
         .data([...Array(verticalLinesCount).keys()])
         .enter()
         .append('line')
@@ -50,7 +50,7 @@ function makeCmfieldBackground(data) {
     // horizontal stripes
     root
         .append('g')
-        .selectAll('horizontalStripes')
+        .selectAll()
         .data([...Array(count).keys()])
         .enter()
         .append('rect')
@@ -62,7 +62,7 @@ function makeCmfieldBackground(data) {
     // horizontal grid lines
     root
         .append('g')
-        .selectAll('horizontalLines')
+        .selectAll()
         .data([...Array(count).keys()])
         .enter()
         .append('line')

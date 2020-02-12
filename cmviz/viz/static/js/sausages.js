@@ -31,7 +31,7 @@ function makeSausage(scoreType) {
         .attr('transform', `translate(80,0)`)
 
     var links = obj
-        .selectAll('links')
+        .selectAll()
         .data(Array.from(allValues))
         .enter()
         .append('g')

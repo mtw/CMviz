@@ -10,7 +10,7 @@ function makeInfoPanel() {
         'seq_alntype', 'acc', 'gc', 'trunc', 'seq', 'cm', //'uid',
     ]
 
-    var p = divinfo.selectAll('p')
+    var p = divinfo.selectAll()
         .data(fields)
         .enter()
         .append('p')
