@@ -34,13 +34,13 @@
 - [ ] how to correctly regulate visibility of toolbar
 - [ ] add alignment to clipboard
 - [ ] knobbed slider
-- [ ] use gradients for rect fill
+- [x] use gradients for rect fill
 - [ ] add buttons to configure visualization style
 - [ ] add show/hide diminished
-- [ ] turn evalue into exponent so you can work with it linearly
-- [ ] figure out positioning for hoverCircle
+- [x] turn evalue into exponent so you can work with it linearly
+- [x] figure out positioning for hoverCircle
 - [ ] consider sorting the sequence groups by a criterion
-- [ ] can i specify class in selectAll before enter
+- [x] can i specify class in selectAll before enter
 
 ## backend
 - [ ] upload multiple files (https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/)
