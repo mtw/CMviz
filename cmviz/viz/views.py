@@ -8,6 +8,6 @@ def main_visualization(request):
     return render(
         request,
         'viz/main.html',
-        # {'file_to_display': 'static/data/x1.csv'},
-        {'file_to_display': 'static/data/all_DENVG_3UTR.SL2.csv'},
+        {'file_to_display': 'static/data/x1.csv'},
+        # {'file_to_display': 'static/data/all_DENVG_3UTR.SL2.csv'},
     )
