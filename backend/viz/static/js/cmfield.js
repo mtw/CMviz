@@ -74,7 +74,7 @@ function makeCmfield() {
         .attr('x2', getSeqLength())
         .attr('y1', conf.seqHeight / 2)
         .attr('y2', conf.seqHeight / 2)
-        .style('stroke', '#000')
+        .style('stroke', '#111')
         .style('stroke-width', conf.seqLineWidth)
 
     // cm's
@@ -160,8 +160,8 @@ function blinkAnimation(obj) {
 
     function blink() {
         if (obj.classed('chosen')) {
-            obj.style('fill', 'red').transition().duration(2000)
-                .style('fill', 'gray').transition().duration(2000)
+            obj.style('fill', 'red').transition().duration(400)
+                .style('fill', 'gray').transition().duration(400)
                 .style('fill', 'red').on('end', blink)
         } else {
             obj.attr('fill', d => `url(#${d.cm})`)

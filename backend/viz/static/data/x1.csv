@@ -1,11 +1,11 @@
 inc,evalue,bitscore,bias,mdl,cm_start,cm_end,mdl_alntype,seq_start,seq_end,strand,seq_alntype,acc,gc,trunc,seq,cm,alignment,uid
-True,4.1e-19,87.6,0.0,cm,1,101,[],227,323,+,..,0.99,0.48,False,LAMV_FJ606789.2,all_dISFVG.3SL,"                                     v                                         v                     
+True,4.1e-19,87.6,0.0,cm,1,101,[],227,323,+,..,0.99,0.48,False,LAMV_FJ606789.2,all_dISFVG.3SLe,"                                     v                                         v                     
 <<<<_______>>>>---<<<<-<<<<-<<<<<-<<-<<<<<<<<<<-<<<<_______>>>>------->>>>>>>>>>--->>->>>>>->>>>->>>>
 CcGGGAAuAGACCgGAGauacgcucuguuUcuucacCacccAcccgcacGGCACAGaaCGCCgaaAgaAugcgggUggguuauguuaagAaAcagaacgua
 ::GGGAA AGACC::AG+UAC:C::UG+UU:::C:CC CC:A:C::CACGGCACAG ACGCCGAAA AA G::G:U:GG    G:U:::AAACA::A:GUA
 UUGGGAA-AGACCAGAGGUACUCGUUGAUUCACCGCCACCAAACUACACGGCACAGCACGCCGAAA-AAGGUAGUUUGGAG--GUUGUAAAACAGCAAGUA
 *****77.*******************************************************998.99***********9..******************",all_dISFVG.3SL:LAMV_FJ606789.2:1
-True,6.9e-19,86.6,0.0,cm,1,101,[],345,448,+,..,1.0,0.39,False,NHUV_NC_024017.1,all_dISFVG.3SL,"                                                   v             v                                      
+True,6.9e-19,86.6,0.0,cm,1,101,[],345,448,+,..,1.0,0.39,False,NHUV_NC_024017.1,all_dISFVG.3SLa,"                                                   v             v                                      
 <<<<_______>>>>---<<<<-<<<<-<<<<<-<<..-<<<<<<<<<<-.<<<<_______>>>>------->>>>>>>>>>--->>->>>>>->>>>->>>>
 CcGGGAAuAGACCgGAGauacgcucuguuUcuucac..CacccAcccgca.cGGCACAGaaCGCCgaaAgaAugcgggUggguuauguuaagAaAcagaacgua
 ::GGGAA AGACC::AGAUA:G+U U: UU::UCA:  C: :CA:C:GC   GGCACAGA+CGCC +AAGA +GC:G:UG: :UA :UUA::AAA:A AAC:UA
@@ -17,7 +17,7 @@ CcGGGAAuAGACCgGAGauacgcucuguuUcuucacCacccAcccgcacGGCACAGaaCGCCgaaAgaAugcgggUgggu
 ::GGGAA AGACC::AG+UAC:C: UG+UU:::C:CC CC:::C::CACGGCACAG +CGCCG+AA AA G::G:::GG    G:U:::AAACA :A:GUA
 UUGGGAA-AGACCAGAGGUACUCGCUGAUUCACCGCCACCAGACUACACGGCACAGCGCGCCGGAA-AAGGUAGUUUGGAG--GUUGUAAAACAACAAGUA
 *****77.*******************************************************999.999**********9..******************",all_dISFVG.3SL:CHAOV_JQ308185.1:3
-True,3.6e-18,83.5,0.0,cm,1,101,[],227,323,+,..,0.99,0.52,False,CHAOV_NC_017086.1,all_dISFVG.3SL,"                        v            v                                         v              v      
+True,3.6e-18,83.5,0.0,cm,1,101,[],227,323,+,..,0.99,0.52,False,CHAOV_NC_017086.1,all_dISFVG.3SLb,"                        v            v                                         v              v      
 <<<<_______>>>>---<<<<-<<<<-<<<<<-<<-<<<<<<<<<<-<<<<_______>>>>------->>>>>>>>>>--->>->>>>>->>>>->>>>
 CcGGGAAuAGACCgGAGauacgcucuguuUcuucacCacccAcccgcacGGCACAGaaCGCCgaaAgaAugcgggUggguuauguuaagAaAcagaacgua
 ::GGGAA AGACC::AG+UAC:C: UG+UU:::C:CC CC:::C::CACGGCACAG +CGCCG+AA AA G::G:::GG    G:U:::AAACA :A:GUA
@@ -53,7 +53,7 @@ CcGGGAAuAGACCgGAGauacgcucuguuUcuucacCacccAcccgca.cGGCACAGaaCGCCgaaAgaAugcgggUggg
 C::GGAA AGAC::GA +::::CU UG UU:UUC :CA:::AC:C: A CGGCACAGA+CGCCG+  GAA+ :G:GU:::U+  :  AA:AAACA AA::::
 CUAGGAA-AGACUGGA-GAUACCUUUGGUUCUUCGACAUUAACUCCAAuCGGCACAGAGCGCCGUGGGAAACGGAGUUAAUA--UGGAAAAAACAUAAGUAU
 *****77.********.8****************************************************************..******************",all_dISFVG.3SL:MMV_MF139576.1:9
-True,5.5e-14,65.5,0.0,cm,1,101,[],294,393,+,..,0.99,0.42,False,NANV_MF139575.1,all_dISFVG.3SL," v           v    v     v v     v v                                                   v v     v v     v
+True,5.5e-14,65.5,0.0,cm,1,101,[],294,393,+,..,0.99,0.42,False,NANV_MF139575.1,all_dISFVG.3SLc," v           v    v     v v     v v                                                   v v     v v     v
 <<<<_______>>>>---<<<<-<<<<-<<<<<-<<..-<<<<<<<<<<-<<<<_______>>>>------->>>>>>>>>>--->>->>>>>->>>>->>>>
 CcGGGAAuAGACCgGAGauacgcucuguuUcuucac..CacccAcccgcacGGCACAGaaCGCCgaaAgaAugcgggUggguuauguuaagAaAcagaacgua
 C GGG AUAGACC GAGA A::C: : U:UCU   C   A::CA:C::C ::GCACAGA+CGC::  AGAA G::G:UG::U  UG   AGA:A : : ::U 
@@ -76,7 +76,7 @@ True,0.00041,23.0,0.0,cm,16,101,~],232,316,-,~.,0.76,0.45,5',EPEV_KJ152564.1,all
 <[4]*AGauacgcucuguuUcuucac.CacccAcccgcacGGCACAGaaCGCCgaaAgaAugcgggUggguuauguuaagAaAcagaacgua
      AGA:AC:  :UGUUU::U    CA:CCACC:::+ G   CAG     C++     U:::GGUGG:U  U   A::AA CA: A:GU:
 <[0]*AGAAACUGGUUGUUUACUACAuCAACCACCGAAU-GUUUCAGGCAUACUGUGCC-UUUCGGUGGUUGCUGCGAGUAAGCAAGAAGUU
-.....******************6555888888888884.4455555544444444433.47888888888877778***************",all_dISFVG.3SL:EPEV_KJ152564.1:13
+.....******************6555888888888884.4455555544444444433.47888888888877778***************",all_dISFVG.3SLd:EPEV_KJ152564.1:13
 True,0.0063,17.9,0.0,cm,16,101,~],244,326,-,~.,0.94,0.51,5',CHAOV_JQ308185.1,all_dISFVG.3SL,"                        v  v   v                  v   v    v                
 ~~~~~---<<<<-<<<<-<<<<<-<<-<<<<<<<<<<-~~~~~~->>>>>>>>>>--->>->>>>>->>>>->>>>
 <[4]*AGauacgcucuguuUcuucacCacccAcccgca*[21]*ugcgggUggguuauguuaagAaAcagaacgua

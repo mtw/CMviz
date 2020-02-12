@@ -10,23 +10,25 @@
 - [ ] add dependencies in documentation
 - [ ] make favicon
 - [ ] make logo
+- [ ] extract svg: global and local
+- [ ] compressed layout
+- [ ] friday screenshot abstract paper
 
 ## questions
-- [ ] include *[] in FASTA output?
+- [x] include *[] in FASTA output? NO
 
 ## frontend
 - [ ] add dimming cursor
 - [ ] add clicking mode (selection, dimming, help)
-- [ ] import sequence lengths
+- [x] import sequence lengths
 - [ ] update sequence lengths when resizing screen
 - [ ] add opacity control to sausages
 - [ ] restyle sausages
 - [ ] add help tooltip
 - [x] shift cm's a little so they dont cover the line
-- [ ] fix csv headers
+- [x] fix csv headers
 
 ## frontend - consider
-- [ ] compressed layout
 - [ ] control sausage link count
 - [ ] length selection slider
 - [ ] how to correctly regulate visibility of toolbar
@@ -43,6 +45,13 @@
 ## backend
 - [ ] upload multiple files (https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/)
 - [ ] genomes.tab sanity check length 10k
+
+# presentation
+- cmout issue, motivation
+- demonstration
+- uml diagrams of feature logic
+- github repo screenshot
+- publication abstract screenshot
 
 # Notes
 - `InfernalUtils3.py`, `RNAUtils3.py` are Python3 compatible
