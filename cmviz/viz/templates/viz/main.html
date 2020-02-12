@@ -27,11 +27,28 @@
             <h1>cmviz</h1>
 
             <div id="uploader">
-                <!-- <p class="toolbar-header">I/O</p> -->
-                <!-- </div> -->
 
-                <!-- <div id="selected"> -->
-                <!-- <p class="toolbar-header">DOWNLOAD</p> -->
+                {% if documents %}
+                <ul>
+                    {% for document in documents %}
+                    <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No documents.</p>
+                {% endif %}
+                <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+                    <input type="file" name="myfile" />
+                    {% csrf_token %}
+                    <p>{{ form.non_field_errors }}</p>
+                    <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+                    <p>
+                        {{ form.docfile.errors }}
+                        {{ form.docfile }}
+                    </p>
+                    <p><input type="submit" value="Upload" /></p>
+                </form>
+
                 <div class="button">upload file</div>
 
                 <a class="button unclickable" id="download-button">download selection</a>

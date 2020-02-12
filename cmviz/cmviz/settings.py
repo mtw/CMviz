@@ -3,6 +3,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# print(BASE_DIR)
+
 SECRET_KEY = '&-!wdlpa3=pl5@(d)opfgvqna9b!kbo)szznnvwh2l1hyo(dix'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -66,6 +68,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -114,3 +120,6 @@ STATIC_URL = '/static/'
 #     os.path.join(BASE_DIR, "static"),
 #     '/static/',
 # ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
