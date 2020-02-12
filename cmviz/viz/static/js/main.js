@@ -18,20 +18,30 @@ var SETTINGS = {
 
 
 // load data
-d3.csv(SETTINGS.genomesFile, function (idata) {
+// d3.csv(SETTINGS.genomesFile, function (idata) {
+//     LENDATA = {};
+
+//     idata.map(line => LENDATA[line[0]] = parseInt(line[1]))
+
+//     // idata.map(line => LENDATA[line[1]] = parseInt(line[9]))
+
+//     console.log(LENDATA)
+
+//     d3.csv(fileToDisplay, function (error, idata) {
+//         JSONDATA = idata;
+//         main();
+//     });
+// });
+
+d3.csv(SETTINGS.genomesFile).then(function (data) {
     LENDATA = {};
+    data.map(x => LENDATA[x[0]] = parseInt(x[1]))
 
-    idata.map(line => LENDATA[line[0]] = parseInt(line[1]))
-
-    // idata.map(line => LENDATA[line[1]] = parseInt(line[9]))
-
-    console.log(LENDATA)
-
-    d3.csv(fileToDisplay, function (error, idata) {
-        JSONDATA = idata;
-        main();
-    });
-});
+    d3.csv(fileToDisplay).then(function (data) {
+        JSONDATA = data;
+        main()
+    })
+})
 
 
 function main() {
@@ -43,7 +53,7 @@ function main() {
     discreteScores = ['inc', 'mdl', 'strand', 'mdl_alntype', 'seq_alntype', 'trunc']
 
     makeSelectors();
-    
+
     for (var i in continuousScores) {
         var scoreType = continuousScores[i];
         var textType = continuousScoresText[i];

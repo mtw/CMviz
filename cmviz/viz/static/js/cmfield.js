@@ -154,6 +154,7 @@ function makeCmfield() {
 
 }
 
+
 function blinkAnimation(obj) {
 
     blink();
