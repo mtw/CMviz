@@ -28,17 +28,8 @@
 
             <div id="uploader">
 
-                {% if documents %}
-                <ul>
-                    {% for document in documents %}
-                    <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
-                    {% endfor %}
-                </ul>
-                {% else %}
-                <p>No documents.</p>
-                {% endif %}
-                <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
-                    <input type="file" name="myfile" />
+                <form action="{% url 'main' %}" method="post" enctype="multipart/form-data">
+                    <!-- <input type="file" name="myfile" /> -->
                     {% csrf_token %}
                     <p>{{ form.non_field_errors }}</p>
                     <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
@@ -46,14 +37,15 @@
                         {{ form.docfile.errors }}
                         {{ form.docfile }}
                     </p>
-                    <p><input type="submit" value="Upload" /></p>
+                    <p>
+                        <input class="button" style="width:100%;" type="submit" value="upload file" />
+                    </p>
                 </form>
 
-                <div class="button">upload file</div>
+                <!-- <div class="button">upload file</div> -->
 
                 <a class="button unclickable" id="download-button">download selection</a>
 
-                <!-- <p id="current"></p> -->
             </div>
 
 

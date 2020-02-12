@@ -43,6 +43,9 @@
 - [x] can i specify class in selectAll before enter
 
 ## backend
+- [ ] add file uploading to viz page
+
+## backend
 - [ ] upload multiple files (https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/)
 - [ ] genomes.tab sanity check length 10k
 

@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'viz',
-    'uploader',
+    # 'uploader',
     # 'upload_file',
     # 'bootstrap4',
 ]
@@ -121,5 +121,5 @@ STATIC_URL = '/static/'
 #     '/static/',
 # ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'viz/static/uploads')
+MEDIA_URL = '/viz/static/uploads/'
