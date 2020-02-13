@@ -43,7 +43,8 @@ def monolithic_view(request):
     try:
         file_to_display
     except NameError:
-        file_to_display = f'static/uploads/csvs/{documents[-1]}'
+        file_to_display = 'static/dummy.csv'
+        # file_to_display = f'static/uploads/csvs/{documents[-1]}'
 
     context = {
         # 'documents': [d.docfile.name for d in documents],
