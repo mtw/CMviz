@@ -3,7 +3,7 @@ __date__ = "$Nov 27, 2015 5:30:51 PM$"
 
 import re
 from math import log10
-from RNAUtils3 import ParseSS, Db2pair, Pair2db, ParseSSunbalanced, RemoveNoncanonical
+from .RNAUtils3 import ParseSS, Db2pair, Pair2db, ParseSSunbalanced, RemoveNoncanonical
 
 class CmsearchHit:
     '''Data Container Class for Output of INFERNAL's Cmsearch/Cmscan'''

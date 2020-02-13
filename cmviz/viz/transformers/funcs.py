@@ -1,5 +1,5 @@
 import csv
-from InfernalUtils3 import CmsearchOut
+from .InfernalUtils3 import CmsearchOut
 import json
 import pandas as pd
 import os

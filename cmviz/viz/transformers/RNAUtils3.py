@@ -7,7 +7,7 @@ __date__ = "$Oct 11, 2016 4:34:16 PM$"
 
 import math
 import sys
-from imports import RNA
+from .imports import RNA
 
 if __name__ == "__main__":
     print ("Not meant as executable!")
