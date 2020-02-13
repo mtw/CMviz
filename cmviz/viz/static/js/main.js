@@ -18,7 +18,7 @@ var SETTINGS = {
 
 
 function runMain(){
-    let csvPromises = fileToDisplay.map(f => d3.csv(f));
+    let csvPromises = filesDisplay.map(f => d3.csv(f));
     let lengthPromise = d3.csv(SETTINGS.genomesFile)
     let promises = [...csvPromises, lengthPromise]
 

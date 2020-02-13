@@ -18,6 +18,7 @@
 - [x] include *[] in FASTA output? NO
 
 ## frontend
+- [ ] fix download button
 - [ ] add dimming cursor
 - [ ] add clicking mode (selection, dimming, help)
 - [x] import sequence lengths
@@ -27,6 +28,7 @@
 - [ ] add help tooltip
 - [x] shift cm's a little so they dont cover the line
 - [x] fix csv headers
+- [ ] fix default styling of input tag
 
 ## frontend - consider
 - [ ] control sausage link count

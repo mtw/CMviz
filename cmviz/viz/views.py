@@ -11,79 +11,63 @@ import os
 import json
 
 
-def monolithic_view(request):
+def main_view(request):
 
     baseurl = 'cmviz/viz/static/uploads'
 
+    # if upload was made
     if request.method == 'POST':
+
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             filename = request.FILES['docfile']
             newdoc = Document(docfile=filename)
             newdoc.save()
-            cmout_to_csv(
-                f'{baseurl}/{filename}', f'{baseurl}/csvs/{filename}.csv')
-            # print(newdoc.__dict__)
 
-            file_to_display = f'static/uploads/csvs/{filename}.csv'
+            ipath = f'{baseurl}/{filename}'
+            opath = f'{baseurl}/csvs/{filename}.csv'
+            cmout_to_csv(ipath, opath)
 
-    documents = Document.objects.all()
-    form = DocumentForm()
-
-    # print(len(documents))
-    # paths =
-
-    # print(documents[0].__dict__)
-
-    # print([d.docfile.name for d in documents])
-
-    documents = os.listdir(f'{baseurl}/csvs')
-
-    # print(documents)
+            files_display = [f'static/uploads/csvs/{filename}.csv']
 
     try:
-        file_to_display
-    except NameError:
-        file_to_display = json.dumps(['static/dummy2.csv','static/dummy.csv'])
-        # file_to_display = f'static/uploads/csvs/{documents[-1]}'
+        files_display
+    except:
+        files_display = ['static/dummy2.csv', 'static/dummy.csv']
 
-    # print(file_to_display)
-    print(documents)
+    files_exist = os.listdir(f'{baseurl}/csvs')
 
     context = {
-        # 'documents': [d.docfile.name for d in documents],
-        'documents': documents,
-        # 'file_to_display': ['static/uploads/'+d.docfile.name for d in documents][-1],
-        'file_to_display': file_to_display,
-        'form': form
+        # 'documents': Document.objects.all(),
+        'files_exist': json.dumps(files_exist),
+        'files_display': json.dumps(files_display),
+        'form': DocumentForm(),
     }
-    # print()
-    # print(context)
 
     return render(request, 'viz/main.html', context)
 
 
-def main_visualization(request):
-    return render(
-        request,
-        'viz/main.html',
-        {'file_to_display': 'static/data/x1.csv'},
-        # {'file_to_display': 'static/data/all_DENVG_3UTR.SL2.csv'},
-    )
+# def main_visualization(request):
+#     return render(
+#         request,
+#         'viz/main.html',
+#         {'file_to_display': 'static/data/x1.csv'},
+#         # {'file_to_display': 'static/data/all_DENVG_3UTR.SL2.csv'},
+#     )
 
 
-def list_view(request):
+# def list_view(request):
 
-    if request.method == 'POST':
+#     if request.method == 'POST':
 
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            newdoc = Document(docfile=request.FILES['docfile'])
-            newdoc.save()
-            return HttpResponseRedirect('listy')
-    else:
-        form = DocumentForm()
+#         form = DocumentForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             newdoc = Document(docfile=request.FILES['docfile'])
+#             newdoc.save()
+#             return HttpResponseRedirect('listy')
+#     else:
+#         form = DocumentForm()
 
-    documents = Document.objects.all()
+#     documents = Document.objects.all()
 
-    return render(request, 'viz/list.html', {'documents': documents, 'form': form})
+#     return render(request, 'viz/list.html', {'documents': documents, 'form': form})
