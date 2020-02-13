@@ -47,7 +47,8 @@ def monolithic_view(request):
         file_to_display = json.dumps(['static/dummy2.csv','static/dummy.csv'])
         # file_to_display = f'static/uploads/csvs/{documents[-1]}'
 
-    print(file_to_display)
+    # print(file_to_display)
+    print(documents)
 
     context = {
         # 'documents': [d.docfile.name for d in documents],

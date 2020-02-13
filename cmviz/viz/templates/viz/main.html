@@ -13,7 +13,7 @@
     <script>
         // get data from Python context
         // var fileToDisplay = "{{ file_to_display }}"
-        var fileToDisplay = {{ file_to_display|safe }};
+        var fileToDisplay = {{ file_to_display| safe }};
     </script>
 </head>
 
@@ -29,8 +29,19 @@
 
             <div id="uploader">
 
+                <!-- List of uploaded documents -->
+                {% if documents %}
+                <ul>
+                    {% for document in documents %}
+                    <!-- <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li> -->
+                    <li>{{ document }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No documents.</p>
+                {% endif %}
+
                 <form action="{% url 'main' %}" method="post" enctype="multipart/form-data">
-                    <!-- <input type="file" name="myfile" /> -->
                     {% csrf_token %}
                     <p>{{ form.non_field_errors }}</p>
                     <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
