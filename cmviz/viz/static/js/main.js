@@ -54,7 +54,7 @@ function main() {
 
     makeInfoPanel();
     makeTooltip();
-    // makeUploadButton();
+    makeUploadButton();
     makeDownloadButton();
 
 

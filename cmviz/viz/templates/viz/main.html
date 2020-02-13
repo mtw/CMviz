@@ -27,6 +27,7 @@
 
             <h1>cmviz</h1>
 
+            <p class="toolbar-header">Upload</p>
             <div id="uploader">
 
                 <!-- List of uploaded documents -->
@@ -41,25 +42,29 @@
                 <p>No documents.</p>
                 {% endif %}
 
-                <form action="{% url 'main' %}" method="post" enctype="multipart/form-data">
+                <form id="upload-form" action="{% url 'main' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <p>{{ form.non_field_errors }}</p>
-                    <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
-                    <p>
-                        {{ form.docfile.errors }}
+                    <!-- <p>{{ form.non_field_errors }}</p>
+                    <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p> -->
+                    <!-- <p> -->
+                        <!-- {{ form.docfile.errors }} -->
+                        {{ form.docfile.label_tag }}
                         {{ form.docfile }}
-                    </p>
-                    <p>
+                    <!-- </p> -->
+                    <!-- <p> -->
                         <input class="button" style="width:100%;" type="submit" value="upload file" />
-                    </p>
+                    <!-- </p> -->
                 </form>
 
                 <!-- <div class="button">upload file</div> -->
 
-                <a class="button unclickable" id="download-button">download selection</a>
 
             </div>
 
+            <div>
+                <p class="toolbar-header">Download</p>
+                <a class="button unclickable" id="download-button">download selection</a>
+            </div>
 
             <!-- <div id="info">
                 <p class="toolbar-header">Information</p>
@@ -103,6 +108,7 @@
         </div>
     </div>
 
+    <script src="{% static 'js/upload-button.js' %}"></script>
     <script src="{% static 'js/gradients.js' %}"></script>
     <script src="{% static 'js/cmfield-background.js' %}"></script>
     <script src="{% static 'js/cmfield.js' %}"></script>
@@ -113,7 +119,6 @@
     <script src="{% static 'js/tooltip.js' %}"></script>
     <script src="{% static 'js/infobar.js' %}"></script>
     <script src="{% static 'js/selectors.js' %}"></script>
-    <script src="{% static 'js/upload-button.js' %}"></script>
     <script src="{% static 'js/download-button.js' %}"></script>
     <script src="{% static 'js/slider.js' %}"></script>
     <script src="{% static 'js/hsvtoRgb.js' %}"></script>
