@@ -23,7 +23,7 @@ function makeNGradients(uniqueCm) {
     for (var i in uniqueCm) {
         var h1 = i * (1 / uniqueCm.length);
         var h2 = Math.random();
-        while (Math.abs(h1 - h2) > 0.1) { h2 = Math.random() };
+        while (Math.abs(h1 - h2) > 0.2 || Math.abs(h1 - h2) < 0.1) { h2 = Math.random() };
 
         var color1 = hslToRgb(h1, 0.8, 0.5)
         var color2 = hslToRgb(h2, 0.8, 0.5)
