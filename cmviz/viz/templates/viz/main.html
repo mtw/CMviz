@@ -12,7 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Roboto&display=swap" rel="stylesheet">
     <script>
         // get data from Python context
-        var fileToDisplay = "{{ file_to_display }}";
+        // var fileToDisplay = "{{ file_to_display }}"
+        var fileToDisplay = {{ file_to_display|safe }};
     </script>
 </head>
 
@@ -109,6 +110,9 @@
     <script src="{% static 'js/funcs-behave.js' %}"></script>
     <!-- <script src="{% static 'js/funcs-viz.js' %}"></script> -->
     <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        runMain();
+    </script>
 
 </body>
 

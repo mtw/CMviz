@@ -43,7 +43,7 @@
 - [x] can i specify class in selectAll before enter
 
 ## backend
-- [ ] add file uploading to viz page
+- [ ] dont save intermediate file, only the final csv
 
 ## backend
 - [ ] upload multiple files (https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/)

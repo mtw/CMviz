@@ -8,6 +8,7 @@ from viz.models import Document
 from viz.transformers.funcs import cmout_to_csv
 
 import os
+import json
 
 
 def monolithic_view(request):
@@ -38,13 +39,15 @@ def monolithic_view(request):
 
     documents = os.listdir(f'{baseurl}/csvs')
 
-    print(documents)
+    # print(documents)
 
     try:
         file_to_display
     except NameError:
-        file_to_display = 'static/dummy.csv'
+        file_to_display = json.dumps(['static/dummy2.csv','static/dummy.csv'])
         # file_to_display = f'static/uploads/csvs/{documents[-1]}'
+
+    print(file_to_display)
 
     context = {
         # 'documents': [d.docfile.name for d in documents],

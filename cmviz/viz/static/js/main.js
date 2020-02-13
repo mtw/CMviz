@@ -1,6 +1,6 @@
 // define globals
-var LENDATA;
-var CMDATA;
+var LENDATA = {};
+var CMDATA = [];
 
 var cmFieldChosen = new Set();
 
@@ -17,33 +17,21 @@ var SETTINGS = {
 }
 
 
-// load data
-// d3.csv(SETTINGS.genomesFile, function (idata) {
-//     LENDATA = {};
+function runMain(){
+    let csvPromises = fileToDisplay.map(f => d3.csv(f));
+    let lengthPromise = d3.csv(SETTINGS.genomesFile)
+    let promises = [...csvPromises, lengthPromise]
 
-//     idata.map(line => LENDATA[line[0]] = parseInt(line[1]))
+    Promise.all(promises).then(function (results){
+        let lenData = results.pop();
+        lenData.map(r => LENDATA[r[0]] = parseInt(r[1]));
 
-//     // idata.map(line => LENDATA[line[1]] = parseInt(line[9]))
+        let csvData = results;
+        csvData.map(r => CMDATA = CMDATA.concat(r));
 
-//     console.log(LENDATA)
-
-//     d3.csv(fileToDisplay, function (error, idata) {
-//         CMDATA = idata;
-//         main();
-//     });
-// });
-
-d3.csv(SETTINGS.genomesFile).then(function (data) {
-    LENDATA = {};
-    data.map(x => LENDATA[x[0]] = parseInt(x[1]))
-
-    d3.csv(fileToDisplay).then(function (data) {
-        CMDATA = data;
-        console.log(data);
-        main()
+        main();
     })
-})
-
+}
 
 function main() {
 
