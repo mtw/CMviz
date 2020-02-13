@@ -24,6 +24,8 @@ def monolithic_view(request):
                 f'{baseurl}/{filename}', f'{baseurl}/csvs/{filename}.csv')
             # print(newdoc.__dict__)
 
+            file_to_display = f'static/uploads/csvs/{filename}.csv'
+
     documents = Document.objects.all()
     form = DocumentForm()
 
@@ -38,11 +40,16 @@ def monolithic_view(request):
 
     print(documents)
 
+    try:
+        file_to_display
+    except NameError:
+        file_to_display = f'static/uploads/csvs/{documents[-1]}'
+
     context = {
         # 'documents': [d.docfile.name for d in documents],
         'documents': documents,
         # 'file_to_display': ['static/uploads/'+d.docfile.name for d in documents][-1],
-        'file_to_display': f'static/uploads/csvs/{filename}.csv',
+        'file_to_display': file_to_display,
         'form': form
     }
     # print()
