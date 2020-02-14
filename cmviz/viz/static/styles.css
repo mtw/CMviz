@@ -108,11 +108,42 @@ div#tooltip {
 
 #upload-form label[for=id_docfile] {
   /* width:100%; */
-  display:block;
-  overflow:hidden;
+  display: block;
+  overflow: hidden;
 }
 
 #id_docfile {
-  display:none;
-  position:absolute;
+  display: none;
+  position: absolute;
+}
+
+.chooseFileForm {
+  background: none;
+  color: #333;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-align: left;
+}
+
+.chooseFileForm:hover {
+  color:#555;
+}
+
+.chooseFileForm:active {
+  color:#777;
+}
+
+.chooseFileForm.displaying {
+  color: dodgerblue;
+}
+
+.chooseFileForm.displaying:hover {
+  color: rgb(58, 176, 255);
+}
+
+.chooseFileForm.displaying:active {
+  color: rgb(58, 176, 255);
 }

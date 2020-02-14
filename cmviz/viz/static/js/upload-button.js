@@ -55,10 +55,18 @@ function makeUploadButton() {
     filesExistList
         .append('input')
         .attr('type', 'submit')
-        .classed('button', true)
+        .classed('chooseFileForm', true)
+        // .classed('button', true)
         .attr('value', d => d)
         .classed('displaying', d => filesDisplay.includes(d) ? true : false)
         .style('width', '100%')
+
+    // filesExistList
+    //     .append('div')
+    //     .attr('width', 14)
+    //     .attr('height', 14)
+    //     .style('background-color', 'dodgerblue')
+    //     .style('border-radius', 7)
 
     filesExistList
         .append('input')
@@ -79,10 +87,7 @@ function makeUploadButton() {
         .attr('value', csrfmiddlewaretoken)
 
 
-
-    {/* <input class="button unclickable" style="width:100%;" type="submit" value="upload file" disabled=""> */ }
-
-    d3.selectAll('#files-exist .displaying')
-        .style('border', '1px solid red')
+    // d3.selectAll('#files-exist .displaying')
+        // .style('border', '1px solid red')
 
 }
