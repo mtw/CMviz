@@ -25,7 +25,35 @@ function makeUploadButton() {
             }
         })
 
-    let ulDocs = d3.select('#uploader ul')
-        .style('overflow', 'hidden')
+
+    let filesExistList = d3.select('#files-exist')
+        .selectAll()
+        .data(filesExist)
+        .enter()
+        .append('div')
+        .text(d => d)
+        .attr('filename', d => d)
+        .classed('displaying', d => filesDisplay.includes(d) ? true : false)
+
+
+    d3.selectAll('#files-exist .displaying')
+        .style('background-color', 'red')
+    // .call(function () {
+    //     let I = d3.select(this);
+    //     console.log(I)
+    // })
+    // 
+
+
+    // filesExistList.map(
+    //     let a = d3.select(this)
+    //     console.log(I)
+    // )
+
+    // filesExistList.selectAll('.displaying')
+    //     .attr('background-color', _ => console.log(_))
+
+    // let ulDocs = d3.select('#uploader ul')
+    //     .style('overflow', 'hidden')
 
 }

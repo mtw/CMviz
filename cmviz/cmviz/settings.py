@@ -123,3 +123,5 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'viz/static/uploads')
 MEDIA_URL = '/viz/static/uploads/'
+
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = True

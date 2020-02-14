@@ -14,7 +14,8 @@
         // get data from Python context
         // var fileToDisplay = "{{ file_to_display }}"
         var filesDisplay = {{ files_display| safe }};
-        // var filesExist = {{ files_display| safe }};
+        var filesExist = {{ files_exist| safe }};
+        console.log({{ itemos| safe}})
     </script>
 </head>
 
@@ -31,29 +32,31 @@
             <p class="toolbar-header">Upload</p>
             <div id="uploader">
 
-                <!-- List of uploaded documents -->
-                {% if documents %}
+                <div id="files-exist"></div>
+
+                <!-- {% if files_exist %}
                 <ul>
-                    {% for document in files_exist %}
-                    <!-- <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li> -->
-                    <li>{{ document }}</li>
+                    {% for i in files_exist %}
+                    <li>{{ i }}</li>
                     {% endfor %}
                 </ul>
                 {% else %}
                 <p>No documents.</p>
-                {% endif %}
+                {% endif %} -->
 
                 <form id="upload-form" action="{% url 'main' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <!-- <p>{{ form.non_field_errors }}</p>
                     <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p> -->
                     <!-- <p> -->
-                        <!-- {{ form.docfile.errors }} -->
-                        {{ form.docfile.label_tag }}
-                        {{ form.docfile }}
+                    <!-- {{ form.docfile.errors }} -->
+                    {{ form.docfile.label_tag }}
+                    {{ form.docfile }}
+
+                    {{ sess_value }}
                     <!-- </p> -->
                     <!-- <p> -->
-                        <input class="button" style="width:100%;" type="submit" value="upload file" />
+                    <input class="button" style="width:100%;" type="submit" value="upload file" />
                     <!-- </p> -->
                 </form>
 
