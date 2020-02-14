@@ -32,17 +32,57 @@ function makeUploadButton() {
         })
 
 
+    // let filesExistList = d3.select('#files-exist')
+    //     .selectAll()
+    //     .data(filesExist)
+    //     .enter()
+    //     .append('div')
+    //     .text(d => d)
+    //     .attr('filename', d => d)
+    //     .classed('displaying', d => filesDisplay.includes(d) ? true : false)
+
+    let csrfmiddlewaretoken = d3.select('input[name=csrfmiddlewaretoken]').attr('value')
+
     let filesExistList = d3.select('#files-exist')
         .selectAll()
         .data(filesExist)
         .enter()
-        .append('div')
-        .text(d => d)
+        .append('form')
         .attr('filename', d => d)
-        .classed('displaying', d => filesDisplay.includes(d) ? true : false)
+        .attr('action', '/')
+        .attr('method', 'post')
 
+    filesExistList
+        .append('input')
+        .attr('type', 'submit')
+        .classed('button', true)
+        .attr('value', d => d)
+        .classed('displaying', d => filesDisplay.includes(d) ? true : false)
+        .style('width', '100%')
+
+    filesExistList
+        .append('input')
+        .attr('type', 'hidden')
+        .attr('name', 'filename')
+        .attr('value', d => d)
+
+    filesExistList
+        .append('input')
+        .attr('type', 'hidden')
+        .attr('name', 'form-type')
+        .attr('value', 'selection')
+
+    filesExistList
+        .append('input')
+        .attr('type', 'hidden')
+        .attr('name', 'csrfmiddlewaretoken')
+        .attr('value', csrfmiddlewaretoken)
+
+
+
+    {/* <input class="button unclickable" style="width:100%;" type="submit" value="upload file" disabled=""> */ }
 
     d3.selectAll('#files-exist .displaying')
-        .style('background-color', 'dodgerblue')
+        .style('border', '1px solid red')
 
 }

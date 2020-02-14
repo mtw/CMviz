@@ -46,6 +46,7 @@
 
 ## backend
 - [ ] dont save intermediate file, only the final csv
+- [ ] enable choosing files
 
 ## backend
 - [ ] upload multiple files (https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/)

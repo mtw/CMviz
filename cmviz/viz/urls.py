@@ -7,4 +7,5 @@ urlpatterns = [
     # path('listy', views.list_view, name='listy'),
     path('', views.main_view, name='main'),
     path('dummy', views.dummy_view),
+    # path('update_session', views.update_session)
 ]

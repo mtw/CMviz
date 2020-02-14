@@ -18,12 +18,7 @@ default_can_display = [
 
 def main_view(request):
 
-    # print(request.session.serializer.__dict__)
-
-    # print('can', request.session.get('can_display'))
-    # print('will', request.session.get('will_display'))
-
-    print(dict(request.session.items()))
+    print(request.POST)
 
     baseurl = 'cmviz/viz/static/uploads'
 
@@ -36,23 +31,32 @@ def main_view(request):
     # if upload was made
     if request.method == 'POST':
 
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            filename = request.FILES['docfile']
-            newdoc = Document(docfile=filename)
-            newdoc.save()
+        if request.POST['form-type'] == 'upload':
+            form = DocumentForm(request.POST, request.FILES)
+            if form.is_valid():
+                filename = request.FILES['docfile']
+                newdoc = Document(docfile=filename)
+                newdoc.save()
 
-            ipath = f'{baseurl}/{filename}'
-            opath = f'{baseurl}/csvs/{filename}.csv'
-            cmout_to_csv(ipath, opath)
+                ipath = f'{baseurl}/{filename}'
+                opath = f'{baseurl}/csvs/{filename}.csv'
+                cmout_to_csv(ipath, opath)
 
-            uploaded = f'static/uploads/csvs/{filename}.csv'
+                uploaded = f'static/uploads/csvs/{filename}.csv'
 
-            if not uploaded in request.session['will_display']:
-                request.session['will_display'].append(uploaded)
+                if not uploaded in request.session['will_display']:
+                    request.session['will_display'].append(uploaded)
 
-            if not uploaded in request.session['can_display']:
-                request.session['can_display'].append(uploaded)
+                if not uploaded in request.session['can_display']:
+                    request.session['can_display'].append(uploaded)
+
+        if request.POST['form-type'] == 'selection':
+            add_file = request.POST['filename']
+
+            if add_file in request.session['will_display']:
+                request.session['will_display'].remove(add_file)
+            else:
+                request.session['will_display'].append(add_file)
 
     if request.session['will_display'] == []:
         request.session['will_display'] = [request.session['can_display'][0]]
@@ -64,12 +68,11 @@ def main_view(request):
         'form': DocumentForm(),
     }
 
-    print(dict(request.session.items()))
+    # print(dict(request.session.items()))
 
     context['itemos'] = json.dumps(list(request.session.items()))
 
     request.session.modified = True
-
 
     return render(request, 'viz/main.html', context)
 
