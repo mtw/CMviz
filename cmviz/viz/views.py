@@ -78,5 +78,6 @@ def dummy_view(request):
 
     print(request.session.items())
     request.session.flush()
+    request.session.modified = True
 
     return render(request, 'viz/dummy.html', {})
