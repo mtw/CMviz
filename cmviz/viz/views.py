@@ -70,8 +70,6 @@ def main_view(request):
 
     request.session.modified = True
 
-    # print('can2', request.session['can_display'])
-    # print('will2', request.session['will_display'])
 
     return render(request, 'viz/main.html', context)
 
@@ -82,28 +80,3 @@ def dummy_view(request):
     request.session.flush()
 
     return render(request, 'viz/dummy.html', {})
-
-# def main_visualization(request):
-#     return render(
-#         request,
-#         'viz/main.html',
-#         {'file_to_display': 'static/data/x1.csv'},
-#         # {'file_to_display': 'static/data/all_DENVG_3UTR.SL2.csv'},
-#     )
-
-
-# def list_view(request):
-
-#     if request.method == 'POST':
-
-#         form = DocumentForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             newdoc = Document(docfile=request.FILES['docfile'])
-#             newdoc.save()
-#             return HttpResponseRedirect('listy')
-#     else:
-#         form = DocumentForm()
-
-#     documents = Document.objects.all()
-
-#     return render(request, 'viz/list.html', {'documents': documents, 'form': form})

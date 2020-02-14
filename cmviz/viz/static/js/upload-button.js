@@ -3,6 +3,7 @@ function makeUploadButton() {
 
     let submitButton = d3.select('#upload-form input[type=submit]')
         .classed('unclickable', true)
+        .property('disabled', true)
 
     let fileChooser = d3.select('#upload-form label[for=id_docfile]')
         .classed('button', true)
@@ -17,9 +18,14 @@ function makeUploadButton() {
         .on('change', function () {
             let files = this.files;
             if (files.length == 0) {
+                submitButton.property('disabled', true)
+                    .classed('unclickable', true)
                 // disable upload
             } else {
                 // enable upload
+                submitButton.property('disabled', false)
+                    .classed('unclickable', false)
+
                 let fileName = files[0].name;
                 fileChooser.text(fileName)
             }
@@ -37,23 +43,6 @@ function makeUploadButton() {
 
 
     d3.selectAll('#files-exist .displaying')
-        .style('background-color', 'red')
-    // .call(function () {
-    //     let I = d3.select(this);
-    //     console.log(I)
-    // })
-    // 
-
-
-    // filesExistList.map(
-    //     let a = d3.select(this)
-    //     console.log(I)
-    // )
-
-    // filesExistList.selectAll('.displaying')
-    //     .attr('background-color', _ => console.log(_))
-
-    // let ulDocs = d3.select('#uploader ul')
-    //     .style('overflow', 'hidden')
+        .style('background-color', 'dodgerblue')
 
 }
