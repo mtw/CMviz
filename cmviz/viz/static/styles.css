@@ -21,6 +21,10 @@ div#tooltip {
   width: 265px;
   background: rgba(0, 0, 0, 0.03);
   border-right: 0.5px solid rgba(0, 0, 0, 0.15);
+  /*  */
+  /* -moz-box-shadow: inset 0 -10px 10px -10px #000000;
+  -webkit-box-shadow: inset 0 -10px 10px -10px #000000;
+  box-shadow: inset 0 -10px 10px -10px #000000; */
 }
 
 .toolbar-header {
@@ -89,19 +93,36 @@ div#tooltip {
 
 /* scrollbar */
 
-#style-2::-webkit-scrollbar-track {
+.bluescrollbar::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 2px;
   background-color: #F5F5F5;
 }
 
-#style-2::-webkit-scrollbar {
+.bluescrollbar::-webkit-scrollbar {
   width: 6px;
   background-color: #F5F5F5;
 }
 
-#style-2::-webkit-scrollbar-thumb {
+.bluescrollbar::-webkit-scrollbar-thumb {
   border-radius: 2px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: dodgerblue;
+}
+
+.toolbar-scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 1px;
+  background-color: #F5F5F5;
+}
+
+.toolbar-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  background-color: #F5F5F5;
+}
+
+.toolbar-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 1px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
   background-color: dodgerblue;
 }
@@ -129,11 +150,11 @@ div#tooltip {
 }
 
 .chooseFileForm:hover {
-  color:#555;
+  color: #555;
 }
 
 .chooseFileForm:active {
-  color:#777;
+  color: #777;
 }
 
 .chooseFileForm.displaying {

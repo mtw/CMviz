@@ -25,19 +25,20 @@
 
     <div>
 
-        <div id="toolbar" style="padding:15px;">
+        <div id="toolbar" class="toolbar-scrollbar" style="padding:15px;overflow-y:auto;direction:rtl">
+            <div style="direction:ltr">
 
-            <h1><a href="">cmviz</a></h1>
-            <a href="/dummy">flush</a>
+                <h1><a href="">cmviz</a></h1>
+                <a href="/dummy">flush</a>
 
-            <p class="toolbar-header">Uploaded files</p>
-            <div id="files-exist"></div>
+                <p class="toolbar-header">Uploaded files</p>
+                <div id="files-exist"></div>
 
-            <p class="toolbar-header">Upload additional files</p>
-            <div id="uploader">
+                <p class="toolbar-header">Upload additional files</p>
+                <div id="uploader">
 
 
-                <!-- {% if files_exist %}
+                    <!-- {% if files_exist %}
                 <ul>
                     {% for i in files_exist %}
                     <li>{{ i }}</li>
@@ -47,50 +48,50 @@
                 <p>No documents.</p>
                 {% endif %} -->
 
-                <form id="upload-form" action="{% url 'main' %}" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.docfile.label_tag }}
-                    {{ form.docfile }}
-                    <input type="hidden" name="form-type" value="upload">
-                    <input class="button" style="width:100%;" type="submit" value="upload file" />
-                </form>
+                    <form id="upload-form" action="{% url 'main' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.docfile.label_tag }}
+                        {{ form.docfile }}
+                        <input type="hidden" name="form-type" value="upload">
+                        <input class="button" style="width:100%;" type="submit" value="upload file" />
+                    </form>
 
 
 
-            </div>
+                </div>
 
-            <div>
-                <p class="toolbar-header">Download</p>
-                <a class="button unclickable" id="download-button">download selection</a>
-            </div>
+                <div>
+                    <p class="toolbar-header">Download</p>
+                    <a class="button unclickable" id="download-button">download selection</a>
+                </div>
 
-            <!-- <div id="info">
+                <!-- <div id="info">
                 <p class="toolbar-header">Information</p>
                 <div id="info-container" style="padding-left:10px;"></div>
             </div> -->
 
-            <div id="sliders">
-                <p class="toolbar-header">Selection</p>
-                <div style="padding-left:10px;"></div>
+                <div id="sliders">
+                    <p class="toolbar-header">Selection</p>
+                    <div style="padding-left:10px;"></div>
+                </div>
+
+                <div id="sausages">
+                    <p class="toolbar-header">Selection</p>
+                    <div></div>
+                </div>
+
+                <div id="container">
+                    <p class="toolbar-header">Covariance model types</p>
+                </div>
+
+                <div id="continuous-sliders">
+                    <p class="toolbar-header">Continuous sliders</p>
+                </div>
+
             </div>
-
-            <div id="sausages">
-                <p class="toolbar-header">Selection</p>
-                <div></div>
-            </div>
-
-            <div id="container">
-                <p class="toolbar-header">Covariance model types</p>
-            </div>
-
-            <div id="continuous-sliders">
-                <p class="toolbar-header">Continuous sliders</p>
-            </div>
-
-
         </div>
 
-        <div id='style-2' style="position:absolute;top:0;left:295px;bottom:0;right:0;">
+        <div class="bluescrollbar" id="cmfield-container" style="position:absolute;top:0;left:295px;bottom:0;right:0;">
 
             <svg id="cmfieldbackground"></svg>
             <svg id='cmfield' style="position:absolute;left:0;">

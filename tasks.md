@@ -28,7 +28,8 @@
 - [ ] add help tooltip
 - [x] shift cm's a little so they dont cover the line
 - [x] fix csv headers
-- [ ] fix default styling of input tag
+- [x] fix default styling of input tag
+- [ ] add bottom shadow when scrolling possible
 
 ## frontend - consider
 - [ ] control sausage link count

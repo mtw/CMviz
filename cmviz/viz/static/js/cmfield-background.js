@@ -8,11 +8,11 @@ function makeCmfieldBackground(data) {
 
     function checkOverflow() {
         if (countHeight > window.innerHeight) {
-            d3.select('#style-2').style('overflow-y', 'scroll');
+            d3.select('#cmfield-container').style('overflow-y', 'scroll');
             d3.select('svg#cmfieldbackground')
                 .attr('height', countHeight)
         } else {
-            d3.select('#style-2').style('overflow-y', 'hidden');
+            d3.select('#cmfield-container').style('overflow-y', 'hidden');
             d3.select('svg#cmfieldbackground')
                 .attr('height', count * conf.seqHeight)
 
