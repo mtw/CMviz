@@ -57,9 +57,14 @@ function makeUploadButton() {
         .attr('type', 'submit')
         .classed('chooseFileForm', true)
         // .classed('button', true)
-        .attr('value', d => d)
+        .attr('value', d => d.split('/').pop())
         .classed('displaying', d => filesDisplay.includes(d) ? true : false)
+        .style('text-overflow', 'ellipsis')
+        .style('overflow','hidden')
+        .style('white-space','nowrap')
+        .attr('title', d => d)
         .style('width', '100%')
+
 
     // filesExistList
     //     .append('div')
@@ -88,6 +93,6 @@ function makeUploadButton() {
 
 
     // d3.selectAll('#files-exist .displaying')
-        // .style('border', '1px solid red')
+    // .style('border', '1px solid red')
 
 }
