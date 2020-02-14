@@ -1,4 +1,5 @@
-.csv
-.cmout
-.pyc
-.sqlite3
+*.csv
+*.cmout
+*.pyc
+*.sqlite3
+migrations/
