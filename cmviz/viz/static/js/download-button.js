@@ -11,6 +11,8 @@ function makeDownloadButton() {
             almnt.pop();
             almnt = almnt.pop();
             almnt = almnt.replace(/-/g, '');
+            almnt = almnt.split('*[');
+            almnt = almnt[0];
             // console.log(almnt)
             var text = `>${utr.seq}|${utr.seq_start}|${utr.seq_end}|${utr.strand}\n${almnt}\n`
             return text

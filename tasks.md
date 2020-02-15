@@ -16,6 +16,7 @@
 
 ## questions
 - [x] include *[] in FASTA output? NO
+- [ ] check in Infernal if the trunc notation always starts with *[
 
 ## frontend
 - [ ] fix download button
