@@ -113,9 +113,8 @@ function makeCmfield() {
         })
         .on('click', function (d) {
 
-
-            if (cmFieldChosen.has(d.rank)) {
-                cmFieldChosen.delete(d.rank)
+            if (cmFieldChosen.has(d.ui)) {
+                cmFieldChosen.delete(d.ui)
                 d3.select(this)
                     .classed('chosen', false)
                     .attr('fill', d => `url(#${d.cm})`)
@@ -128,7 +127,7 @@ function makeCmfield() {
                 }
             }
             else {
-                cmFieldChosen.add(d.rank)
+                cmFieldChosen.add(d.ui)
                 d3.select(this)
                     .attr('fill', '#eee')
                     .attr('stroke', 'gray')

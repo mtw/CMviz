@@ -5,8 +5,8 @@ function makeDownloadButton() {
 
     function returnFASTA() {
 
-        function extractUTRFasta(rank) {
-            var utr = CMDATA[rank];
+        function extractUTRFasta(ui) {
+            var utr = CMDATA[ui];
             var almnt = utr.alignment.split('\n');
             almnt.pop();
             almnt = almnt.pop();
@@ -20,8 +20,8 @@ function makeDownloadButton() {
             var href = null
         } else {
             var text = '';
-            for (rank of Array.from(cmFieldChosen)) {
-                text += extractUTRFasta(rank);
+            for (let ui of Array.from(cmFieldChosen)) {
+                text += extractUTRFasta(ui);
             }
             var href = 'data:application/octet-stream,' + text;
         }

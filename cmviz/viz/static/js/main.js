@@ -29,6 +29,9 @@ function runMain(){
         let csvData = results;
         csvData.map(r => CMDATA = CMDATA.concat(r));
 
+        // add unique identifier for download
+        CMDATA.map((_,i) => CMDATA[i]['ui'] = i)
+
         main();
     })
 }
