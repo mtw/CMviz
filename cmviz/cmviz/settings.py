@@ -38,7 +38,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'cmviz.urls'
+ROOT_URLCONF = 'CMviz.urls'
 
 TEMPLATES = [
     {
@@ -58,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'cmviz.wsgi.application'
+WSGI_APPLICATION = 'CMviz.wsgi.application'
 
 
 # Database
