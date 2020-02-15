@@ -91,7 +91,7 @@ function makeCmfield() {
         .attr('y', d => d.strand == '+' ? conf.cmGap - conf.seqLineWidth : conf.seqHeight / 2 + conf.seqLineWidth)
         // .attr('fill', 'url(#grad1)')
         .attr('fill', d => `url(#${d.cm})`)
-        .style('cursor','pointer')
+        .style('cursor', 'pointer')
         .on('mouseover', function (d) {
 
             // show tooltip
@@ -119,7 +119,7 @@ function makeCmfield() {
                 d3.select(this)
                     .classed('chosen', false)
                     .attr('fill', d => `url(#${d.cm})`)
-                    // .attr('stroke-width', 0)
+                // .attr('stroke-width', 0)
 
                 if (cmFieldChosen.size == 0) {
                     d3.select('#download-button')
@@ -144,6 +144,11 @@ function makeCmfield() {
                         .classed('unclickable', false)
                 }
             }
+
+            // add numbering to download button
+
+
+            d3.select('a#download-button').text(`download selection (${cmFieldChosen.size})`)
 
         });
 
