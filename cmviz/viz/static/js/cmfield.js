@@ -39,8 +39,8 @@ function makeCmfield() {
 
     root
         .attr('height', _ => Object.keys(data).length * conf.seqHeight)
-        .attr('width','100%')
-        .style('top', conf.seqHeight*1)
+        .attr('width', '100%')
+        .style('top', conf.seqHeight * 1)
 
 
     // horizontal group: text + seq group
@@ -91,6 +91,7 @@ function makeCmfield() {
         .attr('y', d => d.strand == '+' ? conf.cmGap - conf.seqLineWidth : conf.seqHeight / 2 + conf.seqLineWidth)
         // .attr('fill', 'url(#grad1)')
         .attr('fill', d => `url(#${d.cm})`)
+        .style('cursor','pointer')
         .on('mouseover', function (d) {
 
             // show tooltip
@@ -118,7 +119,7 @@ function makeCmfield() {
                 d3.select(this)
                     .classed('chosen', false)
                     .attr('fill', d => `url(#${d.cm})`)
-                    .attr('stroke-width', 0)
+                    // .attr('stroke-width', 0)
 
                 if (cmFieldChosen.size == 0) {
                     d3.select('#download-button')
@@ -129,10 +130,10 @@ function makeCmfield() {
             else {
                 cmFieldChosen.add(d.ui)
                 d3.select(this)
-                    .attr('fill', '#eee')
-                    .attr('stroke', 'gray')
-                    .attr('stroke-width', 0.5)
-                    .style("stroke-dasharray", ("2,2"))
+                    // .attr('fill', '#eee')
+                    // .attr('stroke', 'gray')
+                    // .attr('stroke-width', 0.5)
+                    // .style("stroke-dasharray", ("2,2"))
                     .classed('chosen', true)
 
                 blinkAnimation(d3.select(this))
@@ -160,13 +161,14 @@ function blinkAnimation(obj) {
 
     function blink() {
         if (obj.classed('chosen')) {
-            obj.style('fill', 'red').transition().duration(400)
+            obj.style('fill', 'gray').transition().duration(200)
                 .style('fill', 'gray').transition().duration(400)
-                .style('fill', 'red').on('end', blink)
+                .style('fill', d => `url(#${d.cm})`)
+                .on('end', blink)
         } else {
             obj.attr('fill', d => `url(#${d.cm})`)
-
         }
+
     }
 
 }
