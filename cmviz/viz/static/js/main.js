@@ -71,5 +71,7 @@ function main() {
     // defineTicking();
     defineCMHovering();
 
+    functionalizeClearSelectionButton();
+
 
 };

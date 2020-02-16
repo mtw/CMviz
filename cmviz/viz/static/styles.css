@@ -54,14 +54,36 @@ div#tooltip {
   padding: 10px 0;
 }
 
-/* #title {
-  display: inline;
-  position: absolute;
-  top: 0;
-  margin: 3px 0px 0 5px;
-  line-height: 40px;
-  color: #333;
-} */
+#clear-selection-button {
+  width: 30px;
+  height: 14px;
+  border-radius: 7px;
+  text-align: center;
+  color: white;
+  position:absolute;
+  /* border: 1px solid dargray; */
+  /* background-color:gray; */
+  cursor:no-drop;
+  top:15px;
+  right:13px;
+  font-size:10px;
+  opacity:0;
+}
+
+#clear-selection-button.clickable{
+  cursor:pointer;
+  opacity:1;
+  /* border: 0.5px solid rgb(255, 51, 0); */
+  background-color: rgb(255, 38, 0);
+}
+
+#clear-selection-button.clickable:hover {
+  background-color: rgb(255, 69, 36);
+}
+
+#clear-selection-button.clickable:active {
+  background-color: rgb(253, 109, 99);
+}
 
 .continuous-slider {
   transition: 0.4s;

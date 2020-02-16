@@ -37,3 +37,31 @@ function makeDownloadButton() {
         .on('click', returnFASTA)
 
 }
+
+
+function functionalizeClearSelectionButton() {
+
+    d3.select('#clear-selection-button')
+        .on('click', function () {
+
+            if (d3.select(this).classed('clickable') == 'false') return;
+
+            console.log('click')
+            cmFieldChosen = new Set();
+
+
+            d3.selectAll('.cm.chosen')
+                .classed('chosen', false)
+                .attr('fill', d => `url(#${d.cm})`);
+
+            d3.select('#download-button')
+                .classed('downloadable', false)
+                .classed('unclickable', true)
+                .text(`download selection (${cmFieldChosen.size})`);
+
+            d3.select(this)
+                .classed('clickable', false);
+
+            console.log(cmFieldChosen)
+        })
+}

@@ -67,9 +67,9 @@ function makeCmfield() {
         .text('sequence identifiers')
         .style('text-anchor', 'end')
         .style('font-size', conf.seqTextSize)
-        .style('font-style','italic')
-        .style('fill','#555')
-        .attr('transform', `translate(${conf.textRightBorder},${conf.seqHeight - conf.seqTextSize/2 - 1})`)
+        .style('font-style', 'italic')
+        .style('fill', '#555')
+        .attr('transform', `translate(${conf.textRightBorder},${conf.seqHeight - conf.seqTextSize / 2 - 1})`)
 
     // right seq group
     var seqMinigroup = seqMegaGroups
@@ -131,6 +131,9 @@ function makeCmfield() {
                     d3.select('#download-button')
                         .classed('downloadable', false)
                         .classed('unclickable', true)
+
+                    d3.select('#clear-selection-button')
+                        .classed('clickable', false)
                 }
             }
             else {
@@ -144,6 +147,9 @@ function makeCmfield() {
                     d3.select('#download-button')
                         .classed('downloadable', true)
                         .classed('unclickable', false)
+
+                    d3.select('#clear-selection-button')
+                        .classed('clickable', true)
                 }
             }
 
