@@ -47,7 +47,7 @@ function main() {
 
     discreteScores = ['inc', 'mdl', 'strand', 'mdl_alntype', 'seq_alntype', 'trunc']
 
-    makeSelectors();
+    // makeSelectors();
 
     for (var i in continuousScores) {
         var scoreType = continuousScores[i];
@@ -58,7 +58,7 @@ function main() {
 
     discreteScores.map(scoreType => makeSausage(scoreType))
 
-    makeInfoPanel();
+    // makeInfoPanel();
     makeTooltip();
     makeUploadButton();
     makeDownloadButton();
