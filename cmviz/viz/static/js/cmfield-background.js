@@ -68,8 +68,8 @@ function makeCmfieldBackground(data) {
         .append('line')
         .attr('x1', conf.linesLeftBorder)
         .attr('x2', conf.linesLeftBorder + window.screen.width)
-        .attr('y1', (_, i) => conf.seqHeight * (i + 1.5))
-        .attr('y2', (_, i) => conf.seqHeight * (i + 1.5))
+        .attr('y1', (_, i) => conf.seqHeight * (i + 0.5))
+        .attr('y2', (_, i) => conf.seqHeight * (i + 0.5))
         .attr('stroke', '#eee')
         .attr('stroke-dasharray', '3,3')
 }
