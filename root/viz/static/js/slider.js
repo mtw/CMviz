@@ -100,6 +100,7 @@ function makeDoubleSlider(scoreType, textType) {
             .style('stroke-width', 5)
             .style('stroke-linecap', 'round')
             // .on('mouseover', hoverLine)
+            .style('cursor', 'help')
             .on('mousemove', hoverLine)
             .on('mouseout', unhoverLine)
 
@@ -112,6 +113,7 @@ function makeDoubleSlider(scoreType, textType) {
             .style('stroke-width', 8)
             .style('stroke-linecap', 'round')
             // .on('mouseover', hoverLine)
+            .style('cursor', 'help')
             .on('mousemove', hoverLine)
             .on('mouseout', unhoverLine)
 
@@ -239,7 +241,7 @@ function makeDoubleSlider(scoreType, textType) {
         // console.log(newX)
         hoverCircle
             .attr('cx', x)
-            .style('display', 'initial')
+            .style('display', 'inline')
     }
 
     function unhoverLine() {
