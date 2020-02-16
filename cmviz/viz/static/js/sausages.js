@@ -3,6 +3,9 @@ function makeSausage(scoreType) {
     var totalLength = 126;
     var y = 20;
 
+    let widthPadding = 5
+    let linkGap = 3
+
     // get possible values
     var allValues = new Set();
     for (var entry of CMDATA) {
@@ -11,15 +14,13 @@ function makeSausage(scoreType) {
 
     var linkLength = totalLength / allValues.size;
 
-    // console.log(linkLength)
-
     var svg = d3.select('#sausages div')
         .append('svg')
         .style('height', y + 1)
         .style('width', totalLength + 60 + 60)
         .classed(scoreType, true)
 
-
+    // scoreType text
     svg.append('text')
         .attr('x', 68)
         .attr('y', y / 2 + 5)
@@ -35,37 +36,38 @@ function makeSausage(scoreType) {
         .data(Array.from(allValues))
         .enter()
         .append('g')
-        .attr('transform', (_, i) => `translate(${i * linkLength + i},0)`)
+        // .attr('transform', (_, i) => `translate(${i * linkLength + i},0)`)
         .style('cursor', 'pointer')
 
     var linkRects = links.append('rect')
-        // .attr('width', (_, i) => linkLength - i)
-        .attr('transform', function () {
-            return `translate(${linkLength / 2},0)`
-        })
         .attr('height', y)
-        .attr('rx', y / 2)
+        .attr('rx', 3)
         .attr('fill', 'dodgerblue')
 
-
-    links.append('text')
-        .attr('text-anchor', 'middle')
-        .attr('transform', (_, i) => `translate(${linkLength / 2},${y / 2 + 4})`)
+    var linkTexts = links.append('text')
+        .attr('text-anchor', 'start')
         .text(d => d)
         .style('font-size', 12)
         .style('fill', 'white')
-        .style('font-family', 'Inconsolata, monospace')
+        .attr('transform', (_, i) => `translate(${widthPadding},${y / 2 + 4})`)
+        .style('cursor', 'pointer')
+    // .style('font-family', 'Inconsolata, monospace')
 
-    var rectWidth = me => me.parentNode.getBBox().width + 20
+    // get widths of linkTexts
+    let ws = [];
+    linkTexts.each(function () {
+        ws.push(this.getBBox().width);
+    })
 
-    linkRects
-        .attr('width', function () {
-            return rectWidth(this)
-        })
-        .attr('transform', function (_, i) {
-            var w = rectWidth(this)
-            return `translate(${linkLength / 2 - w / 1.5 / 3},0)`
-        })
+    linkRects.attr('width', (_, i) => ws[i] + widthPadding * 2)
+
+    // get cumulative width
+    let wnew = [0];
+    for (var i = 1; i < ws.length; i++) {
+        wnew[i] = wnew[i - 1] + ws[i - 1];
+    }
+
+    links.attr('transform', (_, i) => `translate(${wnew[i] + i * widthPadding * 2 + linkGap * i},0)`)
 
 
 }
