@@ -17,20 +17,23 @@ var SETTINGS = {
 }
 
 
-function runMain(){
+function runMain() {
     let csvPromises = filesDisplay.map(f => d3.csv(f));
     let lengthPromise = d3.csv(SETTINGS.genomesFile)
     let promises = [...csvPromises, lengthPromise]
 
-    Promise.all(promises).then(function (results){
+    Promise.all(promises).then(function (results) {
         let lenData = results.pop();
-        lenData.map(r => LENDATA[r[0]] = parseInt(r[1]));
+        lenData.map(r => LENDATA[r[0]] = parseInt(r[1]),10);
 
         let csvData = results;
         csvData.map(r => CMDATA = CMDATA.concat(r));
 
         // add unique identifier for download
-        CMDATA.map((_,i) => CMDATA[i]['ui'] = i)
+        CMDATA.map((_, i) => CMDATA[i]['ui'] = i)
+
+        console.log(CMDATA[0]);
+        console.log(LENDATA);
 
         main();
     })

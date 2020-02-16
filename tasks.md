@@ -13,13 +13,14 @@
 - [ ] extract svg: global and local
 - [ ] compressed layout
 - [ ] friday screenshot abstract paper
+- [ ] update genomes.csv to include the prefix for sequences
 
 ## questions
 - [x] include *[] in FASTA output? NO
 - [ ] check in Infernal if the trunc notation always starts with *[
 
 ## frontend
-- [ ] fix download button
+- [x] fix download button
 - [ ] add dimming cursor
 - [ ] add clicking mode (selection, dimming, help)
 - [x] import sequence lengths
@@ -31,6 +32,7 @@
 - [x] fix csv headers
 - [x] fix default styling of input tag
 - [ ] add bottom shadow when scrolling possible
+- [ ] make gridlines reflect seq length
 
 ## frontend - consider
 - [ ] control sausage link count

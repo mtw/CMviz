@@ -49,14 +49,12 @@ function makeCmfield() {
         .enter()
         .append('g')
         .classed('seqIdentifier', true)
-        // .attr('identifier', d => d.key)
         .attr('transform', (_, i) => `translate(0,${(i + 0) * conf.seqHeight})`)
 
     // left seq id text
     var seqText = seqMegaGroups
         .append('text')
         .text(d => d.key)
-        // .classed('seqIdentifier', true)
         .classed('seqText', true)
         .attr('identifier', d => d.key)
         .style('text-anchor', 'end')
@@ -71,7 +69,7 @@ function makeCmfield() {
 
     // seq line
     seqMinigroup.append('line')
-        .attr('x2', getSeqLength())
+        .classed('seqLines', true)
         .attr('y1', conf.seqHeight / 2)
         .attr('y2', conf.seqHeight / 2)
         .style('stroke', '#111')
@@ -89,7 +87,6 @@ function makeCmfield() {
         .attr('structure_type', d => d.cm)
         .attr('x', d => d.seq_start)
         .attr('y', d => d.strand == '+' ? conf.cmGap - conf.seqLineWidth : conf.seqHeight / 2 + conf.seqLineWidth)
-        // .attr('fill', 'url(#grad1)')
         .attr('fill', d => `url(#${d.cm})`)
         .style('cursor', 'pointer')
         .on('mouseover', function (d) {
@@ -119,7 +116,6 @@ function makeCmfield() {
                 d3.select(this)
                     .classed('chosen', false)
                     .attr('fill', d => `url(#${d.cm})`)
-                // .attr('stroke-width', 0)
 
                 if (cmFieldChosen.size == 0) {
                     d3.select('#download-button')
@@ -130,10 +126,6 @@ function makeCmfield() {
             else {
                 cmFieldChosen.add(d.ui)
                 d3.select(this)
-                    // .attr('fill', '#eee')
-                    // .attr('stroke', 'gray')
-                    // .attr('stroke-width', 0.5)
-                    // .style("stroke-dasharray", ("2,2"))
                     .classed('chosen', true)
 
                 blinkAnimation(d3.select(this))
@@ -146,16 +138,41 @@ function makeCmfield() {
             }
 
             // add numbering to download button
-
-
             d3.select('a#download-button').text(`download selection (${cmFieldChosen.size})`)
 
         });
 
 
-    function getSeqLength() {
-        return 700;
+    window.addEventListener('resize', updateSeqLength);
+
+    updateSeqLength();
+
+}
+
+
+function updateSeqLength() {
+
+    // calculate norm
+    let maxLen = 0;
+    for (cm of CMDATA) {
+        let cmLen = LENDATA[cm.seq];
+        if (cmLen && cmLen > maxLen) maxLen = cmLen;
     }
+
+    let maxWidth = d3.select('#cmfield').node().getBoundingClientRect().width;
+    maxWidth -= SETTINGS.cmfield.textRightBorder; // account for the right floating text
+
+
+    let norm = len => len / maxLen * maxWidth || 0;
+
+
+    // apply modifications
+    d3.selectAll('line.seqLines')
+        .attr('x2', d => norm(LENDATA[d.key]))
+
+    d3.selectAll('rect.cm')
+        .attr('width', d => norm(d.seq_end - d.seq_start))
+        .attr('x', d => norm(d.seq_start))
 
 }
 
