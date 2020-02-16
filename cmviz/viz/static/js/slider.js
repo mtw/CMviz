@@ -123,10 +123,12 @@ function makeDoubleSlider(scoreType, textType) {
             .style('stroke', '#666')
             .style('stroke-width', 0.7)
             .style('display', 'none')
+            .style('cursor', 'help')
             .on('mousemove', hoverLine)
             .on('mouseout', unhoverLine)
 
         leftCircle = obj.append('circle')
+            .classed('grabCircle', true)
             .attr('cy', y)
             .attr('r', 7)
             .attr('cx', left)
@@ -137,6 +139,7 @@ function makeDoubleSlider(scoreType, textType) {
             .call(dragHandler)
 
         rightCircle = obj.append('circle')
+            .classed('grabCircle', true)
             .attr('cy', y)
             .attr('r', 7)
             .attr('cx', right)
@@ -152,7 +155,7 @@ function makeDoubleSlider(scoreType, textType) {
             .attr('cy', y)
             .attr('r', 3)
             // .style('fill', 'rgba(0,0,0,0.1)')
-            .style('fill','white')
+            .style('fill', 'white')
             .style('stroke', 'red')
             .style('stroke-width', 0.7)
             .style('display', 'none')
@@ -173,6 +176,7 @@ function makeDoubleSlider(scoreType, textType) {
 
     // behaviors
     function dragCircle() {
+
         var x = d3.event.x;
         d3.event.sourceEvent.stopPropagation()
 

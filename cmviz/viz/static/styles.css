@@ -168,3 +168,11 @@ div#tooltip {
 .chooseFileForm.displaying:active {
   color: rgb(58, 176, 255);
 }
+
+.grabCircle:hover {
+  cursor: grab;
+}
+
+.grabCircle:active {
+  cursor: grabbing;
+}

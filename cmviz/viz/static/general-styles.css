@@ -69,7 +69,7 @@ html, body {
 }
 
 .unclickable {
-  cursor: default;
+  cursor: no-drop;
   background-color: #eee;
   border: 0.5px solid #aaa;
   color: #aaa;
