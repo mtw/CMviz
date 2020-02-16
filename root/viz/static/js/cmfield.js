@@ -104,7 +104,8 @@ function makeCmfield() {
             // show tooltip
             d3.select("div#tooltip")
                 .style('visibility', 'visible')
-                .select("pre").text(d.alignment)
+                .select('span')
+                .text(d.alignment)
 
             // update sliders
             updateSliders(d);

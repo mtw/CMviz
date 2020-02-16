@@ -11,10 +11,12 @@ function makeTooltip() {
         .style("text-align", "center")
         .style("visibility", "hidden")
         .attr("id", "tooltip")
-        .append("pre")
-        .style("font-style", "normal")
-        .style('font-size',6)
-        .style("margin", 0);
+
+    tooltip.append('span')
+        .style('white-space', 'pre')
+        .style('font-family', 'Inconsolata')
+        .style('font-size', 4)
+
 
     // mouseover behavior defined elsewhere
 };
