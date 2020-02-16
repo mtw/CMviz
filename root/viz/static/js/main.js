@@ -70,7 +70,7 @@ function main() {
     // behave funcs
     defineDragging();
     // defineTicking();
-    defineCMHovering();
+    // defineCMHovering();
 
     functionalizeClearSelectionButton();
 
