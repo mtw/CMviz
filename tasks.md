@@ -20,19 +20,13 @@
 - [ ] check in Infernal if the trunc notation always starts with *[
 
 ## frontend
-- [x] fix download button
 - [ ] add dimming cursor
 - [ ] add clicking mode (selection, dimming, help)
-- [x] import sequence lengths
-- [x] update sequence lengths when resizing screen
 - [ ] add opacity control to sausages
 - [ ] restyle sausages
 - [ ] add help tooltip
-- [x] shift cm's a little so they dont cover the line
-- [x] fix csv headers
-- [x] fix default styling of input tag
 - [ ] add bottom shadow when scrolling possible
-- [x] make gridlines reflect seq length
+- [ ] hoverCircle evalue positioning is incorrect!
 
 ## frontend - consider
 - [ ] control sausage link count
@@ -40,13 +34,9 @@
 - [ ] how to correctly regulate visibility of toolbar
 - [ ] add alignment to clipboard
 - [ ] knobbed slider
-- [x] use gradients for rect fill
 - [ ] add buttons to configure visualization style
 - [ ] add show/hide diminished
-- [x] turn evalue into exponent so you can work with it linearly
-- [x] figure out positioning for hoverCircle
 - [ ] consider sorting the sequence groups by a criterion
-- [x] can i specify class in selectAll before enter
 
 ## backend
 - [ ] dont save intermediate file, only the final csv
