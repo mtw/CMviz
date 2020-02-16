@@ -159,6 +159,13 @@ function makeCmfield() {
         });
 
 
+    // initialize all inrange values
+    continuousScores.map(function (score) {
+        cms.attr(`${score}-in-range`, true);
+    })
+    //
+
+
     window.addEventListener('resize', updateSeqLength);
 
     updateSeqLength();
@@ -193,6 +200,31 @@ function updateSeqLength() {
 }
 
 
+
+function updateSliders(d) {
+    // update valueText
+    var updateValueText = scoreType => d3.select(`svg.${scoreType} .valueText`).text(d[scoreType]);
+    continuousScores.map(updateValueText);
+
+    // update cmCircle
+
+    for (var i in continuousScores) {
+        var scoreType = continuousScores[i];
+        var scale = scales[i];
+
+        var obj = d3.select(`svg.${scoreType} .cmCircle`);
+        var value = d[scoreType]
+        var x = scale.invert(value)
+
+        // console.log(obj);
+
+        obj.attr('cx', x)
+            .style('display', 'inline')
+    }
+
+}
+
+
 function blinkAnimation(obj) {
 
     blink();
@@ -211,26 +243,3 @@ function blinkAnimation(obj) {
 
 }
 
-
-
-// function updateSliders(d) {
-//     // update valueText
-//     var updateValueText = scoreType => d3.select(`svg.${scoreType} .valueText`).text(d[scoreType]);
-//     continuousScores.map(updateValueText);
-
-//     // update cmCircle
-
-//     for (var i in continuousScores) {
-//         var scoreType = continuousScores[i];
-//         var scale = scales[i];
-
-//         var obj = d3.select(`svg.${scoreType} .cmCircle`);
-//         var value = d[scoreType]
-//         var x = scale.invert(value)
-
-//         // console.log(obj);
-
-//         obj.attr('cx', x)
-//             .style('display', 'initial')
-//     }
-// }

@@ -24,13 +24,14 @@ function runMain() {
 
     Promise.all(promises).then(function (results) {
         let lenData = results.pop();
-        lenData.map(r => LENDATA[r[0]] = parseInt(r[1]),10);
+        lenData.map(r => LENDATA[r[0]] = parseInt(r[1]), 10);
 
         let csvData = results;
         csvData.map(r => CMDATA = CMDATA.concat(r));
 
         // add unique identifier for download
         CMDATA.map((_, i) => CMDATA[i]['ui'] = i)
+        CMDATA.map((_, i) => CMDATA[i]['evalue'] = Math.round(Math.log10(CMDATA[i]['evalue']) * 100) / 100)
 
         console.log(CMDATA[0]);
         console.log(LENDATA);
@@ -42,7 +43,7 @@ function runMain() {
 function main() {
 
     continuousScores = ['evalue', 'bitscore', 'cm_end', 'seq_start', 'seq_end', 'acc', 'gc'] // 'bias','cm_start'
-    continuousScoresText = ['exp', 'float1', 'int', 'int', 'int', 'float2', 'float2']
+    continuousScoresText = ['floate', 'float1', 'int', 'int', 'int', 'float2', 'float2']
     scales = [];
 
     discreteScores = ['inc', 'mdl', 'strand', 'mdl_alntype', 'seq_alntype', 'trunc']

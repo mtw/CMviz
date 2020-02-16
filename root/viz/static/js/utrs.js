@@ -31,42 +31,18 @@
 
 
 // is every score-in-range
-function updateUtrsOpacity() {
-    utrs.selectAll('rect')
-        .attr('fill-opacity', function (d) {
-            var I = d3.select(this)
-            var ifInRange = score => I.attr(`${score}-in-range`) == "true"
-            var inAllRanges = continuousScores.every(ifInRange)
+// function updateUtrsOpacity() {
+//     utrs.selectAll('rect')
+//         .attr('fill-opacity', function (d) {
+//             var I = d3.select(this)
+//             var ifInRange = score => I.attr(`${score}-in-range`) == "true"
+//             var inAllRanges = continuousScores.every(ifInRange)
 
-            return inAllRanges ? 1 : 0.1
+//             return inAllRanges ? 1 : 0.1
 
-        })
-};
+//         })
+// };
 
-
-function updateSliders(d) {
-    // update valueText
-    var updateValueText = scoreType => d3.select(`svg.${scoreType} .valueText`).text(d[scoreType]);
-    continuousScores.map(updateValueText);
-
-    // update cmCircle
-
-    for (var i in continuousScores) {
-        var scoreType = continuousScores[i];
-        var scale = scales[i];
-
-        var obj = d3.select(`svg.${scoreType} .cmCircle`);
-        var value = d[scoreType]
-        var x = scale.invert(value)
-
-        // console.log(obj);
-
-        obj.attr('cx', x)
-            .style('display', 'initial')
-    }
-
-
-}
 
 function defineCMHovering() {
 

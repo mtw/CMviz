@@ -10,11 +10,13 @@ function makeDoubleSlider(scoreType, textType) {
         'float1': score => score.toFixed(1),
         'float2': score => score.toFixed(2),
         'exp': score => score.toExponential(1),
+        'floate': score => '^' + score.toFixed(1),
     }[textType]
 
     // set interval limits
     var minValue, maxValue;
     setMinAndMax(scoreType);
+
 
     // set initial x-values
     var left = 0;
@@ -24,6 +26,7 @@ function makeDoubleSlider(scoreType, textType) {
     var scale;
     setScale();
 
+
     // make objects
     var Line, leftCircle, rightCircle, valueText, hoverCircle;
     makeObjs();
@@ -32,20 +35,9 @@ function makeDoubleSlider(scoreType, textType) {
 
     // helper functions
     function setScale() {
-        if (textType == 'exp') {
-            // var deltae = Math.log(maxValue / minValue);
-            // var minord = Math.log(minValue);
-            // // scale = x => Math.exp(1) ** (minord + deltae * (x / totalLength))
-            // scale = x => minValue * (maxValue / minValue) ** (x / totalLength)
-            scale = d3.scalePow()
-                .exponent(10)
-                .domain([0, totalLength])
-                .range([minValue, maxValue])
-        } else {
-            scale = d3.scaleLinear()
-                .domain([0, totalLength])
-                .range([minValue, maxValue])
-        }
+        scale = d3.scaleLinear()
+            .domain([0, totalLength])
+            .range([minValue, maxValue])
     }
 
     function setMinAndMax() {
@@ -54,16 +46,23 @@ function makeDoubleSlider(scoreType, textType) {
 
 
         for (obj of CMDATA) {
-            if (obj[scoreType] > maxValue) {
-                maxValue = obj[scoreType]
-            }
-            if (obj[scoreType] < minValue) {
-                minValue = obj[scoreType]
-            }
+            let v = obj[scoreType]
+            if (v > maxValue) maxValue = v;
+            if (v < minValue) minValue = v;
         }
 
-        minValue = minValue * 0.999;
-        maxValue = maxValue * 1.001;
+        if (minValue > 0) {
+            minValue *= 0.999
+        } else {
+            minValue *= 1.001
+        }
+
+        if (maxValue > 0) {
+            maxValue *= 1.001
+        } else {
+            maxValue *= 0.999
+        }
+
     }
 
     function updatePositions() {
@@ -209,15 +208,29 @@ function makeDoubleSlider(scoreType, textType) {
         updateInRange();
         updateUtrsOpacity();
 
+
         function updateInRange() {
             var attrName = `${scoreType}-in-range`;
             var valLeft = scale(left);
             var valRight = scale(right);
-            utrs.selectAll('rect')
+            d3.selectAll('rect.cm')
                 .attr(attrName, d => valLeft <= d[scoreType] && valRight >= d[scoreType])
         }
 
+
+        function updateUtrsOpacity() {
+            d3.selectAll('rect.cm')
+                .attr('fill-opacity', function (d) {
+                    var I = d3.select(this)
+                    var ifInRange = score => I.attr(`${score}-in-range`) == "true"
+                    var inAllRanges = continuousScores.every(ifInRange)
+
+                    return inAllRanges ? 1 : 0.1
+                })
+        }
+
     }
+
 
     function dragCircleStart() {
         d3.select(this).style('fill', 'hsl(210, 100%, 90%)')
