@@ -20,7 +20,7 @@ def main_view(request):
 
     print(request.POST)
 
-    baseurl = 'CMviz/viz/static/uploads'
+    baseurl = 'root/viz/static/uploads'
 
     if not 'can_display' in request.session:
         request.session['can_display'] = default_can_display

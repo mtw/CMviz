@@ -5,10 +5,10 @@ from funcs import transform_cmouts, genomes_tab_to_csv
 if __name__ == "__main__":
 
     idir = '../example/cmouts'
-    odir = '../CMviz/viz/static/data'
+    odir = '../root/viz/static/data'
 
     # transform_cmouts(idir, odir, 'csv')
 
-    genomes_tab_to_csv('example/genomes.tab','CMviz/viz/static/data/genomes.csv')
+    genomes_tab_to_csv('example/genomes.tab','root/viz/static/data/genomes.csv')
 
     # visualize_cmhits(json_file)

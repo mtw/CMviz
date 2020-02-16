@@ -1,5 +1,1 @@
-*.csv
-*.cmout
-*.pyc
-*.sqlite3
-# migrations/
+__pycache__
