@@ -24,7 +24,7 @@
 - [ ] add dimming cursor
 - [ ] add clicking mode (selection, dimming, help)
 - [x] import sequence lengths
-- [ ] update sequence lengths when resizing screen
+- [x] update sequence lengths when resizing screen
 - [ ] add opacity control to sausages
 - [ ] restyle sausages
 - [ ] add help tooltip
@@ -32,7 +32,7 @@
 - [x] fix csv headers
 - [x] fix default styling of input tag
 - [ ] add bottom shadow when scrolling possible
-- [ ] make gridlines reflect seq length
+- [x] make gridlines reflect seq length
 
 ## frontend - consider
 - [ ] control sausage link count

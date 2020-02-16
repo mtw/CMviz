@@ -61,6 +61,16 @@ function makeCmfield() {
         .style('font-size', conf.seqTextSize)
         .attr('transform', `translate(${conf.textRightBorder},${conf.seqHeight - conf.seqTextSize / 2 - 1})`)
 
+    // sequence identifiers text above
+    d3.select('#cmfieldbackground')
+        .append('text')
+        .text('sequence identifiers')
+        .style('text-anchor', 'end')
+        .style('font-size', conf.seqTextSize)
+        .style('font-style','italic')
+        .style('fill','#555')
+        .attr('transform', `translate(${conf.textRightBorder},${conf.seqHeight - conf.seqTextSize/2 - 1})`)
+
     // right seq group
     var seqMinigroup = seqMegaGroups
         .append('g')
