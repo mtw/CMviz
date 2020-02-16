@@ -22,8 +22,14 @@ function makeNGradients(uniqueCm) {
 
     for (var i in uniqueCm) {
         var h1 = i * (1 / uniqueCm.length);
-        var h2 = Math.random();
-        while (Math.abs(h1 - h2) > 0.2 || Math.abs(h1 - h2) < 0.1) { h2 = Math.random() };
+
+        function getH2(minDev, maxDev){
+            let sign = Math.random() > 0.5 ? 1 : -1;
+            let dev = Math.random() * (maxDev - minDev) + minDev;
+            return dev * sign + h1
+        }
+
+        var h2 = getH2(0.1,0.15);
 
         var color1 = hslToRgb(h1, 0.8, 0.5)
         var color2 = hslToRgb(h2, 0.8, 0.5)
