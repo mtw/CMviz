@@ -160,10 +160,10 @@ function updateSeqLength() {
     }
 
     let maxWidth = d3.select('#cmfield').node().getBoundingClientRect().width;
-    maxWidth -= SETTINGS.cmfield.textRightBorder; // account for the right floating text
+    maxWidth -= SETTINGS.cmfield.linesLeftBorder; // account for the right floating text
 
 
-    let norm = len => len / maxLen * maxWidth || 0;
+    let norm = len => len / maxLen * maxWidth * 0.99 || 0;
 
 
     // apply modifications
