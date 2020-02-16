@@ -107,7 +107,7 @@ def genomes_tab_to_csv(ifile, ofile):
         records = []
         for line in f.readlines():
             data = line.strip().split('\t')
-            records.append([data[0], data[9]])
+            records.append([data[6]+'_'+data[0], data[9]])
 
         df = pd.DataFrame.from_records(records)
         df.to_csv(ofile, sep=",", index=False)
