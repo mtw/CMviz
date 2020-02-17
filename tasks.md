@@ -20,6 +20,7 @@
 - [ ] check in Infernal if the trunc notation always starts with *[
 
 ## frontend
+- [ ] upper case for fasta download
 - [ ] add dimming cursor
 - [ ] add clicking mode (selection, dimming, help)
 - [ ] add opacity control to sausages
@@ -29,6 +30,7 @@
 - [ ] hoverCircle evalue positioning is incorrect!
 
 ## frontend - consider
+- [ ] collapsing
 - [ ] control sausage link count
 - [ ] length selection slider
 - [ ] how to correctly regulate visibility of toolbar
@@ -39,6 +41,7 @@
 - [ ] consider sorting the sequence groups by a criterion
 
 ## backend
+- [ ] Apache web servers
 - [ ] dont save intermediate file, only the final csv
 - [ ] enable choosing files
 
