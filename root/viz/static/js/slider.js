@@ -217,18 +217,6 @@ function makeDoubleSlider(scoreType, textType) {
                 .attr(attrName, d => valLeft <= d[scoreType] && valRight >= d[scoreType])
         }
 
-
-        function updateUtrsOpacity() {
-            d3.selectAll('rect.cm')
-                .attr('fill-opacity', function (d) {
-                    var I = d3.select(this)
-                    var ifInRange = score => I.attr(`${score}-in-range`) == "true"
-                    var inAllRanges = continuousScores.every(ifInRange)
-
-                    return inAllRanges ? 1 : 0.1
-                })
-        }
-
     }
 
 

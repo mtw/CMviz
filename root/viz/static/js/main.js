@@ -50,12 +50,17 @@ function main() {
 
     // makeSelectors();
 
+
+
     for (var i in continuousScores) {
         var scoreType = continuousScores[i];
         var textType = continuousScoresText[i];
         var scale = makeDoubleSlider(scoreType, textType);
         scales.push(scale);
     }
+
+
+    makeCmfield();
 
     discreteScores.map(scoreType => makeSausage(scoreType))
 
@@ -65,7 +70,6 @@ function main() {
     makeDownloadButton();
 
 
-    makeCmfield();
 
     // behave funcs
     defineDragging();

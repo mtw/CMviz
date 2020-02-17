@@ -198,3 +198,24 @@ div#tooltip {
 .grabCircle:active {
   cursor: grabbing;
 }
+
+g.link rect {
+  fill: dodgerblue;
+  /* stroke: none; */
+  cursor: pointer;
+}
+
+g.link text {
+  fill: white;
+  cursor: pointer;
+}
+
+g.link.falseLink rect {
+  fill: #ddd;
+  /* stroke: #aaa;
+  stroke-width: 0.5; */
+}
+
+g.link.falseLink text {
+  fill: #999;
+}

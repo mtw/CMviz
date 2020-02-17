@@ -12,7 +12,9 @@ function makeSausage(scoreType) {
         allValues.add(entry[scoreType])
     }
 
-    var linkLength = totalLength / allValues.size;
+    // initialize states
+    let linkStates = {};
+    allValues.forEach(v => linkStates[v] = true);
 
     var svg = d3.select('#sausages div')
         .append('svg')
@@ -36,21 +38,33 @@ function makeSausage(scoreType) {
         .data(Array.from(allValues))
         .enter()
         .append('g')
+        .classed('link', true)
         // .attr('transform', (_, i) => `translate(${i * linkLength + i},0)`)
         .style('cursor', 'pointer')
+
+    links.on('click', function (d) {
+        let I = d3.select(this);
+
+        let newLinkState = I.classed('falseLink') ? false : true;
+        I.classed('falseLink', newLinkState);
+
+        linkStates[d] = !I.classed('falseLink');
+
+        checkCmsLinkCategs();
+        updateUtrsOpacity();
+
+    })
+
 
     var linkRects = links.append('rect')
         .attr('height', y)
         .attr('rx', 3)
-        .attr('fill', 'dodgerblue')
 
     var linkTexts = links.append('text')
         .attr('text-anchor', 'start')
         .text(d => d)
         .style('font-size', 12)
-        .style('fill', 'white')
         .attr('transform', (_, i) => `translate(${widthPadding},${y / 2 + 4})`)
-        .style('cursor', 'pointer')
     // .style('font-family', 'Inconsolata, monospace')
 
     // get widths of linkTexts
@@ -69,5 +83,27 @@ function makeSausage(scoreType) {
 
     links.attr('transform', (_, i) => `translate(${wnew[i] + i * widthPadding * 2 + linkGap * i},0)`)
 
+    function checkCmsLinkCategs() {
+        d3.selectAll('rect.cm')
+            .attr(`${scoreType}-in-categ`, d => linkStates[d[scoreType]])
+    }
 
+    checkCmsLinkCategs()
+
+
+}
+
+
+
+function updateUtrsOpacity() {
+    d3.selectAll('rect.cm')
+        .attr('fill-opacity', function (d) {
+            var I = d3.select(this)
+            var ifInRange = score => I.attr(`${score}-in-range`) == "true";
+            var ifInCateg = score => I.attr(`${score}-in-categ`) == "true";
+            var inAllRanges = continuousScores.every(ifInRange)
+            let inAllCategs = discreteScores.every(ifInCateg)
+
+            return inAllRanges && inAllCategs ? 1 : 0.1
+        })
 }
