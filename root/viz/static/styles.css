@@ -4,6 +4,17 @@
   font-weight: bold;
 }
 
+h1>a {
+  text-decoration: none;
+  color: #666;
+  font-size: 60px;
+  font-family: Nunito;
+}
+
+h1>a:hover {
+  color: rgb(65, 160, 255);
+}
+
 div#tooltip {
   background-color: rgba(250, 250, 250, 0.9);
   padding: 4px 5px;
