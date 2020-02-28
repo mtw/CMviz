@@ -9,11 +9,12 @@ import csv
 import os
 import pandas as pd
 
+from django.conf import settings
+
 # global variable to specify working directory, specifically where files are
 # stored
 
-WORKING_DIR = "/media/"
-# WORKING_DIR = "viz/static/media/"
+WORKING_DIR = os.path.join(settings.BASE_DIR, "media") + '/' # martin
 
 
 def generate_random_string(x=16):
