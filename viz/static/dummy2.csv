@@ -1,0 +1,193 @@
+inc,evalue,bitscore,bias,mdl,cm_start,cm_end,mdl_alntype,seq_start,seq_end,strand,seq_alntype,acc,gc,trunc,seq,cm,alignment,uid
+True,5.2e-16,71.4,0.0,cm,1,70,[],161,215,-,..,1.0,0.56,False,DONV_JQ086551.1,all_dISFVG.DB*,"                      v      v                                             
+(((((<<<<<-<<<.<<<<<<<<._____>>>>>>>>-..>>>-.>>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcg.ucccccua.AgCuguagggggac..cgcA.uguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGGCCA:AUG:: U::C:C:  AGC++ :G:G::AC  ::CA U:UGGACUA CGGU:AGAGGA:ACCCCCCC
+GGGGGCCAGAUGUCaUGUCUCUCaAGCCUAGGAGACACuaGACAcUCUGGACUAUCGGUUAGAGGAAACCCCCCC
+***************************************************************************",all_dISFVG.DB*:DONV_JQ086551.1:1
+True,5.2e-16,71.4,0.0,cm,1,70,[],181,215,-,..,1.0,0.56,False,DONV_NC_016997.1,all_dISFVG.DB*,"                      v      v                                             
+(((((<<<<<-<<<.<<<<<<<<._____>>>>>>>>-..>>>-.>>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcg.ucccccua.AgCuguagggggac..cgcA.uguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGGCCA:AUG:: U::C:C:  AGC++ :G:G::AC  ::CA U:UGGACUA CGGU:AGAGGA:ACCCCCCC
+GGGGGCCAGAUGUCaUGUCUCUCaAGCCUAGGAGACACuaGACAcUCUGGACUAUCGGUUAGAGGAAACCCCCCC
+***************************************************************************",all_dISFVG.DB*:DONV_NC_016997.1:2
+True,6.6e-16,71.0,0.0,cm,1,70,[],181,245,-,..,0.99,0.56,False,MMV_MF139576.1,all_dISFVG.DB*,"             v                          v                                  
+(((((<<<<<-<<<.<<<<<<<<._____>>>>>>>>-..>>>-.>>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcg.ucccccua.AgCuguagggggac..cgcA.uguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGGCCA:AUG:  U:C::C:: A C++::G::G:A    :CA U:UGGACUA CGGU:AGAGGA:ACCCCCCC
+GGGGGCCAGAUGGAcUGCUUCUUcAACCUAGGAAGCAAacACCAcUCUGGACUAUCGGUUAGAGGAAACCCCCCC
+****************************************9**********************************",all_dISFVG.DB*:MMV_MF139576.1:3
+True,3.7e-15,67.9,0.0,cm,1,70,[],131,200,-,..,0.99,0.64,False,CHAOV_JQ308185.1,all_dISFVG.DB*,"             vv                   v   v                                 
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>-..>>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccuaAgCuguagggggac..cgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGG:CACAUGC  CC: :::  C+G::: :GG C   GCAUGUG:ACUAGCGGUUAGAGGAGACCCCCCC
+GGGGGACACAUGCACCCA-GCAGCCCGAGC-UGGACaaGGCAUGUGUACUAGCGGUUAGAGGAGACCCCCCC
+******************.***********.****9**8*********************************",all_dISFVG.DB*:CHAOV_JQ308185.1:4
+True,3.7e-15,67.9,0.0,cm,1,70,[],131,200,-,..,0.99,0.64,False,CHAOV_NC_017086.1,all_dISFVG.DB*,"             vv                   v   v                                 
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>-..>>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccuaAgCuguagggggac..cgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGG:CACAUGC  CC: :::  C+G::: :GG C   GCAUGUG:ACUAGCGGUUAGAGGAGACCCCCCC
+GGGGGACACAUGCACCCA-GCAGCCCGAGC-UGGACaaGGCAUGUGUACUAGCGGUUAGAGGAGACCCCCCC
+******************.***********.****9**8*********************************",all_dISFVG.DB*:CHAOV_NC_017086.1:5
+True,5.7e-15,67.1,0.0,cm,1,70,[],250,317,-,..,0.99,0.49,False,NHUV_NC_024017.1,all_dISFVG.DB*,"                    v       v                                         
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+:G:GGC:A:: :::U::: : AAGCU U : :::AC::: ::U:GACUAG+GGUUAGAGGAGACCCC:C:
+AGUGGCUAGCGAAAUUGG-UGAAGCUAUAA-CCAACUUUGGCUGGACUAGUGGUUAGAGGAGACCCCACU
+******************.***********.***************************************",all_dISFVG.DB*:NHUV_NC_024017.1:6
+True,2.9e-14,64.1,0.0,cm,1,70,[],131,200,-,..,0.98,0.6,False,LAMV_FJ606789.2,all_dISFVG.DB*,"              v                   v                                     
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>-..>>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccuaAgCuguagggggac..cgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+G:GGG:CA:: ::G CC: :::  C+G::: :GG C  C:: ::UG:ACUAGCGGUUAGAGGAGACCCCC:C
+GAGGGACAUGCAAGCCCA-GGAGCCCGACC-UGGACuaCUUGCAUGUACUAGCGGUUAGAGGAGACCCCCUC
+**********99999999.***********.999999*9999******************************",all_dISFVG.DB*:LAMV_FJ606789.2:7
+True,5.1e-14,63.1,0.0,cm,1,70,[],200,266,-,..,0.97,0.52,False,NANV_MF139575.1,all_dISFVG.DB*,"        vv       vvv          vvv        vv                            
+(((((<<<<<-<<<<<<<<<<<._____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccua.AgCuguagggggaccgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+G:GGGCC:   :::U:C   UA AGCUGUA+G+G:A :::A  :GGACUAG+GGUUAGAGGAGACCCCC:C
+GAGGGCCUGGACAAUGC---UAaAGCUGUAAGCGCA-UUGAAAAGGACUAGAGGUUAGAGGAGACCCCCUC
+****************9...666********99999.9*********************************",all_dISFVG.DB*:NANV_MF139575.1:8
+True,5.1e-14,63.1,0.0,cm,1,70,[],200,266,-,..,0.97,0.52,False,NANV_NC_040610.1,all_dISFVG.DB*,"        vv       vvv          vvv        vv                            
+(((((<<<<<-<<<<<<<<<<<._____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccua.AgCuguagggggaccgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+G:GGGCC:   :::U:C   UA AGCUGUA+G+G:A :::A  :GGACUAG+GGUUAGAGGAGACCCCC:C
+GAGGGCCUGGACAAUGC---UAaAGCUGUAAGCGCA-UUGAAAAGGACUAGAGGUUAGAGGAGACCCCCUC
+****************9...666********99999.9*********************************",all_dISFVG.DB*:NANV_NC_040610.1:9
+True,1.8e-11,52.5,0.0,cm,1,67,[~,262,325,-,.~,0.99,0.53,3',BJV_KC496020.1,all_dISFVG.DB*,"???v          v                   v                                v     
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>))~~~~~
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCCC*[3]>
+GG  GCC:CA :C  C::C:UAAGCUGUA:G::G   G:A UG:GGACUAG+GGUUAGAGGAGACCC      
+GGAGGCCUCA-CC-GCAUCUUAAGCUGUAAGAUGA--GGAuUGGGGACUAGAGGUUAGAGGAGACCCA*[0]>
+**9*******.**.*********************..**9***************************9.....",all_dISFVG.DB*:BJV_KC496020.1:10
+True,1.8e-11,52.5,0.0,cm,1,67,[~,262,325,-,.~,0.99,0.53,3',BJV_EU078325.1,all_dISFVG.DB*,"???v          v                   v                                v     
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>))~~~~~
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCCC*[3]>
+GG  GCC:CA :C  C::C:UAAGCUGUA:G::G   G:A UG:GGACUAG+GGUUAGAGGAGACCC      
+GGAGGCCUCA-CC-GCAUCUUAAGCUGUAAGAUGA--GGAuUGGGGACUAGAGGUUAGAGGAGACCCA*[0]>
+**9*******.**.*********************..**9***************************9.....",all_dISFVG.DB*:BJV_EU078325.1:11
+True,5.3e-09,42.3,0.0,cm,1,57,[~,282,335,-,.~,0.99,0.52,3',BJV_MG214905.1,all_dISFVG.DB*,"?????         v                   v                 ????        
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<__~~~~~~
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAG*[13]>
+GG GGCC:CA :C  C::C:UAAGCUGUA:G::G   G:A UG:GGACUAG+GGUUAG      
+GGAGGCCUCA-CC-GCAUCUUAAGCUGUAAGAUGA--GGAuUGGGGACUAGAGGUUAG*[ 0]>
+**********.**.*********************..**9******************......",all_dISFVG.DB*:BJV_MG214905.1:12
+True,5.3e-09,42.3,0.0,cm,1,57,[~,282,335,-,.~,0.99,0.52,3',BJV_MG214906.1,all_dISFVG.DB*,"?????         v                   v                 ????        
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<__~~~~~~
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAG*[13]>
+GG GGCC:CA :C  C::C:UAAGCUGUA:G::G   G:A UG:GGACUAG+GGUUAG      
+GGAGGCCUCA-CC-GCAUCUUAAGCUGUAAGAUGA--GGAuUGGGGACUAGAGGUUAG*[ 0]>
+**********.**.*********************..**9******************......",all_dISFVG.DB*:BJV_MG214906.1:13
+True,1.1e-07,36.8,0.0,cm,1,66,[~,289,347,-,.~,0.87,0.53,3',NOUV_NC_033715.1,all_dISFVG.DB*,"????   vv           v       v              vv                            
+(((((<<<<<-<<<<<<<<<<<_____>>>.>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>)~~~~~
+GGgGGCCacaugcgucccccuaAgCuguag.ggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCC*[4]>
+    GCC  :    ::C:C: AAGCU U : G:G::      :  GGACUAG+GGUUAGAGGAGACCC     
+AAAAGCCCAU----CGCACUGAAGCUAUAAgGUGCG-----gGAAGGACUAGAGGUUAGAGGAGACCC*[0]>
+**88******....7777899*88887665167777.....6**************************.....",all_dISFVG.DB*:NOUV_NC_033715.1:14
+True,1.1e-07,36.8,0.0,cm,1,66,[~,288,346,-,.~,0.87,0.53,3',NOUV_FJ711167.1,all_dISFVG.DB*,"????   vv           v       v              vv                            
+(((((<<<<<-<<<<<<<<<<<_____>>>.>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>)~~~~~
+GGgGGCCacaugcgucccccuaAgCuguag.ggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCC*[4]>
+    GCC  :    ::C:C: AAGCU U : G:G::      :  GGACUAG+GGUUAGAGGAGACCC     
+AAAAGCCCAU----CGCACUGAAGCUAUAAgGUGCG-----gGAAGGACUAGAGGUUAGAGGAGACCC*[0]>
+**88******....7777899*88887665167777.....6**************************.....",all_dISFVG.DB*:NOUV_FJ711167.1:15
+True,1.1e-07,36.8,0.0,cm,1,66,[~,289,347,-,.~,0.87,0.53,3',NOUV_EU159426.2,all_dISFVG.DB*,"????   vv           v       v              vv                            
+(((((<<<<<-<<<<<<<<<<<_____>>>.>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>)~~~~~
+GGgGGCCacaugcgucccccuaAgCuguag.ggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCC*[4]>
+    GCC  :    ::C:C: AAGCU U : G:G::      :  GGACUAG+GGUUAGAGGAGACCC     
+AAAAGCCCAU----CGCACUGAAGCUAUAAgGUGCG-----gGAAGGACUAGAGGUUAGAGGAGACCC*[0]>
+**88******....7777899*88887665167777.....6**************************.....",all_dISFVG.DB*:NOUV_EU159426.2:16
+True,5.2e-16,71.4,0.0,cm,1,70,[],141,215,-,..,1.0,0.56,False,DONV_JQ086551+.1,all_dISFVG.DB*,"                      v      v                                             
+(((((<<<<<-<<<.<<<<<<<<._____>>>>>>>>-..>>>-.>>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcg.ucccccua.AgCuguagggggac..cgcA.uguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGGCCA:AUG:: U::C:C:  AGC++ :G:G::AC  ::CA U:UGGACUA CGGU:AGAGGA:ACCCCCCC
+GGGGGCCAGAUGUCaUGUCUCUCaAGCCUAGGAGACACuaGACAcUCUGGACUAUCGGUUAGAGGAAACCCCCCC
+***************************************************************************",all_dISFVG.DB*:DONV_JQ086551.1:1
+True,5.2e-16,71.4,0.0,cm,1,70,[],141,215,-,..,1.0,0.56,False,DONV_NC_016997+.1,all_dISFVG.DB*,"                      v      v                                             
+(((((<<<<<-<<<.<<<<<<<<._____>>>>>>>>-..>>>-.>>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcg.ucccccua.AgCuguagggggac..cgcA.uguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGGCCA:AUG:: U::C:C:  AGC++ :G:G::AC  ::CA U:UGGACUA CGGU:AGAGGA:ACCCCCCC
+GGGGGCCAGAUGUCaUGUCUCUCaAGCCUAGGAGACACuaGACAcUCUGGACUAUCGGUUAGAGGAAACCCCCCC
+***************************************************************************",all_dISFVG.DB*:DONV_NC_016997.1:2
+True,6.6e-16,71.0,0.0,cm,1,70,[],171,245,-,..,0.99,0.56,False,MMV_MF139576+.1,all_dISFVG.DB*,"             v                          v                                  
+(((((<<<<<-<<<.<<<<<<<<._____>>>>>>>>-..>>>-.>>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcg.ucccccua.AgCuguagggggac..cgcA.uguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGGCCA:AUG:  U:C::C:: A C++::G::G:A    :CA U:UGGACUA CGGU:AGAGGA:ACCCCCCC
+GGGGGCCAGAUGGAcUGCUUCUUcAACCUAGGAAGCAAacACCAcUCUGGACUAUCGGUUAGAGGAAACCCCCCC
+****************************************9**********************************",all_dISFVG.DB*:MMV_MF139576.1:3
+True,3.7e-15,67.9,0.0,cm,1,70,[],131,200,-,..,0.99,0.64,False,CHAOV_JQ308185+.1,all_dISFVG.DB*,"             vv                   v   v                                 
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>-..>>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccuaAgCuguagggggac..cgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGG:CACAUGC  CC: :::  C+G::: :GG C   GCAUGUG:ACUAGCGGUUAGAGGAGACCCCCCC
+GGGGGACACAUGCACCCA-GCAGCCCGAGC-UGGACaaGGCAUGUGUACUAGCGGUUAGAGGAGACCCCCCC
+******************.***********.****9**8*********************************",all_dISFVG.DB*:CHAOV_JQ308185.1:4
+True,3.7e-15,67.9,0.0,cm,1,70,[],131,200,-,..,0.99,0.64,False,CHAOV_NC_017086+.1,all_dISFVG.DB*,"             vv                   v   v                                 
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>-..>>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccuaAgCuguagggggac..cgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+GGGGG:CACAUGC  CC: :::  C+G::: :GG C   GCAUGUG:ACUAGCGGUUAGAGGAGACCCCCCC
+GGGGGACACAUGCACCCA-GCAGCCCGAGC-UGGACaaGGCAUGUGUACUAGCGGUUAGAGGAGACCCCCCC
+******************.***********.****9**8*********************************",all_dISFVG.DB*:CHAOV_NC_017086.1:5
+True,5.7e-15,67.1,0.0,cm,1,70,[],250,317,-,..,0.99,0.49,False,NHUV_NC_024017+.1,all_dISFVG.DB*,"                    v       v                                         
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+:G:GGC:A:: :::U::: : AAGCU U : :::AC::: ::U:GACUAG+GGUUAGAGGAGACCCC:C:
+AGUGGCUAGCGAAAUUGG-UGAAGCUAUAA-CCAACUUUGGCUGGACUAGUGGUUAGAGGAGACCCCACU
+******************.***********.***************************************",all_dISFVG.DB*:NHUV_NC_024017.1:6
+True,2.9e-14,64.1,0.0,cm,1,70,[],131,200,-,..,0.98,0.6,False,LAMV_FJ606789+.2,all_dISFVG.DB*,"              v                   v                                     
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>-..>>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccuaAgCuguagggggac..cgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+G:GGG:CA:: ::G CC: :::  C+G::: :GG C  C:: ::UG:ACUAGCGGUUAGAGGAGACCCCC:C
+GAGGGACAUGCAAGCCCA-GGAGCCCGACC-UGGACuaCUUGCAUGUACUAGCGGUUAGAGGAGACCCCCUC
+**********99999999.***********.999999*9999******************************",all_dISFVG.DB*:LAMV_FJ606789.2:7
+True,5.1e-14,63.1,0.0,cm,1,70,[],200,266,-,..,0.97,0.52,False,NANV_MF139575+.1,all_dISFVG.DB*,"        vv       vvv          vvv        vv                            
+(((((<<<<<-<<<<<<<<<<<._____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccua.AgCuguagggggaccgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+G:GGGCC:   :::U:C   UA AGCUGUA+G+G:A :::A  :GGACUAG+GGUUAGAGGAGACCCCC:C
+GAGGGCCUGGACAAUGC---UAaAGCUGUAAGCGCA-UUGAAAAGGACUAGAGGUUAGAGGAGACCCCCUC
+****************9...666********99999.9*********************************",all_dISFVG.DB*:NANV_MF139575.1:8
+True,5.1e-14,63.1,0.0,cm,1,70,[],200,266,-,..,0.97,0.52,False,NANV_NC_040610+.1,all_dISFVG.DB*,"        vv       vvv          vvv        vv                            
+(((((<<<<<-<<<<<<<<<<<._____>>>>>>>>->>>->>>>>,,,,,,<<<<______>>>>)))))
+GGgGGCCacaugcgucccccua.AgCuguagggggaccgcAuguGGACUAGcGGUuAGAGGAgACCCCcCC
+G:GGGCC:   :::U:C   UA AGCUGUA+G+G:A :::A  :GGACUAG+GGUUAGAGGAGACCCCC:C
+GAGGGCCUGGACAAUGC---UAaAGCUGUAAGCGCA-UUGAAAAGGACUAGAGGUUAGAGGAGACCCCCUC
+****************9...666********99999.9*********************************",all_dISFVG.DB*:NANV_NC_040610.1:9
+True,1.8e-11,52.5,0.0,cm,1,67,[~,262,325,-,.~,0.99,0.53,3',BJV_KC496020+.1,all_dISFVG.DB*,"???v          v                   v                                v     
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>))~~~~~
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCCC*[3]>
+GG  GCC:CA :C  C::C:UAAGCUGUA:G::G   G:A UG:GGACUAG+GGUUAGAGGAGACCC      
+GGAGGCCUCA-CC-GCAUCUUAAGCUGUAAGAUGA--GGAuUGGGGACUAGAGGUUAGAGGAGACCCA*[0]>
+**9*******.**.*********************..**9***************************9.....",all_dISFVG.DB*:BJV_KC496020.1:10
+True,1.8e-11,52.5,0.0,cm,1,67,[~,262,325,-,.~,0.99,0.53,3',BJV_EU078325+.1,all_dISFVG.DB*,"???v          v                   v                                v     
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>))~~~~~
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCCC*[3]>
+GG  GCC:CA :C  C::C:UAAGCUGUA:G::G   G:A UG:GGACUAG+GGUUAGAGGAGACCC      
+GGAGGCCUCA-CC-GCAUCUUAAGCUGUAAGAUGA--GGAuUGGGGACUAGAGGUUAGAGGAGACCCA*[0]>
+**9*******.**.*********************..**9***************************9.....",all_dISFVG.DB*:BJV_EU078325.1:11
+True,5.3e-09,42.3,0.0,cm,1,57,[~,282,335,-,.~,0.99,0.52,3',BJV_MG214905+.1,all_dISFVG.DB*,"?????         v                   v                 ????        
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<__~~~~~~
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAG*[13]>
+GG GGCC:CA :C  C::C:UAAGCUGUA:G::G   G:A UG:GGACUAG+GGUUAG      
+GGAGGCCUCA-CC-GCAUCUUAAGCUGUAAGAUGA--GGAuUGGGGACUAGAGGUUAG*[ 0]>
+**********.**.*********************..**9******************......",all_dISFVG.DB*:BJV_MG214905.1:12
+True,5.3e-09,42.3,0.0,cm,1,57,[~,282,335,-,.~,0.99,0.52,3',BJV_MG214906+.1,all_dISFVG.DB*,"?????         v                   v                 ????        
+(((((<<<<<-<<<<<<<<<<<_____>>>>>>>>->>>-.>>>>>,,,,,,<<<<__~~~~~~
+GGgGGCCacaugcgucccccuaAgCuguagggggaccgcA.uguGGACUAGcGGUuAG*[13]>
+GG GGCC:CA :C  C::C:UAAGCUGUA:G::G   G:A UG:GGACUAG+GGUUAG      
+GGAGGCCUCA-CC-GCAUCUUAAGCUGUAAGAUGA--GGAuUGGGGACUAGAGGUUAG*[ 0]>
+**********.**.*********************..**9******************......",all_dISFVG.DB*:BJV_MG214906.1:13
+True,1.1e-07,36.8,0.0,cm,1,66,[~,289,347,-,.~,0.87,0.53,3',NOUV_NC_033715+.1,all_dISFVG.DB*,"????   vv           v       v              vv                            
+(((((<<<<<-<<<<<<<<<<<_____>>>.>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>)~~~~~
+GGgGGCCacaugcgucccccuaAgCuguag.ggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCC*[4]>
+    GCC  :    ::C:C: AAGCU U : G:G::      :  GGACUAG+GGUUAGAGGAGACCC     
+AAAAGCCCAU----CGCACUGAAGCUAUAAgGUGCG-----gGAAGGACUAGAGGUUAGAGGAGACCC*[0]>
+**88******....7777899*88887665167777.....6**************************.....",all_dISFVG.DB*:NOUV_NC_033715.1:14
+True,1.1e-07,36.8,0.0,cm,1,66,[~,288,346,-,.~,0.87,0.53,3',NOUV_FJ711167+.1,all_dISFVG.DB*,"????   vv           v       v              vv                            
+(((((<<<<<-<<<<<<<<<<<_____>>>.>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>)~~~~~
+GGgGGCCacaugcgucccccuaAgCuguag.ggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCC*[4]>
+    GCC  :    ::C:C: AAGCU U : G:G::      :  GGACUAG+GGUUAGAGGAGACCC     
+AAAAGCCCAU----CGCACUGAAGCUAUAAgGUGCG-----gGAAGGACUAGAGGUUAGAGGAGACCC*[0]>
+**88******....7777899*88887665167777.....6**************************.....",all_dISFVG.DB*:NOUV_FJ711167.1:15
+True,1.1e-07,36.8,0.0,cm,1,66,[~,289,347,-,.~,0.87,0.53,3',NOUV_EU159426+.2,all_dISFVG.DB*,"????   vv           v       v              vv                            
+(((((<<<<<-<<<<<<<<<<<_____>>>.>>>>>->>>-.>>>>>,,,,,,<<<<______>>>>)~~~~~
+GGgGGCCacaugcgucccccuaAgCuguag.ggggaccgcA.uguGGACUAGcGGUuAGAGGAgACCC*[4]>
+    GCC  :    ::C:C: AAGCU U : G:G::      :  GGACUAG+GGUUAGAGGAGACCC     
+AAAAGCCCAU----CGCACUGAAGCUAUAAgGUGCG-----gGAAGGACUAGAGGUUAGAGGAGACCC*[0]>
+**88******....7777899*88887665167777.....6**************************.....",all_dISFVG.DB*:NOUV_EU159426.2:16
