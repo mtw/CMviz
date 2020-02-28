@@ -7,7 +7,11 @@ __date__ = "$Oct 11, 2016 4:34:16 PM$"
 
 import math
 import sys
-from .imports import RNA
+import os
+
+sys.path.append("/mnt/c/Program Files/ViennaRNA-2.4.14/interfaces/Python3") # or already have it on PYTHONPATH
+import RNA
+
 
 if __name__ == "__main__":
     print ("Not meant as executable!")

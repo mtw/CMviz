@@ -4,26 +4,18 @@
 <html>
 
 <head>
-    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <link rel="stylesheet" href="{% static 'general-styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+    <link rel="stylesheet" href="{% static 'css/general-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'graphics/favicon.ico' %}" />
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Roboto|Nunito&display=swap" rel="stylesheet">
     <script>
         // get data from Python context
-        // var fileToDisplay = "{{ file_to_display }}"
         var filesDisplay = {{ files_display| safe }};
-        // var filesExist = {{ files_exist| safe }};
         var genomesFile = "{{ genomes_length }}";
-
-
-
     </script>
     <title>cmviz | covariance model visualization tool</title>
 </head>
-
-<!-- <body oncontextmenu="return false"> -->
 
 <body style='overflow:hidden;'>
 
@@ -33,31 +25,6 @@
             <div style="direction:ltr">
 
                 <h1><a href="">cmviz</a></h1>
-                <!-- <a href="/dummy">flush</a> -->
-
-                <!-- <p class="toolbar-header">Uploaded files</p> -->
-                <!-- <div id="files-exist"></div> -->
-
-                <!-- <p class="toolbar-header">Upload additional files</p> -->
-                <!-- <div id="uploader"> -->
-                    <!-- {% if files_exist %}
-                <ul>
-                    {% for i in files_exist %}
-                    <li>{{ i }}</li>
-                    {% endfor %}
-                </ul>
-                {% else %}
-                <p>No documents.</p>
-                {% endif %} -->
-
-                    <!-- <form id="upload-form" action="{% url 'viz:main' %}" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.docfile.label_tag }}
-                        {{ form.docfile }}
-                        <input type="hidden" name="form-type" value="upload">
-                        <input class="button" style="width:100%;" type="submit" value="upload file" />
-                    </form> -->
-                <!-- </div> -->
 
                 <div>
                     <p class="toolbar-header">Download</p>
@@ -65,13 +32,8 @@
                         <a class="button unclickable" id="download-button">download selection (0)</a>
                         <div id="clear-selection-button">clear</div>
                     </div>
-                    <!-- <p class='button' >clear selection</p> -->
                 </div>
 
-                <!-- <div id="info">
-                <p class="toolbar-header">Information</p>
-                <div id="info-container" style="padding-left:10px;"></div>
-            </div> -->
 
                 <div id="sliders">
                     <p class="toolbar-header">Selection</p>
@@ -82,14 +44,6 @@
                     <p class="toolbar-header">Selection</p>
                     <div></div>
                 </div>
-
-                <!-- <div id="container">
-                    <p class="toolbar-header">Covariance model types</p>
-                </div>
-
-                <div id="continuous-sliders">
-                    <p class="toolbar-header">Continuous sliders</p>
-                </div> -->
 
             </div>
         </div>
@@ -110,14 +64,11 @@
         </div>
     </div>
 
-    <!-- <script src="{% static 'js/upload-button.js' %}"></script> -->
     <script src="{% static 'js/gradients.js' %}"></script>
     <script src="{% static 'js/cmfield-background.js' %}"></script>
     <script src="{% static 'js/cmfield.js' %}"></script>
     <script src="{% static 'js/dragging.js' %}"></script>
     <script src="{% static 'js/sausages.js' %}"></script>
-    <!-- <script src="{% static 'js/utrs.js' %}"></script> -->
-    <!-- <script src="{% static 'js/continuous-slider.js' %}"></script> -->
     <script src="{% static 'js/tooltip.js' %}"></script>
     <script src="{% static 'js/download-button.js' %}"></script>
     <script src="{% static 'js/slider.js' %}"></script>

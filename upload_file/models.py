@@ -14,7 +14,7 @@ from django.conf import settings
 # global variable to specify working directory, specifically where files are
 # stored
 
-WORKING_DIR = os.path.join(settings.BASE_DIR, "media") + '/' # martin
+WORKING_DIR = os.path.join(settings.BASE_DIR, "uploads") + '/' # file serving
 
 
 def generate_random_string(x=16):
