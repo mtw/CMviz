@@ -36,7 +36,7 @@ from django.views.generic.edit import FormView
 class MultipleFileView(FormView):
     identifier = None
     form_class = MultipleFileForm
-    template_name = 'upload_file/name.html'
+    template_name = 'upload_file/landing.html'
 
     def post(self, request, *args, **kwargs):
         self.identifier = generate_random_string()

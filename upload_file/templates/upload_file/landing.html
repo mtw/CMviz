@@ -1,0 +1,17 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<title>cmviz | covariance model visualization tool</title>
+<link rel="shortcut icon" type="image/png" href="{% static 'graphics/favicon.ico' %}"/>
+
+<h1> Welcome to CMviz </h1>
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+{% endblock %}
+
