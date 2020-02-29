@@ -14,7 +14,7 @@ from django.conf import settings
 # global variable to specify working directory, specifically where files are
 # stored
 
-WORKING_DIR = os.path.join(settings.BASE_DIR, "uploads") + '/' # file serving
+WORKING_DIR = os.path.join(settings.BASE_DIR, "uploads") + '/'  # file serving
 
 
 def generate_random_string(x=16):
@@ -53,7 +53,8 @@ def cmout_to_csv(ipath, opath, ident):
         row.append(str(ident))
     with open(opath, "a+", encoding="utf8") as file:
         writer = csv.writer(file)
-        writer.writerow(attrs)
+        if ident == 0:
+            writer.writerow(attrs)
         writer.writerows(rows)
 
 
@@ -63,7 +64,8 @@ def save_cmout(files, identifier):
         with open(WORKING_DIR + file._name, "wb+") as destination:
             for chunk in file.chunks():
                 destination.write(chunk)
-        cmout_to_csv(WORKING_DIR + file._name, WORKING_DIR + identifier + ".csv", i)
+        cmout_to_csv(WORKING_DIR + file._name,
+                     WORKING_DIR + identifier + ".csv", i)
         i += 1
         os.remove(WORKING_DIR + file._name)
     return
@@ -94,5 +96,6 @@ def save_lengths(files, identifier):
         with open(WORKING_DIR + file._name, "wb+") as destination:
             for chunk in file.chunks():
                 destination.write(chunk)
-        os.rename(WORKING_DIR + file._name, WORKING_DIR + identifier + ".genomes")
+        os.rename(WORKING_DIR + file._name,
+                  WORKING_DIR + identifier + ".genomes")
     return
