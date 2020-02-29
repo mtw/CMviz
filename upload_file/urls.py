@@ -14,5 +14,5 @@ app_name = 'upload_file'
 urlpatterns = [
     # path('name/', views.get_name, name='get_name'),
     # path('genomes_tab/', views.UploadGenomesTab, name='genomes'),
-    path('upload/', views.MultipleFileView.as_view(), name='multi')
+    path('', views.MultipleFileView.as_view(), name='multi')
 ] #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
