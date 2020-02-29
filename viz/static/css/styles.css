@@ -40,7 +40,7 @@ div#tooltip {
 
 .toolbar-header {
   font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 20px;
   margin-top: 25px;
   margin-bottom: 5px;
@@ -78,10 +78,12 @@ div#tooltip {
   top: 15px;
   right: 13px;
   font-size: 10px;
-  opacity: 0;
+  /* opacity: 0; */
+  display:none;
 }
 
 #clear-selection-button.clickable {
+  display:inline;
   cursor: pointer;
   opacity: 1;
   /* border: 0.5px solid rgb(255, 51, 0); */
@@ -89,11 +91,11 @@ div#tooltip {
 }
 
 #clear-selection-button.clickable:hover {
-  background-color: rgb(255, 69, 36);
+  background-color: rgb(255, 100, 73);
 }
 
 #clear-selection-button.clickable:active {
-  background-color: rgb(253, 109, 99);
+  background-color: rgb(252, 122, 113);
 }
 
 .continuous-slider {
