@@ -1,17 +1,46 @@
 {% load bootstrap4 %}
 {% load static %}
 
-<title>cmviz | covariance model visualization tool</title>
-<link rel="shortcut icon" type="image/png" href="{% static 'graphics/favicon.ico' %}"/>
+<head>
+    <title>cmviz | covariance model visualization tool</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'graphics/favicon.ico' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Roboto|Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'upload_file/styles.css' %}">
+</head>
 
-<h1> Welcome to CMviz </h1>
+<body>
+    <div style="padding:0 15%;">
+        <h1><a href="">cmviz</a></h1>
+        <h2>visualization and workflow management for<br>covariance-model based screen of viral genomes</h2>
 
-{% block content %}
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
-  </form>
 
-{% endblock %}
+        <h3 style="text-align: center;margin-top:20px;margin-bottom:0px;">
+            In our <a href="https://github.com/mtw/CMviz/wiki">wiki</a>
+            you can find detailed description of the<br>tool's features
+            and the use instructions.
+        </h3>
 
+        <!-- <p id="info" style="margin-top:20px;">
+            <a href="https://github.com/mtw/CMviz/wiki">how to use</a> |
+            <a>contact</a>
+        </p> -->
+
+        <div class="hr">
+            <hr>
+        </div>
+
+        <h3 style="text-align: center;">Check out the <a href="/viz/EXAMPLE">example</a> or upload your own files:</h3>
+
+        <div style="margin:auto;padding-left:130px;width:350px">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">upload</button>
+            </form>
+        </div>
+
+
+
+
+    </div>
+</body>
