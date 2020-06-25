@@ -20,7 +20,9 @@
 - [ ] check in Infernal if the trunc notation always starts with *[
 
 ## frontend
-- [ ] upper case for fasta download
+- [x] upper case for fasta download
+- [ ] make clear button not interfere with cursor
+- [ ] add select all non-dimmed
 - [ ] add dimming cursor
 - [ ] add clicking mode (selection, dimming, help)
 - [ ] add opacity control to sausages
