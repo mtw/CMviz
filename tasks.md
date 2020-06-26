@@ -2,6 +2,11 @@
 - run localhost `python3 -m http.server`
 - http://localhost:8000/web/index.html -->
 
+# 25 June 2020
+- [ ] look at ViennaRNA dependency
+- [ ] write instructions to help run
+- [ ] Oxford bioinformatics, NAR webserver issue
+
 # Tasks
 - [ ] what to do with line lenghts?
 - [ ] 3! cookies, uploading files, redirecting to viz
