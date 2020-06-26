@@ -1,12 +1,14 @@
-// define globals
-var LENDATA = {};
-var CMDATA = [];
+// GLOBALS //
 
-var cmFieldChosen = new Set();
+var LENDATA = {}; // mapping: identifier -> length
+var CMDATA = []; // Infernal data
+
+var cmFieldChosen = new Set(); // global set of chosen cm rects
 
 var SETTINGS = {
     genomesFile: genomesFile,
     cmfield: {
+        // specifications of visualization field
         seqHeight: 23,
         textRightBorder: 150,
         linesLeftBorder: 160,
@@ -14,69 +16,89 @@ var SETTINGS = {
         cmGap: 2,
         seqLineWidth: 0.5,
     },
-}
-
+};
 
 function runMain() {
-    let csvPromises = filesDisplay.map(f => d3.csv(f));
-    let lengthPromise = d3.csv(SETTINGS.genomesFile)
-    let promises = [...csvPromises, lengthPromise]
+    // make promises for cmout files and genomes file
+    let csvPromises = filesDisplay.map((f) => d3.csv(f));
+    let lengthPromise = d3.csv(SETTINGS.genomesFile);
+    let promises = [...csvPromises, lengthPromise];
 
+    // fetch data from all promises
     Promise.all(promises).then(function (results) {
-        let lenData = results.pop();
-        lenData.map(r => LENDATA[r[0]] = parseInt(r[1]), 10);
+        // extract data from genomes file
+        let lenData = results.pop(); // fetch last promise
+        lenData.map((r) => (LENDATA[r[0]] = parseInt(r[1])), 10); // make a mapping of (element0 -> element1) for each row of genome file
 
+        // extract data from cmout files
         let csvData = results;
-        csvData.map(r => CMDATA = CMDATA.concat(r));
+        csvData.map((r) => (CMDATA = CMDATA.concat(r))); // concat data from all cmout files
 
-        // add unique identifier for download
-        CMDATA.map((_, i) => CMDATA[i]['ui'] = i)
-        CMDATA.map((_, i) => CMDATA[i]['evalue'] = Math.round(Math.log10(CMDATA[i]['evalue']) * 100) / 100)
+        CMDATA.map((_, i) => (CMDATA[i]["ui"] = i)); // add unique identifier for download reference
+        CMDATA.map(
+            (_, i) =>
+                (CMDATA[i]["evalue"] =
+                    Math.round(Math.log10(CMDATA[i]["evalue"]) * 100) / 100)
+        ); // log-transform evalue
 
-        console.log(CMDATA[0]);
-        console.log(LENDATA);
-
-        main();
-    })
+        // create interface elements
+        create_elements();
+    });
 }
 
-function main() {
-
-    continuousScores = ['evalue', 'bitscore', 'cm_end', 'seq_start', 'seq_end', 'acc', 'gc'] // 'bias','cm_start'
-    continuousScoresText = ['floate', 'float1', 'int', 'int', 'int', 'float2', 'float2']
+function create_elements() {
+    // make filtering sliders; dims cmouts that do not fall in specified range
+    continuousScores = [
+        "evalue",
+        "bitscore",
+        "cm_end",
+        "seq_start",
+        "seq_end",
+        "acc",
+        "gc",
+    ]; // removed 'bias','cm_start'
+    continuousScoresText = [
+        "floate",
+        "float1",
+        "int",
+        "int",
+        "int",
+        "float2",
+        "float2",
+    ];
     scales = [];
 
-    discreteScores = ['inc', 'mdl', 'strand', 'mdl_alntype', 'seq_alntype', 'trunc']
-
-    // makeSelectors();
-
-
-
     for (var i in continuousScores) {
-        var scoreType = continuousScores[i];
-        var textType = continuousScoresText[i];
-        var scale = makeDoubleSlider(scoreType, textType);
+        var scale = makeDoubleSlider(
+            (scoreType = continuousScores[i]),
+            (textType = continuousScoresText[i])
+        );
         scales.push(scale);
     }
 
-
+    // make cm field; creates the view grid in the right part of the window
     makeCmfield();
 
-    discreteScores.map(scoreType => makeSausage(scoreType))
+    // make filtering buttons (sausages); dims cmouts that do not fulfill criteria
+    discreteScores = [
+        "inc",
+        "mdl",
+        "strand",
+        "mdl_alntype",
+        "seq_alntype",
+        "trunc",
+    ];
+    discreteScores.map((scoreType) => makeSausage(scoreType));
 
-    // makeInfoPanel();
+    // make tooltip; shows alignment on hover
     makeTooltip();
-    // makeUploadButton();
+
+    // make download button; downloads FASTA file of selected cmouts on click
     makeDownloadButton();
 
-
-
-    // behave funcs
+    // add dragging behavior; enables swapping of lines
     defineDragging();
-    // defineTicking();
-    // defineCMHovering();
 
+    // add clear function to selection button; resets selection of cmouts
     functionalizeClearSelectionButton();
-
-
-};
+}

@@ -3,9 +3,7 @@
 # all views are defined here and what to do with different requests
 
 from django.shortcuts import render, redirect
-# from .forms import UploadFileForm
 from .forms import MultipleFileForm
-# from .models import save_genomes
 from .models import save_cmout, generate_random_string, save_lengths
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView

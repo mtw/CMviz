@@ -5,11 +5,15 @@ import json
 
 
 def identifier_view(request, identifier):
+    """
+    Pass files to display to D3js.
+    """
 
-    folder = os.path.join(settings.MEDIA_URL)
+    # cmout data
+    files_display = [os.path.join(settings.MEDIA_URL, f"{identifier}.csv")]
 
-    files_display = [os.path.join(folder, f"{identifier}.csv")]
-    genomes_length = os.path.join(folder, f"{identifier}.genomes")
+    # genome data
+    genomes_length = os.path.join(settings.MEDIA_URL, f"{identifier}.genomes")
 
     context = {
         "files_display": json.dumps(files_display),
