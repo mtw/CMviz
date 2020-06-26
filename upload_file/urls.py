@@ -1,7 +1,6 @@
 # written by Matthias Schmal
 # generates all valid urls for the "upload_file" app
-# since MultipleFileView is a class we have to call the method "as.view()"
-# to render it as a view
+
 
 from django.urls import path
 from . import views
@@ -10,6 +9,9 @@ from . import views
 # from django.conf.urls.static import static
 
 app_name = 'upload_file'
+
+# since MultipleFileView is a class we have to call the method "as.view()"
+# to render it as a view
 
 urlpatterns = [
     # path('name/', views.get_name, name='get_name'),
