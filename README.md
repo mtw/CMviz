@@ -6,13 +6,14 @@ _If you would like to use the tool or are interested in the structure of the pro
 
 ## Dependencies
 
-This project has following dependencies:
+This project has following Python library dependencies:
 ```
 Django==3.0.7
 django-bootstrap4==2.1.1
 djangorestframework==3.11.0
 pandas==1.0.5
 ```
+It also uses the ViennaRNA package (https://github.com/ViennaRNA/viennarna).
 
 It is good to work in a virtual environment to prevent incompatibilities. You can create one quickly by running `python3 -m venv {env-name}`, and activate it by running `source {env-name}/bin/activate`.
 
