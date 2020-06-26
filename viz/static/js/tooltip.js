@@ -1,5 +1,8 @@
-// creates the tooltip
+// written by Martin Bagic
+// This script creates a hover tooltip that display alignment of cm's.
+
 function makeTooltip() {
+    // creates a tooltip
     var tooltip = d3
         .select("body")
         .append("div")

@@ -1,4 +1,10 @@
-// GLOBALS //
+// written by Martin Bagic
+// This script performs following functions:
+//      - initializes global variables
+//      - loads data and preprocesses it
+//      - calls all the other functions that create elements and add behavior
+
+// *** GLOBALS ***
 
 var LENDATA = {}; // mapping: identifier -> length
 var CMDATA = []; // Infernal data
@@ -17,6 +23,8 @@ var SETTINGS = {
         seqLineWidth: 0.5,
     },
 };
+
+// *** MAIN FUNCTIONS ***
 
 function runMain() {
     // make promises for cmout files and genomes file

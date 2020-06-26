@@ -1,4 +1,12 @@
+// written by Martin Bagic
+// This script performs following functions:
+//      - creates a download button
+//      - prepares FASTA file for download
+//      - performs download directly via JS
+//      - enables clearing all the selection
+
 function makeDownloadButton() {
+    // make button that downloads cm selection
     // http://simey.me/saving-loading-files-with-javascript/
 
     function returnFASTA() {

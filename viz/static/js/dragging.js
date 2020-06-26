@@ -1,5 +1,8 @@
+// written by Martin Bagic
+// This script enables dragging of cm lines.
+
 function defineDragging() {
-    // enable dragging behavior of sequence lines
+    // create dragging behavior of sequence lines
 
     var lineHeight = SETTINGS.cmfield.seqHeight;
 

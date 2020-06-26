@@ -1,4 +1,8 @@
+// written by Martin Bagic
+// This script generates gradients and assigns them to the cm rectangles.
+
 function makeGradient(color1, color2, cm) {
+    // make a gradient with two colors
     var gradient = d3
         .select("svg#cmfield defs")
         .append("linearGradient")

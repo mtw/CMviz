@@ -1,4 +1,8 @@
+// written by Martin Bagic
+// This script creates the background grid of the field view and adds window resizing event listener for adjusting window height and scrolling capacity.
+
 function makeCmfieldBackground(data) {
+    // make background visuals of the cm field (lines, stripes, grid)
     var conf = SETTINGS.cmfield;
 
     var count = Object.keys(data).length + 1; // # of minimum rows in the field

@@ -1,4 +1,9 @@
+// written by Martin Bagic
+// This script creates double sliders which manipulate visual status of cm rectangles.
+
 function makeDoubleSlider(scoreType, textType) {
+    // creates a double-side slider
+
     // config values
     var totalLength = 135;
     var y = 10;

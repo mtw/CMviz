@@ -1,234 +1,217 @@
+/* written by Martin Bagic */
+/* This script refines styling. */
+
 .toolbar-information-p {
-  line-height: 18px;
-  margin: 0;
-  font-weight: bold;
+    line-height: 18px;
+    margin: 0;
+    font-weight: bold;
 }
 
-h1>a {
-  text-decoration: none;
-  color: #666;
-  font-size: 60px;
-  font-family: Nunito;
+h1 > a {
+    text-decoration: none;
+    color: #666;
+    font-size: 60px;
+    font-family: Nunito;
 }
 
-h1>a:hover {
-  color: rgb(65, 160, 255);
+h1 > a:hover {
+    color: rgb(65, 160, 255);
 }
 
 div#tooltip {
-  background-color: rgba(250, 250, 250, 0.9);
-  padding: 4px 5px;
-  border-radius: 3px;
-  color: rgb(23, 60, 160);
-  border: 0.5px solid dodgerblue;
-  /* opacity: 0.95; */
+    background-color: rgba(250, 250, 250, 0.9);
+    padding: 4px 5px;
+    border-radius: 3px;
+    color: rgb(23, 60, 160);
+    border: 0.5px solid dodgerblue;
 }
 
 #toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 265px;
-  background: rgba(0, 0, 0, 0.03);
-  border-right: 0.5px solid rgba(0, 0, 0, 0.15);
-  /*  */
-  /* -moz-box-shadow: inset 0 -10px 10px -10px #000000;
-  -webkit-box-shadow: inset 0 -10px 10px -10px #000000;
-  box-shadow: inset 0 -10px 10px -10px #000000; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 265px;
+    background: rgba(0, 0, 0, 0.03);
+    border-right: 0.5px solid rgba(0, 0, 0, 0.15);
 }
 
 .toolbar-header {
-  font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 15px;
-  line-height: 20px;
-  margin-top: 25px;
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: rgb(0, 0, 0);
-  /* text-align:center; */
+    font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
 }
 
 #upload-button {
-  padding: 3px 5px;
-  color: white;
-  background-color: rgb(143, 14, 0);
-  margin: 0;
-  border-radius: 3px;
-  cursor: pointer;
-  border: 0.5px solid rgb(51, 51, 51);
+    padding: 3px 5px;
+    color: white;
+    background-color: rgb(143, 14, 0);
+    margin: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 0.5px solid rgb(51, 51, 51);
 }
 
 #download-button {
-  display: inline-block;
-  width: 100%;
-  padding: 10px 0;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
 }
 
 #clear-selection-button {
-  width: 30px;
-  height: 14px;
-  border-radius: 7px;
-  text-align: center;
-  color: white;
-  position: absolute;
-  /* border: 1px solid dargray; */
-  /* background-color:gray; */
-  cursor: no-drop;
-  top: 15px;
-  right: 13px;
-  font-size: 10px;
-  /* opacity: 0; */
-  display:none;
+    width: 30px;
+    height: 14px;
+    border-radius: 7px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    cursor: no-drop;
+    top: 15px;
+    right: 13px;
+    font-size: 10px;
+    display: none;
 }
 
 #clear-selection-button.clickable {
-  display:inline;
-  cursor: pointer;
-  opacity: 1;
-  /* border: 0.5px solid rgb(255, 51, 0); */
-  background-color: rgb(255, 38, 0);
+    display: inline;
+    cursor: pointer;
+    opacity: 1;
+    background-color: rgb(255, 38, 0);
 }
 
 #clear-selection-button.clickable:hover {
-  background-color: rgb(255, 100, 73);
+    background-color: rgb(255, 100, 73);
 }
 
 #clear-selection-button.clickable:active {
-  background-color: rgb(252, 122, 113);
+    background-color: rgb(252, 122, 113);
 }
 
 .continuous-slider {
-  transition: 0.4s;
-  border-radius: 3px;
-  /* border: 0.5px solid gray; */
+    transition: 0.4s;
+    border-radius: 3px;
 }
 
 .continuous-slider:hover {
-  filter: drop-shadow(0 0 3px lightgray);
-  /* box-shadow: 0 0 5px #888888; */
+    filter: drop-shadow(0 0 3px lightgray);
 }
 
-/* .continuous-slider:active {
-  filter: brightness(1.05) drop-shadow(0 0 2px lightgray);
-} */
-
 .seqText {
-  cursor: grab;
+    cursor: grab;
 }
 
 .seqText:hover {
-  fill: dodgerblue;
+    fill: dodgerblue;
 }
 
 .seqText:active {
-  fill: rgb(30, 173, 255);
-  cursor: grabbing;
+    fill: rgb(30, 173, 255);
+    cursor: grabbing;
 }
 
 /* scrollbar */
 
 .bluescrollbar::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 2px;
-  background-color: #F5F5F5;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    background-color: #f5f5f5;
 }
 
 .bluescrollbar::-webkit-scrollbar {
-  width: 6px;
-  background-color: #F5F5F5;
+    width: 6px;
+    background-color: #f5f5f5;
 }
 
 .bluescrollbar::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: dodgerblue;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: dodgerblue;
 }
 
 .toolbar-scrollbar::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 1px;
-  background-color: #F5F5F5;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 1px;
+    background-color: #f5f5f5;
 }
 
 .toolbar-scrollbar::-webkit-scrollbar {
-  width: 3px;
-  background-color: #F5F5F5;
+    width: 3px;
+    background-color: #f5f5f5;
 }
 
 .toolbar-scrollbar::-webkit-scrollbar-thumb {
-  border-radius: 1px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: dodgerblue;
+    border-radius: 1px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: dodgerblue;
 }
 
-#upload-form label[for=id_docfile] {
-  /* width:100%; */
-  display: block;
-  overflow: hidden;
+#upload-form label[for="id_docfile"] {
+    display: block;
+    overflow: hidden;
 }
 
 #id_docfile {
-  display: none;
-  position: absolute;
+    display: none;
+    position: absolute;
 }
 
 .chooseFileForm {
-  background: none;
-  color: #333;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  text-align: left;
+    background: none;
+    color: #333;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-align: left;
 }
 
 .chooseFileForm:hover {
-  color: #555;
+    color: #555;
 }
 
 .chooseFileForm:active {
-  color: #777;
+    color: #777;
 }
 
 .chooseFileForm.displaying {
-  color: dodgerblue;
+    color: dodgerblue;
 }
 
 .chooseFileForm.displaying:hover {
-  color: rgb(58, 176, 255);
+    color: rgb(58, 176, 255);
 }
 
 .chooseFileForm.displaying:active {
-  color: rgb(58, 176, 255);
+    color: rgb(58, 176, 255);
 }
 
 .grabCircle:hover {
-  cursor: grab;
+    cursor: grab;
 }
 
 .grabCircle:active {
-  cursor: grabbing;
+    cursor: grabbing;
 }
 
 g.link rect {
-  fill: dodgerblue;
-  /* stroke: none; */
-  cursor: pointer;
+    fill: dodgerblue;
+    cursor: pointer;
 }
 
 g.link text {
-  fill: white;
-  cursor: pointer;
+    fill: white;
+    cursor: pointer;
 }
 
 g.link.falseLink rect {
-  fill: #ddd;
-  /* stroke: #aaa;
-  stroke-width: 0.5; */
+    fill: #ddd;
 }
 
 g.link.falseLink text {
-  fill: #999;
+    fill: #999;
 }

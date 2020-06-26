@@ -1,5 +1,14 @@
-// get seq -> [cm]
+// written by Martin Bagic
+// This script contains functions that create interactive elements in the field view,
+// and add following behaviors to the elements:
+//      - adjusting field width on window resizing
+//      - updating sliders when cm rectangles are hovered over
+//      - blinking animatimation of cm rectangles when selected
+
+
 function getData() {
+    // get seq -> [cm]
+    // create an object with keys being sequence identifiers and values being cm objects
     var data = {};
 
     for (var cm of CMDATA) {
@@ -15,6 +24,7 @@ function getData() {
 }
 
 function getUniqueCm() {
+    // get array of unique cm's; each will get a gradient
     var uniqueCm = new Set();
     for (var cm of CMDATA) {
         uniqueCm.add(cm["cm"]);
@@ -23,10 +33,9 @@ function getUniqueCm() {
 }
 
 function makeCmfield() {
-    var conf = SETTINGS.cmfield; // shorthand
+    var conf = SETTINGS.cmfield; // shorter variable name
 
-    // create an object with keys being sequence identifiers and values being cm objects
-    var data = getData();
+    var data = getData(); // get an object with keys being sequence identifiers and values being cm objects
 
     var uniqueCm = getUniqueCm(); // get array of unique cm's
 
@@ -40,7 +49,7 @@ function makeCmfield() {
         .attr("width", "100%")
         .style("top", conf.seqHeight * 1);
 
-    // horizontal group: text + seq group
+    // make horizontal group ( = text + seq group )
     var seqMegaGroups = root
         .selectAll("seqLines")
         .data(d3.entries(data))
@@ -217,6 +226,8 @@ function updateSeqLength() {
 }
 
 function updateSliders(d) {
+
+
     // update valueText
     var updateValueText = (scoreType) =>
         d3.select(`svg.${scoreType} .valueText`).text(d[scoreType]);

@@ -1,5 +1,9 @@
+// written by Martin Bagic
+// This script creates selection buttons which manipulate visual status of cm rectangles.
+
 function makeSausage(scoreType) {
     // make the filtering buttons
+    // (sausages refer to the array of filtering buttons resembling sausages)
 
     var totalLength = 126;
     var y = 20;
