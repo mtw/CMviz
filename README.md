@@ -6,7 +6,7 @@ _If you would like to use the tool or are interested in the structure of the pro
 
 ## Dependencies
 
-This project has following Python library dependencies:
+This project uses Python 3.6 and the following Python libraries:
 ```
 Django==3.0.7
 django-bootstrap4==2.1.1

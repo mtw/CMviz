@@ -11,19 +11,21 @@ import pandas as pd
 
 from django.conf import settings
 
-# global variable to specify working directory, specifically where files are
-# stored
-
-WORKING_DIR = os.path.join(settings.BASE_DIR, "uploads") + '/'  # file serving
+# path to folder containing uploaded files
+WORKING_DIR = os.path.join(settings.BASE_DIR, "uploads") + "/"
 
 
 def generate_random_string(x=16):
+    """Generate a random string of 16 characters consisting of letters and digits"""
     return "".join(
         [random.choice(string.ascii_letters + string.digits) for n in range(x)]
     )
 
 
 def cmout_to_csv(ipath, opath, ident):
+    """Extract relevant information of INFERNAL-tool output into a csv-file"""
+
+    # definition of relevant information attributes
     attrs = [
         "rank",
         "inc",
@@ -46,11 +48,21 @@ def cmout_to_csv(ipath, opath, ident):
         "alignment",
         "uid",
     ]
+
+    # load cmout file into CmsearchOut class
     results = CmsearchOut(ipath)
+
+    # put all data cooresponding to a hit into a list and every of those lists into another list
     rows = [[getattr(hit, attr) for attr in attrs] for hit in results.hits]
+
+    # append an additional attribute "ident" to the end of each hit, to trace,  from which file which hit stems from
     attrs.append("identity")
+
+    # write each hit into a comma separated row
     for row in rows:
         row.append(str(ident))
+
+    # write data
     with open(opath, "a+", encoding="utf8") as file:
         writer = csv.writer(file)
         if ident == 0:
@@ -59,43 +71,28 @@ def cmout_to_csv(ipath, opath, ident):
 
 
 def save_cmout(files, identifier):
+    """
+    Merges multiple INFERNAL output files into one .csv file.
+    The .csv file is named with the unique identifier to access the file later on.
+    """
     i = 0
     for file in files:
         with open(WORKING_DIR + file._name, "wb+") as destination:
             for chunk in file.chunks():
                 destination.write(chunk)
-        cmout_to_csv(WORKING_DIR + file._name,
-                     WORKING_DIR + identifier + ".csv", i)
+        cmout_to_csv(WORKING_DIR + file._name, WORKING_DIR + identifier + ".csv", i)
         i += 1
         os.remove(WORKING_DIR + file._name)
     return
 
 
-# def save_genomes(files, identifier):
-#     for file in files:
-#         with open(WORKING_DIR + file._name, "wb+") as destination:
-#             for chunk in file.chunks():
-#                 destination.write(chunk)
-#         with open(WORKING_DIR + file._name, "r") as destination:
-#             records = [line.strip().split("\t") for line in destination.readlines()]
-#             df = pd.DataFrame.from_records(records)
-#             df_tmp = pd.DataFrame([["0", "1"]], columns=[0, 1])
-#             df = df_tmp.append(df[[0, 7]].rename({7: 1}, axis=1))
-#             df.to_csv(
-#                 WORKING_DIR + identifier + ".genomes",
-#                 sep=",",
-#                 index=False,
-#                 header=False,
-#             )
-#         os.remove(WORKING_DIR + file._name)
-#     return
-
-
 def save_lengths(files, identifier):
+    """Save file containing the information of the length of the sequences.
+    This file gets the same unique identifier as the corresponding .csv file.
+    """
     for file in files:
         with open(WORKING_DIR + file._name, "wb+") as destination:
             for chunk in file.chunks():
                 destination.write(chunk)
-        os.rename(WORKING_DIR + file._name,
-                  WORKING_DIR + identifier + ".genomes")
+        os.rename(WORKING_DIR + file._name, WORKING_DIR + identifier + ".genomes")
     return

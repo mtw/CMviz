@@ -1,82 +1,114 @@
+<!-- written by Martin Bagic -->
+<!-- This script creates the basic HTML framework which is populated by SVG graphics. -->
+
 {% load static %}
 
 <!DOCTYPE html>
 <html>
+    <head>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/general-styles.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="{% static 'graphics/favicon.ico' %}"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Roboto|Nunito&display=swap"
+            rel="stylesheet"
+        />
+        <script>
+            // get data from Python context
+            var filesDisplay = {{ files_display| safe }};
+            var genomesFile = "{{ genomes_length }}";
+        </script>
+        <title>cmviz | covariance model visualization tool</title>
+    </head>
 
-<head>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <link rel="stylesheet" href="{% static 'css/general-styles.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'graphics/favicon.ico' %}" />
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Roboto|Nunito&display=swap" rel="stylesheet">
-    <script>
-        // get data from Python context
-        var filesDisplay = {{ files_display| safe }};
-        var genomesFile = "{{ genomes_length }}";
-    </script>
-    <title>cmviz | covariance model visualization tool</title>
-</head>
+    <body style="overflow: hidden;">
+        <div>
+            <div
+                id="toolbar"
+                class="toolbar-scrollbar"
+                style="padding: 15px; overflow-y: auto; direction: rtl;"
+            >
+                <div style="direction: ltr;">
+                    <h1><a href="/">cmviz</a></h1>
 
-<body style='overflow:hidden;'>
+                    <div>
+                        <p class="toolbar-header">Download</p>
+                        <div style="position: relative;">
+                            <a class="button unclickable" id="download-button"
+                                >download selection (0)</a
+                            >
+                            <div id="clear-selection-button">clear</div>
+                        </div>
+                    </div>
 
-    <div>
+                    <p class="toolbar-header">Filtering</p>
+                    <div id="sliders">
+                        <div style="padding-left: 10px;"></div>
+                    </div>
 
-        <div id="toolbar" class="toolbar-scrollbar" style="padding:15px;overflow-y:auto;direction:rtl">
-            <div style="direction:ltr">
-
-                <h1><a href="/">cmviz</a></h1>
-
-                <div>
-                    <p class="toolbar-header">Download</p>
-                    <div style="position:relative;">
-                        <a class="button unclickable" id="download-button">download selection (0)</a>
-                        <div id="clear-selection-button">clear</div>
+                    <div id="sausages">
+                        <div></div>
                     </div>
                 </div>
+            </div>
 
-
-                <p class="toolbar-header">Filtering</p>
-                <div id="sliders">
-                    <div style="padding-left:10px;"></div>
-                </div>
-
-                <div id="sausages">
-                    <!-- <p class="toolbar-header">Select discrete</p> -->
-                    <div></div>
-                </div>
-
+            <div
+                class="bluescrollbar"
+                id="cmfield-container"
+                style="
+                    position: absolute;
+                    top: 0;
+                    left: 295px;
+                    bottom: 0;
+                    right: 0;
+                "
+            >
+                <svg id="cmfieldbackground"></svg>
+                <svg id="cmfield" style="position: absolute; left: 0;">
+                    <defs>
+                        <linearGradient
+                            id="grad1"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="0%"
+                        >
+                            <stop
+                                offset="0%"
+                                style="
+                                    stop-color: rgb(255, 255, 0);
+                                    stop-opacity: 1;
+                                "
+                            />
+                            <stop
+                                offset="100%"
+                                style="
+                                    stop-color: rgb(255, 0, 0);
+                                    stop-opacity: 1;
+                                "
+                            />
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
         </div>
 
-        <div class="bluescrollbar" id="cmfield-container" style="position:absolute;top:0;left:295px;bottom:0;right:0;">
-
-            <svg id="cmfieldbackground"></svg>
-            <svg id='cmfield' style="position:absolute;left:0;">
-
-                <defs>
-                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-
-            </svg>
-        </div>
-    </div>
-
-    <script src="{% static 'js/gradients.js' %}"></script>
-    <script src="{% static 'js/cmfield-background.js' %}"></script>
-    <script src="{% static 'js/cmfield.js' %}"></script>
-    <script src="{% static 'js/dragging.js' %}"></script>
-    <script src="{% static 'js/sausages.js' %}"></script>
-    <script src="{% static 'js/tooltip.js' %}"></script>
-    <script src="{% static 'js/download-button.js' %}"></script>
-    <script src="{% static 'js/slider.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-    <script>
-        runMain();
-    </script>
-
-</body>
-
+        <script src="{% static 'js/gradients.js' %}"></script>
+        <script src="{% static 'js/cmfield-background.js' %}"></script>
+        <script src="{% static 'js/cmfield.js' %}"></script>
+        <script src="{% static 'js/dragging.js' %}"></script>
+        <script src="{% static 'js/sausages.js' %}"></script>
+        <script src="{% static 'js/tooltip.js' %}"></script>
+        <script src="{% static 'js/download-button.js' %}"></script>
+        <script src="{% static 'js/slider.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <script>
+            runMain();
+        </script>
+    </body>
 </html>
