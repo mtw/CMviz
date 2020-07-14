@@ -68,7 +68,6 @@ function makeSausage(scoreType) {
         .text((d) => d)
         .style("font-size", 12)
         .attr("transform", (_, i) => `translate(${widthPadding},${y / 2 + 4})`);
-    // .style('font-family', 'Inconsolata, monospace')
 
     // get widths of linkTexts
     let ws = [];

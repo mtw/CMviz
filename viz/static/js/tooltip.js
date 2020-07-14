@@ -12,6 +12,7 @@ function makeTooltip() {
         .style("visibility", "hidden")
         .attr("id", "tooltip");
 
+    // add text to tooltip
     tooltip
         .append("span")
         .style("white-space", "pre")

@@ -1,5 +1,5 @@
 // written by Martin Bagic
-// This script contains functions that create interactive elements in the field view,
+// This script contains functions that create interactive elements in the field view (the right part of the screen),
 // and add following behaviors to the elements:
 //      - adjusting field width on window resizing
 //      - updating sliders when cm rectangles are hovered over
@@ -8,9 +8,11 @@
 
 function getData() {
     // get seq -> [cm]
-    // create an object with keys being sequence identifiers and values being cm objects
+    // create an object with keys being sequence identifiers and values being cm objects that contain information 
+    //      from Infernal such as bitscore, alignment, etc.
     var data = {};
 
+    // CMDATA is the object created in main.js by aggregating all cmout files
     for (var cm of CMDATA) {
         var seq = cm.seq;
         if (seq in data) {
@@ -24,7 +26,7 @@ function getData() {
 }
 
 function getUniqueCm() {
-    // get array of unique cm's; each will get a gradient
+    // get array of unique cm's so that you can create a unique gradient for each cm
     var uniqueCm = new Set();
     for (var cm of CMDATA) {
         uniqueCm.add(cm["cm"]);
@@ -33,6 +35,8 @@ function getUniqueCm() {
 }
 
 function makeCmfield() {
+    // main function in the script
+
     var conf = SETTINGS.cmfield; // shorter variable name
 
     var data = getData(); // get an object with keys being sequence identifiers and values being cm objects
@@ -49,7 +53,7 @@ function makeCmfield() {
         .attr("width", "100%")
         .style("top", conf.seqHeight * 1);
 
-    // make horizontal group ( = text + seq group )
+    // make horizontal group ( = identifier text + seq group ); seq group holds the sequence line and cm rectangles
     var seqMegaGroups = root
         .selectAll("seqLines")
         .data(d3.entries(data))
@@ -61,7 +65,7 @@ function makeCmfield() {
             (_, i) => `translate(0,${(i + 0) * conf.seqHeight})`
         );
 
-    // left seq id text
+    // make left sequence identifier text
     var seqText = seqMegaGroups
         .append("text")
         .text((d) => d.key)
@@ -72,11 +76,11 @@ function makeCmfield() {
         .attr(
             "transform",
             `translate(${conf.textRightBorder},${
-                conf.seqHeight - conf.seqTextSize / 2 - 1
+            conf.seqHeight - conf.seqTextSize / 2 - 1
             })`
         );
 
-    // sequence identifiers text above
+    // add "sequence identifiers" text above
     d3.select("#cmfieldbackground")
         .append("text")
         .text("sequence identifiers")
@@ -87,16 +91,16 @@ function makeCmfield() {
         .attr(
             "transform",
             `translate(${conf.textRightBorder},${
-                conf.seqHeight - conf.seqTextSize / 2 - 1
+            conf.seqHeight - conf.seqTextSize / 2 - 1
             })`
         );
 
-    // right seq group
+    // make seq group which holds sequence lines and cm rectangles
     var seqMinigroup = seqMegaGroups
         .append("g")
         .attr("transform", `translate(${conf.linesLeftBorder})`);
 
-    // seq line
+    // make sequence line on which the cm rectangles will sit
     seqMinigroup
         .append("line")
         .classed("seqLines", true)
@@ -105,7 +109,7 @@ function makeCmfield() {
         .style("stroke", "#111")
         .style("stroke-width", conf.seqLineWidth);
 
-    // cm's
+    // make cm rectangles
     var cms = seqMinigroup
         .selectAll()
         .data((d) => d.value)
@@ -124,7 +128,7 @@ function makeCmfield() {
         .attr("fill", (d) => `url(#${d.cm})`)
         .style("cursor", "pointer")
         .on("mouseover", function (d) {
-            // show tooltip
+            // show tooltip on mouseover
             d3.select("div#tooltip")
                 .style("visibility", "visible")
                 .select("span")
@@ -166,7 +170,7 @@ function makeCmfield() {
                     );
                 }
             } else {
-                // select cm
+                // code for selecting cm
                 cmFieldChosen.add(d.ui); // add to selection set
                 d3.select(this).classed("chosen", true);
 
@@ -202,6 +206,8 @@ function makeCmfield() {
 }
 
 function updateSeqLength() {
+    // function for updating sequence length on resizing
+
     // calculate max length of sequences
     let maxLen = 0;
     for (cm of CMDATA) {
@@ -226,28 +232,28 @@ function updateSeqLength() {
 }
 
 function updateSliders(d) {
-
+    // function for updating sliders
 
     // update valueText
     var updateValueText = (scoreType) =>
         d3.select(`svg.${scoreType} .valueText`).text(d[scoreType]);
     continuousScores.map(updateValueText);
 
-    // update cmCircle
+    // update cmCircles
     for (var i in continuousScores) {
         var scoreType = continuousScores[i];
         var scale = scales[i];
 
         var obj = d3.select(`svg.${scoreType} .cmCircle`);
         var value = d[scoreType];
-        var x = scale.invert(value);
+        var x = scale.invert(value); // find x position of cmCircle given the data d from cm
 
-        obj.attr("cx", x).style("display", "inline");
+        obj.attr("cx", x).style("display", "inline"); // move cmCircle to position x
     }
 }
 
 function blinkAnimation(obj) {
-    blink();
+    blink(); // initiate blinking
 
     function blink() {
         // if cm still chosen, perform animation and call itself, otherwise, break animation

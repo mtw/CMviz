@@ -81,6 +81,7 @@ function makeDoubleSlider(scoreType, textType) {
             .on("drag", dragCircle)
             .on("end", dragCircleEnd);
 
+        // create root svg
         var svg = d3
             .select("#sliders div")
             .append("svg")
@@ -99,11 +100,12 @@ function makeDoubleSlider(scoreType, textType) {
             .style("stroke", "#ccc")
             .style("stroke-width", 5)
             .style("stroke-linecap", "round")
-            // .on('mouseover', hoverLine)
             .style("cursor", "help")
             .on("mousemove", hoverLine)
             .on("mouseout", unhoverLine);
 
+
+        // foreground highlight line (between the two chosen values)
         Line = obj
             .append("line")
             .attr("y1", y)
@@ -113,11 +115,11 @@ function makeDoubleSlider(scoreType, textType) {
             .style("stroke", "dodgerblue")
             .style("stroke-width", 8)
             .style("stroke-linecap", "round")
-            // .on('mouseover', hoverLine)
             .style("cursor", "help")
             .on("mousemove", hoverLine)
             .on("mouseout", unhoverLine);
 
+        // circle that appears on the line when it is hovered
         hoverCircle = obj
             .append("circle")
             .classed("hoverCircle", true)
@@ -131,6 +133,7 @@ function makeDoubleSlider(scoreType, textType) {
             .on("mousemove", hoverLine)
             .on("mouseout", unhoverLine);
 
+        // left circle that indicates the low value of interval
         leftCircle = obj
             .append("circle")
             .classed("grabCircle", true)
@@ -143,6 +146,7 @@ function makeDoubleSlider(scoreType, textType) {
             .attr("which", "left")
             .call(dragHandler);
 
+        // right circle that indicates the high value of interval
         rightCircle = obj
             .append("circle")
             .classed("grabCircle", true)
@@ -155,23 +159,25 @@ function makeDoubleSlider(scoreType, textType) {
             .attr("which", "right")
             .call(dragHandler);
 
+        // circle that appears when cm is hovered and it shows the cm attribute values
         cmCircle = obj
             .append("circle")
             .classed("cmCircle", true)
             .attr("cy", y)
             .attr("r", 3)
-            // .style('fill', 'rgba(0,0,0,0.1)')
             .style("fill", "white")
             .style("stroke", "red")
             .style("stroke-width", 0.7)
             .style("display", "none");
 
+        // text objects that give the value when lines or cm's are hovered
         valueText = svg
             .append("text")
             .classed("valueText", true)
             .attr("x", totalLength + 78)
             .attr("y", y + 4);
 
+        // text objects that indicate what the slider describes
         svg.append("text")
             .attr("x", 54)
             .attr("y", y + 4)
@@ -181,6 +187,7 @@ function makeDoubleSlider(scoreType, textType) {
 
     // behaviors
     function dragCircle() {
+        // enable dragging of left and right circle
         var x = d3.event.x;
         d3.event.sourceEvent.stopPropagation();
 
@@ -206,7 +213,7 @@ function makeDoubleSlider(scoreType, textType) {
             d3.select(this).style("fill", "hsl(210, 100%, 90%)");
         }
 
-        valueText.text(getText(scale(x)));
+        valueText.text(getText(scale(x))); // change text of value
         updatePositions();
         updateInRange();
         updateUtrsOpacity();
